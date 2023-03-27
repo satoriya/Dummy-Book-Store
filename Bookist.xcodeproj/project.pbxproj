@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		36B4293529D17B7C004ECC0A /* BookistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4293429D17B7C004ECC0A /* BookistTests.swift */; };
 		36B4293F29D17B7C004ECC0A /* BookistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4293E29D17B7C004ECC0A /* BookistUITests.swift */; };
 		36B4294129D17B7C004ECC0A /* BookistUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4294029D17B7C004ECC0A /* BookistUITestsLaunchTests.swift */; };
+		36B4294E29D17BED004ECC0A /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4294D29D17BED004ECC0A /* TabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		36B4293A29D17B7C004ECC0A /* BookistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B4293E29D17B7C004ECC0A /* BookistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookistUITests.swift; sourceTree = "<group>"; };
 		36B4294029D17B7C004ECC0A /* BookistUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookistUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		36B4294D29D17BED004ECC0A /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				36B4292629D17B7C004ECC0A /* Assets.xcassets */,
 				36B4292829D17B7C004ECC0A /* LaunchScreen.storyboard */,
 				36B4292B29D17B7C004ECC0A /* Info.plist */,
+				36B4294D29D17BED004ECC0A /* TabBar.swift */,
 			);
 			path = Bookist;
 			sourceTree = "<group>";
@@ -207,7 +210,7 @@
 				};
 			};
 			buildConfigurationList = 36B4291529D17B7A004ECC0A /* Build configuration list for PBXProject "Bookist" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 11.4";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -261,6 +264,7 @@
 				36B4292229D17B7A004ECC0A /* ViewController.swift in Sources */,
 				36B4291E29D17B7A004ECC0A /* AppDelegate.swift in Sources */,
 				36B4292029D17B7A004ECC0A /* SceneDelegate.swift in Sources */,
+				36B4294E29D17BED004ECC0A /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -420,7 +424,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
