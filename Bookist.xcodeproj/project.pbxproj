@@ -101,6 +101,7 @@
 		36B4291C29D17B7A004ECC0A /* Bookist */ = {
 			isa = PBXGroup;
 			children = (
+				36B4294F29D3FACA004ECC0A /* Module */,
 				36B4291D29D17B7A004ECC0A /* AppDelegate.swift */,
 				36B4291F29D17B7A004ECC0A /* SceneDelegate.swift */,
 				36B4292129D17B7A004ECC0A /* ViewController.swift */,
@@ -128,6 +129,13 @@
 				36B4294029D17B7C004ECC0A /* BookistUITestsLaunchTests.swift */,
 			);
 			path = BookistUITests;
+			sourceTree = "<group>";
+		};
+		36B4294F29D3FACA004ECC0A /* Module */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Module;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
