@@ -7,13 +7,15 @@
 
 import UIKit
 
-protocol DiscoverHeaderProtocol {
+protocol DiscoverHeaderDelegate {
     func handleHeaderIconSelected(type: DiscoverSection)
 }
 
 class DiscoverHeaderTableViewCell: UITableViewCell {
     
-    var delegate: DiscoverHeaderProtocol?
+    static let identifier = "DiscoverHeaderTableViewCell"
+    
+    var delegate: DiscoverHeaderDelegate?
     
     private lazy var headerTitleLabel: UILabel = {
        let headerTitleLabel = UILabel()
@@ -26,7 +28,7 @@ class DiscoverHeaderTableViewCell: UITableViewCell {
         let headerIconButton = UIButton(type: .system)
         headerIconButton.translatesAutoresizingMaskIntoConstraints = false
         
-        let headerIconImage = UIImage(systemName: "")
+        let headerIconImage = UIImage(systemName: "arrow.right")
         headerIconButton.setImage(headerIconImage, for: .normal)
         headerIconButton.tintColor = .orange
         

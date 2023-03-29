@@ -28,7 +28,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCw-ge-gW0">
-                                <rect key="frame" x="0.0" y="234.99999999999997" width="220" height="45.666666666666657"/>
+                                <rect key="frame" x="0.0" y="228" width="220" height="45.666666666666686"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Label Label Label Label Label Label Label Label Label">
                                         <attributes>
@@ -40,7 +40,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hWN-JQ-ndi">
-                                <rect key="frame" x="0.0" y="288.66666666666669" width="220" height="20.333333333333314"/>
+                                <rect key="frame" x="0.0" y="281.66666666666669" width="220" height="20.333333333333314"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.leadinghalf.filled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KxD-Wb-jil">
                                         <rect key="frame" x="0.0" y="-0.33333333333333215" width="20" height="19.999999999999996"/>
@@ -70,7 +70,7 @@
                             <constraint firstItem="hWN-JQ-ndi" firstAttribute="leading" secondItem="JDT-HG-afB" secondAttribute="leading" id="IGo-Yu-y08"/>
                             <constraint firstItem="7BL-kh-7Iq" firstAttribute="top" secondItem="JDT-HG-afB" secondAttribute="top" id="Yn0-3t-yhf"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hWN-JQ-ndi" secondAttribute="bottom" constant="10" id="Zlt-pc-PYf"/>
-                            <constraint firstItem="NCw-ge-gW0" firstAttribute="top" secondItem="7BL-kh-7Iq" secondAttribute="bottom" constant="15" id="bku-I7-7XK"/>
+                            <constraint firstItem="NCw-ge-gW0" firstAttribute="top" secondItem="7BL-kh-7Iq" secondAttribute="bottom" constant="8" id="bku-I7-7XK"/>
                             <constraint firstAttribute="trailing" secondItem="NCw-ge-gW0" secondAttribute="trailing" id="d6n-n5-Rli"/>
                             <constraint firstItem="7BL-kh-7Iq" firstAttribute="leading" secondItem="JDT-HG-afB" secondAttribute="leading" id="qT0-aE-JB2"/>
                             <constraint firstItem="hWN-JQ-ndi" firstAttribute="top" secondItem="NCw-ge-gW0" secondAttribute="bottom" constant="8" id="uiZ-eL-47c"/>
