@@ -27,6 +27,8 @@
 		36B4296E29D4070D004ECC0A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4296D29D4070D004ECC0A /* HomeViewModel.swift */; };
 		45EACFBA29D414D800FF26CC /* ItemTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EACFB829D414D800FF26CC /* ItemTableCell.swift */; };
 		45EACFBB29D414D800FF26CC /* ItemTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45EACFB929D414D800FF26CC /* ItemTableCell.xib */; };
+		D7B337C929D4C82700515D64 /* PurchasedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B337C729D4C82700515D64 /* PurchasedViewController.swift */; };
+		D7B337CA29D4C82700515D64 /* PurchasedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7B337C829D4C82700515D64 /* PurchasedViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		36B4296D29D4070D004ECC0A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		45EACFB829D414D800FF26CC /* ItemTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableCell.swift; sourceTree = "<group>"; };
 		45EACFB929D414D800FF26CC /* ItemTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableCell.xib; sourceTree = "<group>"; };
+		D7B337C729D4C82700515D64 /* PurchasedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedViewController.swift; sourceTree = "<group>"; };
+		D7B337C829D4C82700515D64 /* PurchasedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchasedViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +212,8 @@
 			children = (
 				45EACFB729D414B300FF26CC /* ItemTableCell */,
 				36B4296329D406DF004ECC0A /* PurchasedViewModel.swift */,
+				D7B337C729D4C82700515D64 /* PurchasedViewController.swift */,
+				D7B337C829D4C82700515D64 /* PurchasedViewController.xib */,
 			);
 			path = Purchased;
 			sourceTree = "<group>";
@@ -379,6 +385,7 @@
 				36B4292A29D17B7C004ECC0A /* LaunchScreen.storyboard in Resources */,
 				45EACFBB29D414D800FF26CC /* ItemTableCell.xib in Resources */,
 				36B4292729D17B7C004ECC0A /* Assets.xcassets in Resources */,
+				D7B337CA29D4C82700515D64 /* PurchasedViewController.xib in Resources */,
 				36B4292529D17B7A004ECC0A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7B337C929D4C82700515D64 /* PurchasedViewController.swift in Sources */,
 				36B4292229D17B7A004ECC0A /* ViewController.swift in Sources */,
 				36B4291E29D17B7A004ECC0A /* AppDelegate.swift in Sources */,
 				45EACFBA29D414D800FF26CC /* ItemTableCell.swift in Sources */,
