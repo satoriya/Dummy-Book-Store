@@ -101,15 +101,12 @@
 		36B4291C29D17B7A004ECC0A /* Bookist */ = {
 			isa = PBXGroup;
 			children = (
+				36B4295729D40439004ECC0A /* Networking */,
+				36B4295829D4043F004ECC0A /* Storyboard */,
+				36B4295A29D4045F004ECC0A /* Core */,
+				36B4295929D4044F004ECC0A /* Helper */,
+				36B4295B29D4046C004ECC0A /* MainView */,
 				36B4294F29D3FACA004ECC0A /* Module */,
-				36B4291D29D17B7A004ECC0A /* AppDelegate.swift */,
-				36B4291F29D17B7A004ECC0A /* SceneDelegate.swift */,
-				36B4292129D17B7A004ECC0A /* ViewController.swift */,
-				36B4292329D17B7A004ECC0A /* Main.storyboard */,
-				36B4292629D17B7C004ECC0A /* Assets.xcassets */,
-				36B4292829D17B7C004ECC0A /* LaunchScreen.storyboard */,
-				36B4292B29D17B7C004ECC0A /* Info.plist */,
-				36B4294D29D17BED004ECC0A /* TabBar.swift */,
 			);
 			path = Bookist;
 			sourceTree = "<group>";
@@ -134,8 +131,107 @@
 		36B4294F29D3FACA004ECC0A /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				36B4295629D4042D004ECC0A /* Romance */,
+				36B4295529D40426004ECC0A /* Purchased */,
+				36B4295429D403F7004ECC0A /* Account */,
+				36B4295329D40388004ECC0A /* Wishlist */,
+				36B4295229D40381004ECC0A /* Discover */,
+				36B4295129D4036D004ECC0A /* Buy  */,
+				36B4295029D40362004ECC0A /* Home */,
 			);
 			path = Module;
+			sourceTree = "<group>";
+		};
+		36B4295029D40362004ECC0A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		36B4295129D4036D004ECC0A /* Buy  */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Buy ";
+			sourceTree = "<group>";
+		};
+		36B4295229D40381004ECC0A /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		36B4295329D40388004ECC0A /* Wishlist */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Wishlist;
+			sourceTree = "<group>";
+		};
+		36B4295429D403F7004ECC0A /* Account */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		36B4295529D40426004ECC0A /* Purchased */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Purchased;
+			sourceTree = "<group>";
+		};
+		36B4295629D4042D004ECC0A /* Romance */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Romance;
+			sourceTree = "<group>";
+		};
+		36B4295729D40439004ECC0A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		36B4295829D4043F004ECC0A /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				36B4292329D17B7A004ECC0A /* Main.storyboard */,
+				36B4292829D17B7C004ECC0A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		36B4295929D4044F004ECC0A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				36B4292629D17B7C004ECC0A /* Assets.xcassets */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		36B4295A29D4045F004ECC0A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				36B4292B29D17B7C004ECC0A /* Info.plist */,
+				36B4291D29D17B7A004ECC0A /* AppDelegate.swift */,
+				36B4291F29D17B7A004ECC0A /* SceneDelegate.swift */,
+				36B4294D29D17BED004ECC0A /* TabBar.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		36B4295B29D4046C004ECC0A /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				36B4292129D17B7A004ECC0A /* ViewController.swift */,
+			);
+			path = MainView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
