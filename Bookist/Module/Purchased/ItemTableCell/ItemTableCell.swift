@@ -18,28 +18,30 @@ class ItemTableCell: UITableViewCell {
     @IBOutlet weak var dotsIcon: UIImageView!
     
     static let identifier = "ItemTableCell"
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCells()
     }
     
     func setupCells() {
-        titleLabel.font = UIFont(name: "Poppins-Regular", size: 14)
-        titleLabel.textColor = UIColor(named: "Black")
-        ratingLabel.font = UIFont(name: "Poppins-Regular", size: 12)
-        ratingLabel.textColor = UIColor(named: "Black")
-        statusLabel.font = UIFont(name: "Poppins-Regular", size: 12)
-        statusLabel.textColor = UIColor(named: "Black")
-        starIcon.image = UIImage(named: "star")
-        checkIcon.image = UIImage(named: "check")
-        dotsIcon.image = UIImage(named: "dots")
-    
+        // img
+        imgLabel.layer.cornerRadius = 10
+        
+        // titleLabel
+        titleLabel.text = "Harry Potter and The Chamber of Secrets"
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        titleLabel.textColor = UIColor.black
+        titleLabel.numberOfLines = 2
+        titleLabel.textAlignment = .left
+        titleLabel.lineBreakMode = .byWordWrapping
+        titleLabel.preferredMaxLayoutWidth = 200
+        
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     

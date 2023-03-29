@@ -8,37 +8,65 @@
 import UIKit
 
 class PurchasedViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerTable()
+        configureNavBar()
     }
     
-    func registerTable() {
+    private func registerTable() {
         tableView.register(UINib(nibName: ItemTableCell.identifier, bundle: nil), forCellReuseIdentifier: ItemTableCell.identifier)
+        
+        tableView.separatorStyle = .none
         
         tableView.delegate = self
         tableView.dataSource = self
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    private func configureNavBar() {
+        navigationController?.navigationBar.tintColor = .label
+        navigationItem.title = nil
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
+        // navbar items
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(
+                image: UIImage(systemName: "line.horizontal.3"),
+                style: .plain,
+                target: self,
+                action: nil
+            ),
+            UIBarButtonItem(
+                image: UIImage(systemName: "magnifyingglass"),
+                style: .plain,
+                target: self,
+                action: nil
+            )
+        ]
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "book"), style: .plain, target: self, action: nil
+        )
+        
+        let label = UILabel()
+        label.textColor = label.tintColor
+        label.text = "Purchased"
+        label.textAlignment = .left
+        self.navigationItem.titleView = label
+        label.translatesAutoresizingMaskIntoConstraints = false
+        // leading anchor
+        
+        
+        
     }
-    */
-
 }
 
 extension PurchasedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,7 +78,7 @@ extension PurchasedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 144
     }
     
 }
