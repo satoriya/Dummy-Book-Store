@@ -34,7 +34,6 @@
 		C68C2C6529D41D5600218FA2 /* GenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68C2C6329D41D5600218FA2 /* GenreCollectionViewCell.swift */; };
 		C68C2C6629D41D5600218FA2 /* GenreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C68C2C6429D41D5600218FA2 /* GenreCollectionViewCell.xib */; };
 		C68C2C6B29D41E3A00218FA2 /* HeaderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68C2C6929D41E3A00218FA2 /* HeaderTableCell.swift */; };
-		C68C2C6C29D41E3A00218FA2 /* HeaderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C68C2C6A29D41E3A00218FA2 /* HeaderTableCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +85,6 @@
 		C68C2C6329D41D5600218FA2 /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
 		C68C2C6429D41D5600218FA2 /* GenreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreCollectionViewCell.xib; sourceTree = "<group>"; };
 		C68C2C6929D41E3A00218FA2 /* HeaderTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableCell.swift; sourceTree = "<group>"; };
-		C68C2C6A29D41E3A00218FA2 /* HeaderTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,10 +290,9 @@
 		C68C2C5529D4164400218FA2 /* Table Cells */ = {
 			isa = PBXGroup;
 			children = (
+				C68C2C6929D41E3A00218FA2 /* HeaderTableCell.swift */,
 				C68C2C5629D416D900218FA2 /* BookTableCell.swift */,
 				C68C2C5829D41C1000218FA2 /* GenreTableCell.swift */,
-				C68C2C6929D41E3A00218FA2 /* HeaderTableCell.swift */,
-				C68C2C6A29D41E3A00218FA2 /* HeaderTableCell.xib */,
 			);
 			path = "Table Cells";
 			sourceTree = "<group>";
@@ -449,7 +446,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				36B4292A29D17B7C004ECC0A /* LaunchScreen.storyboard in Resources */,
-				C68C2C6C29D41E3A00218FA2 /* HeaderTableCell.xib in Resources */,
 				36B4292729D17B7C004ECC0A /* Assets.xcassets in Resources */,
 				36B4292529D17B7A004ECC0A /* Main.storyboard in Resources */,
 				C68C2C5429D40AE700218FA2 /* HomeViewController.xib in Resources */,

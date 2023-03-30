@@ -9,15 +9,68 @@ import UIKit
 
 class GenreTableCell: UITableViewCell {
 
+    static let identifier = "GenreTableCell"
+    
+    private lazy var genreCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.register(UINib(nibName: "GenreCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: GenreCollectionViewCell.identifier)
+        cv.layer.masksToBounds = false
+        cv.showsHorizontalScrollIndicator = false
+        return cv
+    }()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func setupGenreCollectionView() {
+        genreCollectionView.delegate = self
+        genreCollectionView.dataSource = self
+        
+        contentView.addSubview(genreCollectionView)
+        
+        genreCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            genreCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            genreCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            genreCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            genreCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        ])
     }
 
+}
+
+extension GenreTableCell: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.frame.width / 2.5, height: self.frame.width / 5)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        16
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = genreCollectionView.dequeueReusableCell(withReuseIdentifier: GenreCollectionViewCell.identifier, for: indexPath) as? GenreCollectionViewCell else { return UICollectionViewCell() }
+        
+        return cell
+    }
+    
+    
 }

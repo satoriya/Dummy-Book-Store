@@ -11,18 +11,6 @@ class HeaderTableCell: UITableViewHeaderFooterView {
 
     static let identifier = "HeaderTableCell"
     
-//    @IBOutlet weak var headerTitle: UILabel! {
-//        didSet {
-//            headerTitle.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-//        }
-//    }
-//
-//    @IBOutlet weak var viewAllButton: UIButton! {
-//        didSet {
-//            viewAllButton.tintColor = UIColor(named: "styleColor")
-//        }
-//    }
-    
     private lazy var headerTitle: UILabel = {
         let lb = UILabel()
         lb.translatesAutoresizingMaskIntoConstraints = false
@@ -39,6 +27,7 @@ class HeaderTableCell: UITableViewHeaderFooterView {
     }()
     
     func addSubviews() {
+        
         self.contentView.addSubview(headerTitle)
         self.contentView.addSubview(viewAllButton)
         
@@ -48,16 +37,19 @@ class HeaderTableCell: UITableViewHeaderFooterView {
     
     func setupHeaderTitle() {
         NSLayoutConstraint.activate([
-            headerTitle.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            headerTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
             headerTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            headerTitle.trailingAnchor.constraint(equalTo: viewAllButton.leadingAnchor, constant: 10)
+            headerTitle.trailingAnchor.constraint(equalTo: viewAllButton.leadingAnchor, constant: 10),
+            headerTitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
     }
     
     func setupViewAllButton() {
         NSLayoutConstraint.activate([
+            viewAllButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
             viewAllButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            viewAllButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
+            viewAllButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            viewAllButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
     }
     
