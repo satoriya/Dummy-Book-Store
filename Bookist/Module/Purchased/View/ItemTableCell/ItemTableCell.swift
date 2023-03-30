@@ -37,6 +37,33 @@ class ItemTableCell: UITableViewCell {
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.preferredMaxLayoutWidth = 200
         
+        // ratingLabel
+        ratingLabel.text = "4.5"
+        ratingLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        ratingLabel.textColor = UIColor.gray
+        ratingLabel.numberOfLines = 1
+        ratingLabel.textAlignment = .left
+        ratingLabel.lineBreakMode = .byWordWrapping
+        ratingLabel.preferredMaxLayoutWidth = 50
+        
+        // statusLabel
+        statusLabel.text = "Purchased"
+        statusLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        statusLabel.textColor = UIColor.gray
+        statusLabel.numberOfLines = 1
+        statusLabel.textAlignment = .left
+        statusLabel.lineBreakMode = .byWordWrapping
+        statusLabel.preferredMaxLayoutWidth = 100
+        
+        // starIcon
+        starIcon.tintColor = UIColor.gray
+        
+        // checkIcon
+        checkIcon.tintColor = UIColor(rgb: 0xEEBC1D)
+        
+        // dotsIcon
+        dotsIcon.tintColor = UIColor.gray
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

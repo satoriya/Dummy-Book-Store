@@ -74,7 +74,7 @@ extension PurchasedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableCell.identifier, for: indexPath) as? ItemTableCell else {
-            return UITableViewCell()    
+            return UITableViewCell()
         }
         
         return cell
