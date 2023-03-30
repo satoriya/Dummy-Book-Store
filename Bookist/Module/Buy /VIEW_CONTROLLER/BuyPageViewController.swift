@@ -7,16 +7,40 @@
 
 import UIKit
 
-class BuyPageViewController: UIViewController, UITableViewDataSource {
+class BuyPageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        switch section{
+        case 0:
+            return 1
+        case 1:
+            return 1
+        default:
+            break
+        }
+        return 2
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AboutBookTableViewCell.identifier, for: indexPath) as! AboutBookTableViewCell
-        cell.setUpTableCell()
-        return cell
+        switch indexPath.section{
+        case 0:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AboutBookTableViewCell.identifier, for: indexPath) as? AboutBookTableViewCell else{ return UITableViewCell()}
+            cell.setUpTableCell()
+        
+            return cell
+        case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: BookRatingTableViewCell.identifier, for: indexPath) as? BookRatingTableViewCell else {return UITableViewCell()}
+            cell.setUpBookingTableCell()
+//            cell.layer.borderColor = UIColor.green.cgColor
+//            cell.layer.borderWidth = 1
+            return cell
+        default:
+            break
+        }
+      return UITableViewCell()
     }
     
     

@@ -10,12 +10,12 @@ import UIKit
 class AboutBookTableViewCell: UITableViewCell {
 static let identifier = "AboutBookTableViewCell"
     
+    
     private lazy var container : UIView = {
         let containervw = UIView()
         containervw.translatesAutoresizingMaskIntoConstraints = false
         return containervw
     }()
-    
     
     private lazy var stackView : UIStackView = {
         let stackvw = UIStackView()
@@ -145,10 +145,6 @@ static let identifier = "AboutBookTableViewCell"
             stackView.leadingAnchor.constraint(equalTo: bookImage.trailingAnchor, constant: 8),
             stackView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -8),
             
-//            stackViewForWrapGenres.topAnchor.constraint(equalTo: datePublished.topAnchor, constant: 30),
-//            stackViewForWrapGenres.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
-//            stackViewForWrapGenres.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
-//            stackViewForWrapGenres.bottomAnchor.constraint(equalTo: stackView.bottomAnchor),
             
             bookImage.topAnchor.constraint(equalTo: container.topAnchor, constant: 8),
             bookImage.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 8),
