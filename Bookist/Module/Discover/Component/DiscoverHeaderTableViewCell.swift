@@ -8,7 +8,7 @@
 import UIKit
 
 protocol DiscoverHeaderDelegate {
-    func handleHeaderIconSelected(type: DiscoverSection)
+    func handleHeaderIconSelected(type: String)
 }
 
 class DiscoverHeaderTableViewCell: UITableViewCell {
@@ -54,9 +54,9 @@ class DiscoverHeaderTableViewCell: UITableViewCell {
         return headerStackView
     }()
     
-    func setupCell(title: String, type: DiscoverSection) {
+    func setupCell(title: String, cellIndex: Int) {
         headerTitleLabel.text = title
-        headerIconButton.tag = type.rawValue
+        headerIconButton.tag = cellIndex
         
         addSubviews()
         setComponentConstraints()
@@ -78,8 +78,6 @@ class DiscoverHeaderTableViewCell: UITableViewCell {
     }
     
     @objc func onHeaderIconButtonSelected(_ sender: UIButton) {
-        delegate?.handleHeaderIconSelected(
-            type: DiscoverSection(sender.tag)
-        )
+        delegate?.handleHeaderIconSelected(type: sender.titleLabel?.text ?? "No Title")
     }
 }

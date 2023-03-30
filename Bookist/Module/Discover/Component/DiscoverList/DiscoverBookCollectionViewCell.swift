@@ -10,6 +10,8 @@ import UIKit
 class DiscoverBookCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "DiscoverBookCollectionViewCell"
+    
+    private let defaultImage = UIImage(systemName: "star")
 
     @IBOutlet weak var containerView: UIView! {
         didSet {
@@ -67,10 +69,11 @@ class DiscoverBookCollectionViewCell: UICollectionViewCell {
     }
     
     func setupCell(book: DiscoverBookModel) {
-        bookImageView.image = UIImage(systemName: book.bookImageUrl)
-        bookTitleLabel.text = book.bookTitle
-        bookRatingLabel.text = String(format: "%.2f", book.bookRate)
-        bookPriceLabel.text = book.bookPriceString
+        bookImageView.loadImageFromUrl(book.imageUrlString, withDefault: defaultImage)
+        
+        bookTitleLabel.text = book.title
+        bookRatingLabel.text = String(format: "%.2f", book.rating ?? 0)
+        bookPriceLabel.text = book.priceString
     }
 
 }

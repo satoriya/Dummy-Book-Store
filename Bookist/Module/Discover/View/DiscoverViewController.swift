@@ -71,6 +71,8 @@ class DiscoverViewController: UIViewController {
     
     private func setupViewModel() {
         discoverViewModel = DiscoverViewModel()
+        discoverViewModel?.delegate = self
+        discoverViewModel?.getDiscoverData()
     }
     
     private func setupTableView() {
@@ -102,7 +104,7 @@ class DiscoverViewController: UIViewController {
 
 extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return discoverViewModel?.discoverBooksSections.count ?? 0
+        return discoverViewModel?.discoverData?.data.items.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -116,24 +118,26 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        guard let discoverSection = discoverViewModel?.discoverData
+        else { return UITableViewCell() }
+        
         switch DiscoverSectionCell(rawValue: indexPath.row) {
         case .header:
-            guard let discoverHeader = discoverViewModel?.discoverBooksSections[indexPath.section],
-                let headerCell = tableView.dequeueReusableCell(withIdentifier: DiscoverHeaderTableViewCell.identifier, for: indexPath) as? DiscoverHeaderTableViewCell
+            guard let headerCell = tableView.dequeueReusableCell(withIdentifier: DiscoverHeaderTableViewCell.identifier, for: indexPath) as? DiscoverHeaderTableViewCell
             else { return UITableViewCell() }
             
             headerCell.delegate = self
-            headerCell.setupCell(title: discoverHeader.sectionTitle, type: discoverHeader.sectionType)
+            headerCell.setupCell(title: discoverSection.pageTitle, cellIndex: indexPath.section)
             
             return headerCell
             
             
         case .bookList:
-            guard let discoverBooks = discoverViewModel?.discoverBooksSections[indexPath.section].sectionBooks,
-                let discoverBookListCell = tableView.dequeueReusableCell(withIdentifier: DiscoverBookListTableViewCell.identifier, for: indexPath) as? DiscoverBookListTableViewCell
+            guard let discoverBookListCell = tableView.dequeueReusableCell(withIdentifier: DiscoverBookListTableViewCell.identifier, for: indexPath) as? DiscoverBookListTableViewCell
             else { return UITableViewCell() }
             
-            discoverBookListCell.setupCell(discoverBooks: discoverBooks)
+            let discoverSectionData = discoverSection.data.items[indexPath.section].data
+            discoverBookListCell.setupCell(discoverBooks: discoverSectionData, showLimit: discoverSection.showingCount)
             
             return discoverBookListCell
             
@@ -148,8 +152,21 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension DiscoverViewController: DiscoverViewModelDelegate {
+    func handleGetDiscoverDataCompleted() {
+        if let errorMessage = discoverViewModel?.errorMessage {
+            print(errorMessage)
+            
+        } else {
+            DispatchQueue.main.async {
+                self.discoverTableView.reloadData()
+            }
+        }
+    }
+}
+
 extension DiscoverViewController: DiscoverHeaderDelegate {
-    func handleHeaderIconSelected(type: DiscoverSection) {
+    func handleHeaderIconSelected(type: String) {
         print("go to show all \(type)")
     }
 }

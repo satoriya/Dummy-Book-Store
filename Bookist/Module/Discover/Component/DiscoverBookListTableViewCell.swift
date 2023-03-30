@@ -15,6 +15,7 @@ class DiscoverBookListTableViewCell: UITableViewCell {
     private let horizontalSpacing: CGFloat = 18
     private let collectionHeight: CGFloat = 340
     
+    private var showLimit: Int?
     private var discoverBooks: [DiscoverBookModel]?
     
     var availableScreenWidth: CGFloat {
@@ -36,8 +37,9 @@ class DiscoverBookListTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func setupCell(discoverBooks: [DiscoverBookModel]) {
+    func setupCell(discoverBooks: [DiscoverBookModel], showLimit: Int) {
         self.discoverBooks = discoverBooks
+        self.showLimit = showLimit
         setupCollectionView()
     }
     
@@ -91,7 +93,12 @@ extension DiscoverBookListTableViewCell: UICollectionViewDelegateFlowLayout {
 
 extension DiscoverBookListTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.discoverBooks?.count ?? 0
+        guard let discoverBooks = self.discoverBooks,
+              let showLimit = self.showLimit
+        else { return 0 }
+        
+        let showCount = discoverBooks.count > showLimit ? showLimit : discoverBooks.count
+        return showCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -7,20 +7,32 @@
 
 import Foundation
 
-struct DiscoverViewModel {
-    let discoverBooksSections: [DiscoverSectionBooksModel]
-    let dummyBooks: [DiscoverBookModel] = [
-        DiscoverBookModel(bookImageUrl: "star.fill", bookTitle: "Jono Kasino Indro Bolo bolo Bolo", bookRate: 4.5, bookPrice: 59),
-        DiscoverBookModel(bookImageUrl: "person.fill", bookTitle: "Person.fill", bookRate: 3.5, bookPrice: 79),
-        DiscoverBookModel(bookImageUrl: "person.circle.fill", bookTitle: "Ini Buku Bagus Boss, Tolong Dibeli", bookRate: 1.5, bookPrice: 100)
-    ]
+protocol DiscoverViewModelDelegate {
+    func handleGetDiscoverDataCompleted()
+}
+
+class DiscoverViewModel {
+    private let getAPIService: GetAPIProtocol
+    private let baseUrlString = "http://localhost:3002/discover"
     
-    init() {
-        self.discoverBooksSections = [
-            DiscoverSectionBooksModel(sectionType: .topCharts, sectionTitle: "Top Charts", sectionBooks: dummyBooks),
-            DiscoverSectionBooksModel(sectionType: .topSelling, sectionTitle: "Top Selling", sectionBooks: dummyBooks),
-            DiscoverSectionBooksModel(sectionType: .topFree, sectionTitle: "Top Free", sectionBooks: dummyBooks),
-            DiscoverSectionBooksModel(sectionType: .topNewRelease, sectionTitle: "Top New Release", sectionBooks: dummyBooks)
-        ]
+    var discoverData: DiscoverModel?
+    var errorMessage: String?
+    var delegate: DiscoverViewModelDelegate?
+    
+    init(getAPIService: GetAPIProtocol = GetAPIService()) {
+        self.getAPIService = getAPIService
+    }
+    
+    func getDiscoverData() {
+        errorMessage = nil
+        getAPIService.get(from: baseUrlString, with: DiscoverModel.self) { resultData, errorMessage in
+            if let resultData = resultData {
+                self.discoverData = resultData
+                self.delegate?.handleGetDiscoverDataCompleted()
+            } else if let errorMessage = errorMessage {
+                self.errorMessage = errorMessage
+                self.delegate?.handleGetDiscoverDataCompleted()
+            }
+        }
     }
 }
