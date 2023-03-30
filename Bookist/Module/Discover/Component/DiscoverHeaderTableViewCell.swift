@@ -17,10 +17,13 @@ class DiscoverHeaderTableViewCell: UITableViewCell {
     
     var delegate: DiscoverHeaderDelegate?
     
+    private let horizontalSpacing: CGFloat = 18
+    private let verticalSpacing: CGFloat = 10
+    
     private lazy var headerTitleLabel: UILabel = {
        let headerTitleLabel = UILabel()
         headerTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        headerTitleLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        headerTitleLabel.font = UIFont.boldSystemFont(ofSize: 20)
         return headerTitleLabel
     }()
     
@@ -67,10 +70,10 @@ class DiscoverHeaderTableViewCell: UITableViewCell {
     
     private func setComponentConstraints() {
         NSLayoutConstraint.activate([
-            headerStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
-            headerStackView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 10),
-            headerStackView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -10),
-            headerStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10),
+            headerStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: verticalSpacing),
+            headerStackView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: horizontalSpacing),
+            headerStackView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -horizontalSpacing),
+            headerStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -verticalSpacing),
         ])
     }
     

@@ -21,8 +21,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JDT-HG-afB">
                         <rect key="frame" x="0.0" y="0.0" width="220" height="320"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.leadinghalf.filled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7BL-kh-7Iq">
-                                <rect key="frame" x="0.0" y="-0.3333333333333286" width="220" height="219.66666666666669"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text.book.closed.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7BL-kh-7Iq">
+                                <rect key="frame" x="0.0" y="0.3333333333333286" width="220" height="219.66666666666666"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="JdE-gK-PMQ"/>
                                 </constraints>
@@ -100,6 +100,7 @@
     </objects>
     <resources>
         <image name="star.leadinghalf.filled" catalog="system" width="128" height="116"/>
+        <image name="text.book.closed.fill" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

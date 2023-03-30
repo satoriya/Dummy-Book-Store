@@ -1,5 +1,5 @@
 //
-//  DiscoverListViewController.swift
+//  DiscoverBookListTableViewCell.swift
 //  Bookist
 //
 //  Created by Teguh Wibowo Wijaya on 29/03/23.
@@ -11,11 +11,14 @@ class DiscoverBookListTableViewCell: UITableViewCell {
     
     static let identifier = "DiscoverBookListTableViewCell"
     
-    private let collectionItemSpacing: CGFloat = 10
+    private let verticalSpacing: CGFloat = 10
+    private let horizontalSpacing: CGFloat = 18
     private let collectionHeight: CGFloat = 340
     
+    private var discoverBooks: [DiscoverBookModel]?
+    
     var availableScreenWidth: CGFloat {
-        return self.contentView.bounds.width - collectionItemSpacing * 2
+        return self.contentView.bounds.width - horizontalSpacing * 2
     }
     
     private lazy var booksCollectionView: UICollectionView = {
@@ -33,7 +36,8 @@ class DiscoverBookListTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func setupCell() {
+    func setupCell(discoverBooks: [DiscoverBookModel]) {
+        self.discoverBooks = discoverBooks
         setupCollectionView()
     }
     
@@ -65,29 +69,37 @@ class DiscoverBookListTableViewCell: UITableViewCell {
 
 extension DiscoverBookListTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: collectionItemSpacing, left: collectionItemSpacing, bottom: collectionItemSpacing, right: collectionItemSpacing)
+        return UIEdgeInsets(
+            top: verticalSpacing,
+            left: horizontalSpacing,
+            bottom: verticalSpacing,
+            right: horizontalSpacing
+        )
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemWidth = (availableScreenWidth - collectionItemSpacing) / 2
-        let itemHeight = collectionHeight - collectionItemSpacing * 2
+        let itemWidth = (availableScreenWidth - horizontalSpacing) / 2
+        let itemHeight = collectionHeight - verticalSpacing * 2
         return CGSize(width: itemWidth, height: itemHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return collectionItemSpacing
+        return horizontalSpacing
     }
     
 }
 
 extension DiscoverBookListTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return self.discoverBooks?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let discoverBookCell = collectionView.dequeueReusableCell(withReuseIdentifier: DiscoverBookCollectionViewCell.identifier, for: indexPath) as? DiscoverBookCollectionViewCell
+        guard let discoverBook = discoverBooks?[indexPath.row],
+            let discoverBookCell = collectionView.dequeueReusableCell(withReuseIdentifier: DiscoverBookCollectionViewCell.identifier, for: indexPath) as? DiscoverBookCollectionViewCell
         else { return UICollectionViewCell() }
+        
+        discoverBookCell.setupCell(book: discoverBook)
         
         return discoverBookCell
     }

@@ -65,5 +65,12 @@ class DiscoverBookCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func setupCell(book: DiscoverBookModel) {
+        bookImageView.image = UIImage(systemName: book.bookImageUrl)
+        bookTitleLabel.text = book.bookTitle
+        bookRatingLabel.text = String(format: "%.2f", book.bookRate)
+        bookPriceLabel.text = book.bookPriceString
+    }
 
 }
