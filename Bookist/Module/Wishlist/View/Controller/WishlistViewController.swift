@@ -19,16 +19,39 @@ class WishlistViewController: UIViewController {
     }()
     
     var wishlistData = [WishlistModel]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Wishlist"
+        navigationController?.navigationBar.prefersLargeTitles = false
         setupLayout()
         setupCollectionView()
         getDataWishlist()
-        
+        configureNavBar()
         wishlistCollectionView.backgroundColor = .yellow
+    }
+    
+    private func configureNavBar(){
+        navigationController?.navigationBar.tintColor = .label
+        navigationController?.navigationBar.prefersLargeTitles = false
         
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(
+                image: UIImage(systemName: "line.horizontal.3"),
+                style: .plain,
+                target: self,
+                action: nil ),
+            
+            UIBarButtonItem(
+                image: UIImage(systemName: "magnifyingglass"),
+                style: .plain,
+                target: self,
+                action: nil) ]
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "book"), style: .plain, target: self, action: nil
+        )
     }
     
     func getDataWishlist() {
@@ -50,12 +73,11 @@ class WishlistViewController: UIViewController {
     
     func setupLayout() {
         view.addSubview(wishlistCollectionView)
-        wishlistCollectionView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 16).isActive = true
+        wishlistCollectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 16).isActive = true
         wishlistCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
         wishlistCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
         wishlistCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 16).isActive = true
     }
-    
 }
 
 extension WishlistViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -68,7 +90,7 @@ extension WishlistViewController: UICollectionViewDataSource, UICollectionViewDe
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WishlistCollectionViewCell.identifier, for: indexPath) as? WishlistCollectionViewCell else {
             return UICollectionViewCell()
         }
-                
+        
         cell.bookImageView.image = UIImage(named: wishlistData[indexPath.row].imageBook ?? "")
         cell.titleLabel.text = wishlistData[indexPath.row].titleBook ?? ""
         cell.ratingLabel.text = "\(wishlistData[indexPath.row].ratingBook ?? 0)"
