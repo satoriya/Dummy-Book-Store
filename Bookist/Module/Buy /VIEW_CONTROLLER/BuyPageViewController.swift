@@ -15,13 +15,15 @@ class BuyPageViewController: UIViewController, UITableViewDataSource, UITableVie
             return 1
         case 1:
             return 1
+        case 2:
+            return 1
         default:
             break
         }
-        return 2
+        return 3
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -36,6 +38,12 @@ class BuyPageViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.setUpBookingTableCell()
 //            cell.layer.borderColor = UIColor.green.cgColor
 //            cell.layer.borderWidth = 1
+            return cell
+        case 2:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionTableViewCell.identifier, for: indexPath) as? DescriptionTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.setUpTableCell()
             return cell
         default:
             break
@@ -54,6 +62,7 @@ class BuyPageViewController: UIViewController, UITableViewDataSource, UITableVie
         table.separatorStyle = .none
         table.register(AboutBookTableViewCell.self, forCellReuseIdentifier: AboutBookTableViewCell.identifier)
         table.register(BookRatingTableViewCell.self, forCellReuseIdentifier: BookRatingTableViewCell.identifier)
+        table.register(DescriptionTableViewCell.self, forCellReuseIdentifier: DescriptionTableViewCell.identifier)
         return table
     }()
     override func viewDidLoad() {

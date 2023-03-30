@@ -115,7 +115,7 @@ class BookRatingTableViewCell: UITableViewCell {
         BuyBotton.translatesAutoresizingMaskIntoConstraints = false
         BuyBotton.backgroundColor = .orange
         BuyBotton.setTitle("Buy USD $9,99", for: .normal)
-        BuyBotton.layer.cornerRadius = 10
+        BuyBotton.layer.cornerRadius = 20
         BuyBotton.clipsToBounds = true
         
         return BuyBotton
@@ -143,20 +143,21 @@ class BookRatingTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 2),
-            stackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -2),
+            stackView.bottomAnchor.constraint(lessThanOrEqualTo: self.contentView.bottomAnchor, constant: -2),
             stackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 2),
             stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -2),
+            stackView.heightAnchor.constraint(equalToConstant: 50),
                                    
             stackView2.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 50),
-            stackView2.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -2),
+            stackView2.bottomAnchor.constraint(lessThanOrEqualTo: buyBookBotton.bottomAnchor, constant: -2),
             stackView2.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 2),
             stackView2.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -2),
-            
+            stackView.heightAnchor.constraint(equalToConstant: 50),
             
             buyBookBotton.widthAnchor.constraint(equalToConstant: 300),
             buyBookBotton.heightAnchor.constraint(equalToConstant: 50),
-            buyBookBotton.topAnchor.constraint(equalTo: stackView2.topAnchor, constant: 75),
-            buyBookBotton.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -2),
+            buyBookBotton.topAnchor.constraint(equalTo: stackView2.topAnchor, constant: 40),
+            buyBookBotton.bottomAnchor.constraint(lessThanOrEqualTo: self.contentView.bottomAnchor, constant: -2),
             buyBookBotton.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 2),
             buyBookBotton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -2)
                                     ])
@@ -174,4 +175,25 @@ class BookRatingTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+
+class BookRatingView : UIView{
+    private lazy var stackVw : UIStackView =  {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    private lazy var bookRating : UILabel =  {
+        let ratings = UILabel()
+        ratings.translatesAutoresizingMaskIntoConstraints = false
+        return ratings
+    }()
+    
+    private lazy var size : UILabel =  {
+        let sz = UILabel()
+        sz.translatesAutoresizingMaskIntoConstraints = false
+        return sz
+    }()
 }
