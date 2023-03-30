@@ -54,11 +54,13 @@ class PurchasedViewController: UIViewController {
         let label = UILabel()
         label.textColor = label.tintColor
         label.text = "Purchased"
+        label.textColor = .label
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.textAlignment = .left
         self.navigationItem.titleView = label
         label.translatesAutoresizingMaskIntoConstraints = false
-        // leading anchor
-        
+        // make label contsraint leading to navigation bar
+        label.leadingAnchor.constraint(equalTo: self.navigationController!.navigationBar.leadingAnchor, constant: 16).isActive = true
         
         
     }
