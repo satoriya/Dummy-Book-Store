@@ -9,12 +9,17 @@ import UIKit
 
 class PurchasedViewController: UIViewController {
     
+    var purchasedViewModel: PurchasedViewModel?
+    
+    private var listItems: PurchasedModel?
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerTable()
         configureNavBar()
+        setupApi()
     }
     
     private func registerTable() {
@@ -53,7 +58,8 @@ class PurchasedViewController: UIViewController {
         
         let label = UILabel()
         label.textColor = label.tintColor
-        label.text = "Purchased"
+        // label text from pagetitle
+        label.text = listItems?.pageTitle ?? "null"
         label.textColor = .label
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.textAlignment = .left
@@ -64,6 +70,20 @@ class PurchasedViewController: UIViewController {
         navigationController?.navigationBar.standardAppearance.titlePositionAdjustment = offset
         navigationController?.navigationBar.scrollEdgeAppearance?.titlePositionAdjustment = offset
         navigationController?.navigationBar.compactAppearance?.titlePositionAdjustment = offset
+    }
+    
+    func setupApi(apiUrl: String = "http://localhost:3002/purchased") {
+        self.purchasedViewModel = PurchasedViewModel(urlString: apiUrl, apiService: PurchasedApiService())
+        self.purchasedViewModel?.bindListData = {
+            listModel in
+            if let listData = listModel {
+                self.listItems = listData
+                print("bind")
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
 }
 
