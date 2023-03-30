@@ -58,11 +58,12 @@ class PurchasedViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.textAlignment = .left
         self.navigationItem.titleView = label
+        // left align the title
         label.translatesAutoresizingMaskIntoConstraints = false
-        // make label contsraint leading to navigation bar
-        label.leadingAnchor.constraint(equalTo: self.navigationController!.navigationBar.leadingAnchor, constant: 16).isActive = true
-        
-        
+        let offset = UIOffset(horizontal: -CGFloat.greatestFiniteMagnitude, vertical: 0)
+        navigationController?.navigationBar.standardAppearance.titlePositionAdjustment = offset
+        navigationController?.navigationBar.scrollEdgeAppearance?.titlePositionAdjustment = offset
+        navigationController?.navigationBar.compactAppearance?.titlePositionAdjustment = offset
     }
 }
 
@@ -73,7 +74,7 @@ extension PurchasedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableCell.identifier, for: indexPath) as? ItemTableCell else {
-            return UITableViewCell()
+            return UITableViewCell()    
         }
         
         return cell
