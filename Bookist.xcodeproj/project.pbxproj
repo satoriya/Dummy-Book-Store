@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		360A6B3D29D414DF00B12285 /* AboutBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360A6B3C29D414DF00B12285 /* AboutBookTableViewCell.swift */; };
+		360A6B4029D4220600B12285 /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 360A6B3F29D4220600B12285 /* assets.xcassets */; };
+		369ACB2E29D51A210060B93E /* BuyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369ACB2D29D51A210060B93E /* BuyPageViewController.swift */; };
+		369ACB3029D5430A0060B93E /* BookRatingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369ACB2F29D5430A0060B93E /* BookRatingTableViewCell.swift */; };
 		36B4291E29D17B7A004ECC0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4291D29D17B7A004ECC0A /* AppDelegate.swift */; };
 		36B4292029D17B7A004ECC0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4291F29D17B7A004ECC0A /* SceneDelegate.swift */; };
 		36B4292229D17B7A004ECC0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4292129D17B7A004ECC0A /* ViewController.swift */; };
@@ -45,6 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		360A6B3C29D414DF00B12285 /* AboutBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutBookTableViewCell.swift; sourceTree = "<group>"; };
+		360A6B3F29D4220600B12285 /* assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = assets.xcassets; sourceTree = "<group>"; };
+		369ACB2D29D51A210060B93E /* BuyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyPageViewController.swift; sourceTree = "<group>"; };
+		369ACB2F29D5430A0060B93E /* BookRatingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRatingTableViewCell.swift; sourceTree = "<group>"; };
 		36B4291A29D17B7A004ECC0A /* Bookist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B4291D29D17B7A004ECC0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36B4291F29D17B7A004ECC0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +102,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		360A6B3E29D414E700B12285 /* TABLE_VIEW_CELL */ = {
+			isa = PBXGroup;
+			children = (
+				360A6B3C29D414DF00B12285 /* AboutBookTableViewCell.swift */,
+				369ACB2F29D5430A0060B93E /* BookRatingTableViewCell.swift */,
+			);
+			path = TABLE_VIEW_CELL;
+			sourceTree = "<group>";
+		};
+		369ACB2C29D518A80060B93E /* VIEW_CONTROLLER */ = {
+			isa = PBXGroup;
+			children = (
+				369ACB2D29D51A210060B93E /* BuyPageViewController.swift */,
+			);
+			path = VIEW_CONTROLLER;
+			sourceTree = "<group>";
+		};
 		36B4291129D17B7A004ECC0A = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +142,8 @@
 		36B4291C29D17B7A004ECC0A /* Bookist */ = {
 			isa = PBXGroup;
 			children = (
+				36B4292B29D17B7C004ECC0A /* Info.plist */,
+				360A6B3F29D4220600B12285 /* assets.xcassets */,
 				36B4295729D40439004ECC0A /* Networking */,
 				36B4295829D4043F004ECC0A /* Storyboard */,
 				36B4295A29D4045F004ECC0A /* Core */,
@@ -169,6 +196,8 @@
 		36B4295129D4036D004ECC0A /* Buy  */ = {
 			isa = PBXGroup;
 			children = (
+				360A6B3E29D414E700B12285 /* TABLE_VIEW_CELL */,
+				369ACB2C29D518A80060B93E /* VIEW_CONTROLLER */,
 				36B4296B29D40702004ECC0A /* BuyViewModel.swift */,
 			);
 			path = "Buy ";
@@ -242,7 +271,6 @@
 		36B4295A29D4045F004ECC0A /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				36B4292B29D17B7C004ECC0A /* Info.plist */,
 				36B4291D29D17B7A004ECC0A /* AppDelegate.swift */,
 				36B4291F29D17B7A004ECC0A /* SceneDelegate.swift */,
 				36B4294D29D17BED004ECC0A /* TabBar.swift */,
@@ -364,6 +392,7 @@
 			files = (
 				36B4292A29D17B7C004ECC0A /* LaunchScreen.storyboard in Resources */,
 				36B4292729D17B7C004ECC0A /* Assets.xcassets in Resources */,
+				360A6B4029D4220600B12285 /* assets.xcassets in Resources */,
 				36B4292529D17B7A004ECC0A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,7 +418,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				360A6B3D29D414DF00B12285 /* AboutBookTableViewCell.swift in Sources */,
 				36B4292229D17B7A004ECC0A /* ViewController.swift in Sources */,
+				369ACB2E29D51A210060B93E /* BuyPageViewController.swift in Sources */,
 				36B4291E29D17B7A004ECC0A /* AppDelegate.swift in Sources */,
 				36B4296629D406E9004ECC0A /* AccountViewModel.swift in Sources */,
 				36B4296029D40686004ECC0A /* NetworkHelper.swift in Sources */,
@@ -400,6 +431,7 @@
 				36B4296A29D406FB004ECC0A /* DiscoverViewModel.swift in Sources */,
 				36B4296429D406DF004ECC0A /* PurchasedViewModel.swift in Sources */,
 				36B4296C29D40702004ECC0A /* BuyViewModel.swift in Sources */,
+				369ACB3029D5430A0060B93E /* BookRatingTableViewCell.swift in Sources */,
 				36B4294E29D17BED004ECC0A /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
