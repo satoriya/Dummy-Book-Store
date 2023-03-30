@@ -13,7 +13,7 @@ class WishlistViewController: UIViewController {
         let flowlayout = UICollectionViewFlowLayout()
         flowlayout.scrollDirection = .vertical
         flowlayout.sectionInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
-        flowlayout.itemSize = CGSize(width: 340, height: 150)
+        flowlayout.itemSize = CGSize(width: 340, height: 160)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowlayout)
         return collectionView
     }()
@@ -33,9 +33,11 @@ class WishlistViewController: UIViewController {
     
     func getDataWishlist() {
         wishlistData.append(WishlistModel(imageBook: "harrypotter", titleBook: "Harry potter", ratingBook: 3.5, priceBook: 8))
-        wishlistData.append(WishlistModel(imageBook: "thelostmetal", titleBook: "The Lost Metal", ratingBook: 3.5, priceBook: 8))
+        wishlistData.append(WishlistModel(imageBook: "pokemon", titleBook: "Pokemon Adventure", ratingBook: 3.5, priceBook: 8))
         wishlistData.append(WishlistModel(imageBook: "mostfamous", titleBook: "Most Famous Quotes", ratingBook: 4.0, priceBook: 9))
         wishlistData.append(WishlistModel(imageBook: "freelife", titleBook: "Free Life Fantacy", ratingBook: 3.8, priceBook: 7))
+        wishlistData.append(WishlistModel(imageBook: "itsstartswithus", titleBook: "It Starts With US", ratingBook: 4.0, priceBook: 10))
+        
         wishlistCollectionView.reloadData()
     }
     
@@ -72,6 +74,7 @@ extension WishlistViewController: UICollectionViewDataSource, UICollectionViewDe
         cell.ratingLabel.text = "\(wishlistData[indexPath.row].ratingBook ?? 0)"
         cell.priceBookLabel.text = "$\(wishlistData[indexPath.row].priceBook ?? 0)"
         cell.bookImageView.layer.cornerRadius = 8
+        
         return cell
     }
 }
