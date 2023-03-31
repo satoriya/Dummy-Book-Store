@@ -45,9 +45,9 @@ class DiscoverBookListTableViewCell: UITableViewCell {
     ) {
         if isLoading == false {
             self.isLoading = false
-            self.booksCollectionView.reloadData()
             self.discoverBooks = discoverBooks
             self.showLimit = showLimit
+            self.booksCollectionView.reloadData()
         }
         
         setupCollectionView()

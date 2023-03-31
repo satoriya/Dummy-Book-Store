@@ -26,20 +26,18 @@ enum FetchDataError: Error {
 
 protocol FetchDataProtocol {
     func fetch(
-        urlString: String,
+        url: URL,
         onCompletion: @escaping (Result<Data, FetchDataError>) -> Void
-    )
+    ) -> URLSessionTask
 }
 
 struct FetchDataService: FetchDataProtocol {
     func fetch(
-        urlString: String,
+        url: URL,
         onCompletion: @escaping (Result<Data, FetchDataError>) -> Void
-    ) {
-        guard let url = URL(string: urlString)
-        else { return onCompletion(.failure(.invalidUrl)) }
+    ) -> URLSessionTask {
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        return URLSession.shared.dataTask(with: url) { data, response, error in
             
             if let error = error {
                 return onCompletion(.failure(
@@ -58,6 +56,6 @@ struct FetchDataService: FetchDataProtocol {
             
             return onCompletion(.failure(.noData))
             
-        }.resume()
+        }
     }
 }

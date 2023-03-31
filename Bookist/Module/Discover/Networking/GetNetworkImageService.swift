@@ -5,17 +5,20 @@
 //  Created by Teguh Wibowo Wijaya on 30/03/23.
 //
 
-import Foundation
+import UIKit
 
 protocol GetNetworkImageProtocol {
     func get(
         from urlString: String,
-        onCompletion: @escaping (_ imageData: Data?, _ errorMessage: String?) -> Void
+        onCompletion: @escaping (_ fetchedImage: UIImage?, _ errorMessage: String?) -> Void
     )
 }
 
-struct GetNetworkImageService: GetNetworkImageProtocol {
+var cache = NSCache<NSURL, UIImage>()
+
+class GetNetworkImageService: GetNetworkImageProtocol {
     private let fetchDataService: FetchDataProtocol
+    private var task: URLSessionTask?
     
     init(fetchDataService: FetchDataProtocol = FetchDataService()) {
         self.fetchDataService = fetchDataService
@@ -23,16 +26,36 @@ struct GetNetworkImageService: GetNetworkImageProtocol {
     
     func get(
         from urlString: String,
-        onCompletion: @escaping (_ imageData: Data?, _ errorMessage: String?) -> Void
+        onCompletion: @escaping (
+            _ fetchedImage: UIImage?,
+            _ errorMessage: String?
+        ) -> Void
     ) {
-        fetchDataService.fetch(urlString: urlString) { response in
+        
+        guard let url = URL(string: urlString)
+        else { return onCompletion(nil, "Invalid URL") }
+        
+        if let cachedImage = cache.object(forKey: url as NSURL) {
+            return onCompletion(cachedImage, nil)
+        }
+        
+        task = fetchDataService.fetch(url: url) { response in
             switch response {
-            case .success(let fetchData):
-                return onCompletion(fetchData, nil)
+            case .success(let fetchedData):
+                if let fetchedImage = UIImage(data: fetchedData) {
+                    return onCompletion(fetchedImage, nil)
+                } else {
+                    return onCompletion(nil, "Fetched Image is not working.")
+                }
                 
-            case .failure(let fetchError):
-                return onCompletion(nil, fetchError.getErrorMessage())
+            case .failure(let fetchedError):
+                return onCompletion(nil, fetchedError.getErrorMessage())
             }
         }
+        task?.resume()
+    }
+    
+    func cancelImageRequest() {
+        task?.cancel()
     }
 }

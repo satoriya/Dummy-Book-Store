@@ -14,6 +14,8 @@ class DiscoverBookCollectionViewCell: UICollectionViewCell {
     private let defaultImage = UIImage(systemName: "text.book.closed.fill")
     private let ratingImage = UIImage(systemName: "star.leadinghalf.filled")
     private let loadingColor = UIColor.black.withAlphaComponent(0.2)
+    
+    private var getNetworkImageService = GetNetworkImageService()
 
     @IBOutlet weak var containerView: UIView! {
         didSet {
@@ -25,6 +27,8 @@ class DiscoverBookCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var bookImageView: UIImageView! {
         didSet {
+            bookImageView.backgroundColor = loadingColor
+            bookImageView.image = nil
             bookImageView.contentMode = .scaleAspectFit
             bookImageView.layer.cornerRadius = 10
             bookImageView.backgroundColor = .black.withAlphaComponent(0.1)
@@ -69,6 +73,11 @@ class DiscoverBookCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
+    override func prepareForReuse() {
+        bookImageView.image = nil
+        getNetworkImageService.cancelImageRequest()
+    }
+    
     func setupCell(
         book: DiscoverBookModel?,
         cellSize: CGSize,
@@ -86,7 +95,12 @@ class DiscoverBookCollectionViewCell: UICollectionViewCell {
             height: bookImageView.frame.height
         )
         
-        bookImageView.loadImageFromUrl(book.imageUrlString, withDefault: defaultImage, targetSize: imageViewSize)
+        bookImageView.loadImageFromUrl(
+            book.imageUrlString,
+            withDefault: nil,
+            targetSize: imageViewSize,
+            getImageNetworkService: getNetworkImageService
+        )
         
         bookTitleLabel.text = book.title
         bookRatingLabel.text = String(format: "%.2f", book.rating ?? 0)
@@ -101,7 +115,6 @@ class DiscoverBookCollectionViewCell: UICollectionViewCell {
         bookRatingImageView.image = nil
         
         bookImageView.image = nil
-        bookImageView.backgroundColor = loadingColor
         bookTitleLabel.backgroundColor = loadingColor
         bookRatingLabel.backgroundColor = loadingColor
         bookPriceLabel.backgroundColor = loadingColor
@@ -114,7 +127,6 @@ class DiscoverBookCollectionViewCell: UICollectionViewCell {
     }
     
     private func clearOnLoadingView() {
-        bookImageView.backgroundColor = loadingColor
         bookTitleLabel.backgroundColor = .clear
         bookRatingLabel.backgroundColor = .clear
         bookPriceLabel.backgroundColor = .clear

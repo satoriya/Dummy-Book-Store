@@ -15,9 +15,10 @@ protocol GetAPIProtocol {
     )
 }
 
-struct GetAPIService: GetAPIProtocol {
+class GetAPIService: GetAPIProtocol {
     private let fetchDataService: FetchDataProtocol
     private let parseDataService: ParseDataProtocol
+    private var task: URLSessionTask?
     
     init(
         fetchDataService: FetchDataProtocol = FetchDataService(),
@@ -32,10 +33,14 @@ struct GetAPIService: GetAPIProtocol {
         with model: T.Type,
         onCompletion: @escaping (_ resultData :T?, _ errorMessage: String?) -> Void)
     where T : Decodable {
-        fetchDataService.fetch(urlString: urlString) { fetchResponse in
+        
+        guard let url = URL(string: urlString)
+        else { return onCompletion(nil, "Invalid URL")}
+        
+        task = fetchDataService.fetch(url: url) { fetchResponse in
             switch fetchResponse {
             case .success(let fetchedData):
-                parseDataService.parse(fetchedData, to: model) { parseResponse in
+                self.parseDataService.parse(fetchedData, to: model) { parseResponse in
                     
                     switch parseResponse {
                     case .success(let parsedData):
@@ -51,5 +56,7 @@ struct GetAPIService: GetAPIProtocol {
                 return onCompletion(nil, fetchedError.getErrorMessage())
             }
         }
+        
+        task?.resume()
     }
 }

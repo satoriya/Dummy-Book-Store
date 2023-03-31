@@ -11,15 +11,14 @@ extension UIImageView {
     func loadImageFromUrl(
         _ urlString: String,
         withDefault defaultImage: UIImage?,
-        targetSize: CGSize? = nil
+        targetSize: CGSize? = nil,
+        getImageNetworkService: GetNetworkImageProtocol
     ) {
-        let getImageNetworkService = GetNetworkImageService()
-        
-        getImageNetworkService.get(from: urlString) { imageData, errorMessage in
+        getImageNetworkService.get(from: urlString) { [weak self] fetchedImage, errorMessage in
             var image: UIImage?
-            
-            if let imageData = imageData {
-                image = UIImage(data: imageData)
+
+            if let fetchedImage = fetchedImage {
+                image = fetchedImage
                 if let targetSize = targetSize {
                     image = image?.scaleImagePreservingRatio(with: targetSize)
                 }
@@ -27,10 +26,10 @@ extension UIImageView {
                 print(errorMessage)
                 image = defaultImage
             }
-            
+
             DispatchQueue.main.async {
-                self.image = image
-                self.contentMode = .center
+                self?.image = image
+                self?.contentMode = .center
             }
         }
     }
