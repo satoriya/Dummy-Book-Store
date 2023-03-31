@@ -7,6 +7,8 @@
 
 import UIKit
 
+var isListView = false
+
 class GenreViewController: UIViewController {
     
     var tagList: [String] = ["Fantasy", "Sci-Fi", "Kids"]
@@ -56,13 +58,12 @@ class GenreViewController: UIViewController {
         return btn
     }()
     
-    var isListView = false
     
     var collectionView: UICollectionView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         navigationController?.navigationBar.prefersLargeTitles = false
         title = "Genre"
@@ -95,7 +96,7 @@ class GenreViewController: UIViewController {
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
-
+        
         headerView.addSubview(showOnLabel)
         showOnLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -104,7 +105,7 @@ class GenreViewController: UIViewController {
         ])
         showOnLabel.text = "Show On"
         showOnLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-
+        
         headerView.addSubview(gridButton)
         gridButton.translatesAutoresizingMaskIntoConstraints = false
         gridButton.setImage(UIImage(systemName: "square.grid.2x2.fill"), for: .normal)
@@ -115,7 +116,7 @@ class GenreViewController: UIViewController {
             gridButton.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -16),
             gridButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16)
         ])
-
+        
         headerView.addSubview(listButton)
         listButton.translatesAutoresizingMaskIntoConstraints = false
         listButton.setImage(UIImage(systemName: "rectangle.grid.1x2"), for: .normal)
@@ -126,18 +127,14 @@ class GenreViewController: UIViewController {
             listButton.centerYAnchor.constraint(equalTo: gridButton.centerYAnchor),
         ])
         
-//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-//        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10 )
-//        layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2.17, height: UIScreen.main.bounds.height / 2.6)
-//        layout.scrollDirection = .vertical
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-
+        
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-
+        
         view.addSubview(collectionView)
-
+        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
@@ -152,7 +149,6 @@ class GenreViewController: UIViewController {
         
     }
     
-    
     @objc func searchBarButtonTapped(_ sender: Any) {
         
     }
@@ -164,47 +160,71 @@ class GenreViewController: UIViewController {
     @objc func gridButtonTapped(_ sender: Any) {
         gridButton.setImage(UIImage(systemName: "square.grid.2x2.fill"), for: .normal)
         listButton.setImage(UIImage(systemName: "rectangle.grid.1x2"), for: .normal)
+        isListView = false
+        self.collectionView.reloadData()
     }
     
     @objc func listButtonTapped(_ sender: Any) {
         listButton.setImage(UIImage(systemName: "rectangle.grid.1x2.fill"), for: .normal)
         gridButton.setImage(UIImage(systemName: "square.grid.2x2"), for: .normal)
+        isListView = true
+        self.collectionView.reloadData()
     }
-
+    
 }
 
 extension GenreViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookcell", for: indexPath) as? BookGridCell else { return UICollectionViewCell()}
-//
-//        cell.setupUI()
-//        cell.setupData()
-
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "booklist", for: indexPath) as? BookListCell else { return UICollectionViewCell() }
-
-        cell.setupUI()
-        cell.setupData(data: tagList)
-
-        return cell
+        if isListView {
+            
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "booklist", for: indexPath) as? BookListCell else { return UICollectionViewCell() }
+            
+            cell.setupUI()
+            cell.setupData(data: tagList)
+            
+            return cell
+            
+        }
+        else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookcell", for: indexPath) as? BookGridCell else { return UICollectionViewCell()}
+            
+            cell.setupUI()
+            cell.setupData()
+            return cell
+        }
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 20
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1.0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width / 1.1, height: collectionView.frame.size.height / 4.2)
+        if isListView {
+            return CGSize(width: collectionView.frame.size.width / 1.1, height: collectionView.frame.size.height / 4.2)
+        }
+        else {
+            return CGSize(width: UIScreen.main.bounds.width / 2.17, height: UIScreen.main.bounds.height / 2.6)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
+        if isListView {
+            return UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
+        }
+        else {
+            return UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+        }
+        
     }
 }
+
+//        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10 )
+//        layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2.17, height: UIScreen.main.bounds.height / 2.6)
