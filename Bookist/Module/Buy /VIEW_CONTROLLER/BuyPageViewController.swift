@@ -19,13 +19,15 @@ class BuyPageViewController: UIViewController, UITableViewDataSource, UITableVie
             return 1
         case 3:
             return 1
+        case 4:
+            return 1
         default:
             break
         }
         return 3
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -38,8 +40,6 @@ class BuyPageViewController: UIViewController, UITableViewDataSource, UITableVie
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: BookRatingTableViewCell.identifier, for: indexPath) as? BookRatingTableViewCell else {return UITableViewCell()}
             cell.setUpBookingTableCell()
-//            cell.layer.borderColor = UIColor.green.cgColor
-//            cell.layer.borderWidth = 1
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionTableViewCell.identifier, for: indexPath) as? DescriptionTableViewCell else {
@@ -52,6 +52,10 @@ class BuyPageViewController: UIViewController, UITableViewDataSource, UITableVie
                 return UITableViewCell()
             }
             cell.setUpTableCell()
+            return cell
+        case 4:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: RateThisBookTableViewCell.identifier, for: indexPath) as? RateThisBookTableViewCell else{ return UITableViewCell()}
+            cell.setUpTable()
             return cell
         default:
             break
@@ -72,6 +76,7 @@ class BuyPageViewController: UIViewController, UITableViewDataSource, UITableVie
         table.register(BookRatingTableViewCell.self, forCellReuseIdentifier: BookRatingTableViewCell.identifier)
         table.register(DescriptionTableViewCell.self, forCellReuseIdentifier: DescriptionTableViewCell.identifier)
         table.register(RatingsTableViewCell.self, forCellReuseIdentifier: RatingsTableViewCell.identifier)
+        table.register(RateThisBookTableViewCell.self, forCellReuseIdentifier: RateThisBookTableViewCell.identifier)
         return table
     }()
     override func viewDidLoad() {
