@@ -17,13 +17,15 @@ class BuyPageViewController: UIViewController, UITableViewDataSource, UITableVie
             return 1
         case 2:
             return 1
+        case 3:
+            return 1
         default:
             break
         }
         return 3
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,6 +43,12 @@ class BuyPageViewController: UIViewController, UITableViewDataSource, UITableVie
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionTableViewCell.identifier, for: indexPath) as? DescriptionTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.setUpTableCell()
+            return cell
+        case 3:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: RatingsTableViewCell.identifier, for: indexPath) as? RatingsTableViewCell else {
                 return UITableViewCell()
             }
             cell.setUpTableCell()
@@ -63,6 +71,7 @@ class BuyPageViewController: UIViewController, UITableViewDataSource, UITableVie
         table.register(AboutBookTableViewCell.self, forCellReuseIdentifier: AboutBookTableViewCell.identifier)
         table.register(BookRatingTableViewCell.self, forCellReuseIdentifier: BookRatingTableViewCell.identifier)
         table.register(DescriptionTableViewCell.self, forCellReuseIdentifier: DescriptionTableViewCell.identifier)
+        table.register(RatingsTableViewCell.self, forCellReuseIdentifier: RatingsTableViewCell.identifier)
         return table
     }()
     override func viewDidLoad() {

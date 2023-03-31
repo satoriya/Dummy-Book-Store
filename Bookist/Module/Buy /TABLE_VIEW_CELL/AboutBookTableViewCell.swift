@@ -125,14 +125,6 @@ static let identifier = "AboutBookTableViewCell"
  
         bookTitle.setContentHuggingPriority(.defaultLow, for: .vertical)
         
-//        container.layer.borderColor = UIColor.black.cgColor
-//        container.layer.borderWidth = 1
-//        fantasyGenre.layer.borderColor = UIColor.black.cgColor
-//        fantasyGenre.layer.borderWidth = 1
-//        fictionGenre.layer.borderColor = UIColor.blue.cgColor
-//        fictionGenre.layer.borderWidth = 1
-//        stackViewForWrapGenres.layer.borderColor = UIColor.yellow.cgColor
-//        stackViewForWrapGenres.layer.borderWidth = 1
         
         NSLayoutConstraint.activate([
             container.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 2),

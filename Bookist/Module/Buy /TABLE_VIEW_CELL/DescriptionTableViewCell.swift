@@ -52,8 +52,7 @@ class DescriptionTableViewCell: UITableViewCell {
          
             arrowImg.topAnchor.constraint(equalTo: descLabel.topAnchor),
             arrowImg.leadingAnchor.constraint(equalTo: descLabel.trailingAnchor, constant: 10),
-            arrowImg.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -3),
-            arrowImg.bottomAnchor.constraint(equalTo: descLabel.bottomAnchor),
+            arrowImg.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -20),
             
             bookDesc.topAnchor.constraint(equalTo: descLabel.topAnchor, constant: 35),
             bookDesc.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 3),

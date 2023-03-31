@@ -9,13 +9,7 @@ import UIKit
 
 class BookRatingTableViewCell: UITableViewCell {
     static let identifier = "BookRatingTableViewCell"
-    
-//    private lazy var container : UIView = {
-//        let containervw = UIView()
-//        containervw.translatesAutoresizingMaskIntoConstraints = false
-//        return containervw
-//    }()
-    
+        
     private lazy var stackView : UIStackView = {
         let stackVw = UIStackView()
         stackVw.translatesAutoresizingMaskIntoConstraints = false
