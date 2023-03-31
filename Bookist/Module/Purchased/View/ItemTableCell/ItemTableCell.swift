@@ -50,10 +50,10 @@ class ItemTableCell: UITableViewCell {
         statusLabel.text = "Purchased"
         statusLabel.font = UIFont.boldSystemFont(ofSize: 14)
         statusLabel.textColor = UIColor.gray
-        statusLabel.numberOfLines = 1
+        statusLabel.numberOfLines = 2
         statusLabel.textAlignment = .left
         statusLabel.lineBreakMode = .byWordWrapping
-        statusLabel.preferredMaxLayoutWidth = 100
+        statusLabel.preferredMaxLayoutWidth = 200
         
         // starIcon
         starIcon.tintColor = UIColor.gray
@@ -63,10 +63,6 @@ class ItemTableCell: UITableViewCell {
         
         // dotsIcon
         dotsIcon.tintColor = UIColor.gray
-        
-    }
-    
-    func configure(model: PurchasedModel) {
         
     }
     

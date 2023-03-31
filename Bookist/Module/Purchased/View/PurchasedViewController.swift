@@ -11,7 +11,7 @@ class PurchasedViewController: UIViewController {
     
     var purchasedViewModel: PurchasedViewModel?
     
-    private var listItems: PurchasedModel?
+    var listItem: PurchasedModel?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -58,8 +58,7 @@ class PurchasedViewController: UIViewController {
         
         let label = UILabel()
         label.textColor = label.tintColor
-        // label text from pagetitle
-        label.text = listItems?.pageTitle ?? "null"
+        label.text = listItem?.pageTitle ?? "Purchased List"
         label.textColor = .label
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.textAlignment = .left
@@ -77,7 +76,7 @@ class PurchasedViewController: UIViewController {
         self.purchasedViewModel?.bindListData = {
             listModel in
             if let listData = listModel {
-                self.listItems = listData
+                self.listItem = listData
                 print("bind")
             }
             DispatchQueue.main.async {
@@ -89,13 +88,17 @@ class PurchasedViewController: UIViewController {
 
 extension PurchasedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return listItem?.data.items.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableCell.identifier, for: indexPath) as? ItemTableCell else {
             return UITableViewCell()
         }
+        cell.titleLabel.text = listItem?.data.items[indexPath.row].title
+        cell.ratingLabel.text = "\(listItem?.data.items[indexPath.row].rating ?? 0)"
+        cell.statusLabel.text = listItem?.data.items[indexPath.row].subtitle ?? "Subtitle not found"
+        cell.imgLabel.imageFromURL(urlString: listItem?.data.items[indexPath.row].image ?? "harrypotter", size: CGSize(width: 180, height: 200))
         
         return cell
     }
@@ -105,4 +108,3 @@ extension PurchasedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
-
