@@ -28,7 +28,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g41-po-Eev">
-                                <rect key="frame" x="8" y="258" width="187" height="50"/>
+                                <rect key="frame" x="2" y="258" width="199" height="44"/>
                                 <string key="text">Star Wars : The Last 
 Jedi</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -36,7 +36,7 @@ Jedi</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9jQ-Vq-6Zs">
-                                <rect key="frame" x="8" y="310" width="64.333333333333329" height="17"/>
+                                <rect key="frame" x="2" y="310" width="64.333333333333329" height="17"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.9" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvh-hh-xRE">
                                         <rect key="frame" x="0.0" y="0.0" width="21.666666666666668" height="17"/>
@@ -58,13 +58,13 @@ Jedi</string>
                             <constraint firstItem="R04-qh-HZL" firstAttribute="leading" secondItem="vEL-jM-BsF" secondAttribute="leading" id="4cq-a5-8GT"/>
                             <constraint firstItem="R04-qh-HZL" firstAttribute="top" secondItem="vEL-jM-BsF" secondAttribute="top" id="Ccl-ez-2gH"/>
                             <constraint firstAttribute="trailing" secondItem="R04-qh-HZL" secondAttribute="trailing" id="CfB-iH-vGk"/>
-                            <constraint firstItem="9jQ-Vq-6Zs" firstAttribute="leading" secondItem="vEL-jM-BsF" secondAttribute="leading" constant="8" id="Gyc-cA-V6P"/>
-                            <constraint firstAttribute="trailing" secondItem="g41-po-Eev" secondAttribute="trailing" constant="8" id="PyW-4Z-Hs1"/>
-                            <constraint firstItem="g41-po-Eev" firstAttribute="leading" secondItem="vEL-jM-BsF" secondAttribute="leading" constant="8" id="Xm5-0x-8WN"/>
-                            <constraint firstItem="9jQ-Vq-6Zs" firstAttribute="top" secondItem="g41-po-Eev" secondAttribute="bottom" constant="2" id="cj0-4u-Xj8"/>
+                            <constraint firstItem="9jQ-Vq-6Zs" firstAttribute="leading" secondItem="vEL-jM-BsF" secondAttribute="leading" constant="2" id="Gyc-cA-V6P"/>
+                            <constraint firstAttribute="trailing" secondItem="g41-po-Eev" secondAttribute="trailing" constant="2" id="PyW-4Z-Hs1"/>
+                            <constraint firstItem="g41-po-Eev" firstAttribute="leading" secondItem="vEL-jM-BsF" secondAttribute="leading" constant="2" id="Xm5-0x-8WN"/>
+                            <constraint firstItem="9jQ-Vq-6Zs" firstAttribute="top" secondItem="g41-po-Eev" secondAttribute="bottom" constant="8" id="cj0-4u-Xj8"/>
                             <constraint firstAttribute="bottom" secondItem="9jQ-Vq-6Zs" secondAttribute="bottom" constant="8" id="egL-Oz-enJ"/>
                             <constraint firstItem="g41-po-Eev" firstAttribute="top" secondItem="R04-qh-HZL" secondAttribute="bottom" constant="8" id="eyW-90-AjI"/>
-                            <constraint firstAttribute="trailing" secondItem="9jQ-Vq-6Zs" secondAttribute="trailing" priority="250" constant="8" id="yWR-Td-7L1"/>
+                            <constraint firstAttribute="trailing" secondItem="9jQ-Vq-6Zs" secondAttribute="trailing" priority="250" constant="2" id="yWR-Td-7L1"/>
                         </constraints>
                     </view>
                 </subviews>

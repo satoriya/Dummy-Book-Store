@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class BookListCell: UICollectionViewCell {
     
@@ -41,6 +42,11 @@ class BookListCell: UICollectionViewCell {
         return sv
     }()
     
+    func setupListCell(item: Item) {
+        setupUI()
+        setupData(item: item)
+    }
+    
     func setupUI() {
         contentView.addSubview(background)
         background.translatesAutoresizingMaskIntoConstraints = false
@@ -55,7 +61,7 @@ class BookListCell: UICollectionViewCell {
         bookCoverImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             bookCoverImage.topAnchor.constraint(equalTo: background.topAnchor),
-            bookCoverImage.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 16),
+            bookCoverImage.leadingAnchor.constraint(equalTo: background.leadingAnchor),
             bookCoverImage.bottomAnchor.constraint(equalTo: background.bottomAnchor),
             bookCoverImage.widthAnchor.constraint(equalToConstant: 120)
         ])
@@ -104,41 +110,39 @@ class BookListCell: UICollectionViewCell {
         constraint.isActive = true
     }
     
-    func setupData(data: [String]?) {
-        bookCoverImage.image = UIImage(named: "dummy1")
+    func setupData(item: Item) {
+        bookCoverImage.sd_setImage(with: URL(string: item.image))
         
-        bookTitleLabel.text = "Harry Potter and the Deadly Hollows"
+        bookTitleLabel.text = item.title
         
-        bookPriceLabel.text = "$4.99"
+        bookPriceLabel.text = "$\(item.price)"
         
-        bookRatingLabel.text = "⭑ 4.9"
+        bookRatingLabel.text = "⭑\(item.rating)"
         
         tagStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         tagStackView.axis = .horizontal
-        tagStackView.distribution = .fillEqually
+        tagStackView.distribution = .fillProportionally
         tagStackView.spacing = 4
-        if let data = data {
-            data.forEach { tag in
-                let bgTag = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-                bgTag.translatesAutoresizingMaskIntoConstraints = false
-                bgTag.backgroundColor = .lightGray
-                bgTag.layer.cornerRadius = 4
-                bgTag.layer.masksToBounds = true
-                let tagLabel = UILabel()
-                tagLabel.translatesAutoresizingMaskIntoConstraints = false
-                bgTag.addSubview(tagLabel)
-                tagLabel.text = tag
-                tagLabel.font = UIFont.systemFont(ofSize: 12)
-                tagLabel.textColor = .black
-                tagLabel.textAlignment = .center
-                NSLayoutConstraint.activate([
-                    tagLabel.leadingAnchor.constraint(equalTo: bgTag.leadingAnchor, constant: 1),
-                    tagLabel.topAnchor.constraint(equalTo: bgTag.topAnchor, constant: 2),
-                    tagLabel.trailingAnchor.constraint(equalTo: bgTag.trailingAnchor, constant: -1),
-                    tagLabel.bottomAnchor.constraint(equalTo: bgTag.bottomAnchor, constant: -2)
-                ])
-                self.tagStackView.addArrangedSubview(bgTag)
-            }
+        item.genre.forEach { tag in
+            let bgTag = UIView()
+            bgTag.translatesAutoresizingMaskIntoConstraints = false
+            bgTag.backgroundColor = .lightGray
+            bgTag.layer.cornerRadius = 4
+            bgTag.layer.masksToBounds = true
+            let tagLabel = UILabel()
+            tagLabel.translatesAutoresizingMaskIntoConstraints = false
+            bgTag.addSubview(tagLabel)
+            tagLabel.text = tag
+            tagLabel.font = UIFont.systemFont(ofSize: 12)
+            tagLabel.textColor = .black
+            tagLabel.textAlignment = .center
+            NSLayoutConstraint.activate([
+                tagLabel.leadingAnchor.constraint(equalTo: bgTag.leadingAnchor, constant: 2),
+                tagLabel.topAnchor.constraint(equalTo: bgTag.topAnchor, constant: 2),
+                tagLabel.trailingAnchor.constraint(equalTo: bgTag.trailingAnchor, constant: -2),
+                tagLabel.bottomAnchor.constraint(equalTo: bgTag.bottomAnchor, constant: -2)
+            ])
+            self.tagStackView.addArrangedSubview(bgTag)
         }
     }
     

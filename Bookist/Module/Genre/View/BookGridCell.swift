@@ -20,6 +20,11 @@ class BookGridCell: UICollectionViewCell {
         // Initialization code
     }
     
+    func setupGridCell(item: Item) {
+        setupUI()
+        setupData(item: item)
+    }
+    
     func setupUI() {
         bookCoverImage.layer.cornerRadius = 10
         bookCoverImage.layer.masksToBounds = true
@@ -27,19 +32,17 @@ class BookGridCell: UICollectionViewCell {
         
         bookTitleLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         
-        bookRatingLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
-        bookPriceLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        bookRatingLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
+        bookPriceLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
     }
     
-    func setupData() {
-        bookCoverImage.image = UIImage(systemName: "person")
-        bookCoverImage.backgroundColor = .systemRed
-        bookCoverImage.contentMode = .scaleAspectFill
-        bookTitleLabel.text = "Harry Potter and the Deadly Hallows"
-        bookTitleLabel.numberOfLines = 2
-        bookRatingLabel.text = "⭐️ 4.9"
-        bookPriceLabel.text = "$4.99"
+    func setupData(item: Item) {
+        bookCoverImage.sd_setImage(with: URL(string: item.image))
+        bookCoverImage.contentMode = .scaleToFill
+        bookTitleLabel.text = item.title
+        bookTitleLabel.numberOfLines = 3
+        bookRatingLabel.text = "★\(item.rating)"
+        bookPriceLabel.text = "$\(item.price)"
         bottomStack.spacing = 8
     }
-
 }

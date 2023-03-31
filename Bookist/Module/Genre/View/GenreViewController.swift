@@ -11,6 +11,10 @@ var isListView = false
 
 class GenreViewController: UIViewController {
     
+    private var genre: GenreResponse?
+    
+    var viewModel: GenreViewModel?
+    
     var tagList: [String] = ["Fantasy", "Sci-Fi", "Kids"]
     
     let headerView: UIView = {
@@ -45,16 +49,22 @@ class GenreViewController: UIViewController {
     
     let showOnLabel: UILabel = {
         let lb = UILabel()
+        lb.text = "Show On"
+        lb.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         return lb
     }()
     
     let gridButton: UIButton = {
         let btn = UIButton()
+        btn.setImage(UIImage(systemName: "square.grid.2x2.fill"), for: .normal)
+        btn.tintColor = .orange
         return btn
     }()
     
     let listButton: UIButton = {
         let btn = UIButton()
+        btn.setImage(UIImage(systemName: "rectangle.grid.1x2"), for: .normal)
+        btn.tintColor = UIColor.orange
         return btn
     }()
     
@@ -65,6 +75,17 @@ class GenreViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        self.viewModel = GenreViewModel(urlString: "http://localhost:3002/genre/programming", apiService: ApiService())
+        
+        self.viewModel?.bindData = { genreData in
+            if let genreData = genreData {
+                self.genre = genreData
+            }
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+        
         navigationController?.navigationBar.prefersLargeTitles = false
         title = "Genre"
         setup()
@@ -103,25 +124,19 @@ class GenreViewController: UIViewController {
             showOnLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
             showOnLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor)
         ])
-        showOnLabel.text = "Show On"
-        showOnLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         
         headerView.addSubview(gridButton)
         gridButton.translatesAutoresizingMaskIntoConstraints = false
-        gridButton.setImage(UIImage(systemName: "square.grid.2x2.fill"), for: .normal)
-        gridButton.addTarget(self, action: #selector(gridButtonTapped(_:)), for: .touchUpInside)
-        gridButton.tintColor = .orange
         NSLayoutConstraint.activate([
             gridButton.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 16),
             gridButton.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -16),
             gridButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16)
         ])
+        gridButton.addTarget(self, action: #selector(gridButtonTapped(_:)), for: .touchUpInside)
         
         headerView.addSubview(listButton)
         listButton.translatesAutoresizingMaskIntoConstraints = false
-        listButton.setImage(UIImage(systemName: "rectangle.grid.1x2"), for: .normal)
         listButton.addTarget(self, action: #selector(listButtonTapped(_:)), for: .touchUpInside)
-        listButton.tintColor = UIColor.orange
         NSLayoutConstraint.activate([
             listButton.trailingAnchor.constraint(equalTo: gridButton.leadingAnchor, constant: -16),
             listButton.centerYAnchor.constraint(equalTo: gridButton.centerYAnchor),
@@ -130,11 +145,8 @@ class GenreViewController: UIViewController {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        
         view.addSubview(collectionView)
-        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
@@ -142,6 +154,7 @@ class GenreViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "BookGridCell", bundle: nil), forCellWithReuseIdentifier: "bookcell")
@@ -176,26 +189,25 @@ class GenreViewController: UIViewController {
 extension GenreViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if isListView {
-            
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "booklist", for: indexPath) as? BookListCell else { return UICollectionViewCell() }
             
             cell.setupUI()
-            cell.setupData(data: tagList)
-            
+            guard let genreItem = genre?.data.items[indexPath.row] else { return UICollectionViewCell() }
+            cell.setupListCell(item: genreItem)
             return cell
-            
         }
         else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookcell", for: indexPath) as? BookGridCell else { return UICollectionViewCell()}
             
-            cell.setupUI()
-            cell.setupData()
+            guard let genreItem = genre?.data.items[indexPath.row] else { return UICollectionViewCell() }
+            
+            cell.setupGridCell(item: genreItem)
             return cell
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return genre?.data.items.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -220,11 +232,8 @@ extension GenreViewController: UICollectionViewDelegateFlowLayout, UICollectionV
             return UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
         }
         else {
-            return UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+            return UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
         }
         
     }
 }
-
-//        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10 )
-//        layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2.17, height: UIScreen.main.bounds.height / 2.6)
