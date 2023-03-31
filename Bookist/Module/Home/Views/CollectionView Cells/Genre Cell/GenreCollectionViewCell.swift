@@ -33,4 +33,8 @@ class GenreCollectionViewCell: UICollectionViewCell {
         self.layer.cornerRadius = 10
     }
 
+    func configureData(modelData: BookData?) {
+        
+        genreTitle.text = modelData?.title
+    }
 }

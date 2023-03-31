@@ -8,12 +8,15 @@
 import UIKit
 
 enum Sections: Int {
-    case top = 0, genres, recommended, purchased, wishlist
+    case top = 0, genres, recommended, new, wishlist
 }
 
 class HomeViewController: UIViewController {
 
     let sectionTitles = ["Explore By Genre", "Recommended For You", "On Your Purchased", "On Your Wishlist"]
+    var bookData: Book?
+    var homeVM: HomeProtocol?
+    
     
     private lazy var homeTable: UITableView = {
         let tb = UITableView(frame: .zero, style: .grouped)
@@ -26,11 +29,19 @@ class HomeViewController: UIViewController {
         return tb
     }()
     
+    override func loadView() {
+        super.loadView()
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupNavigationBar()
+        homeVM = HomeViewModel(apiServiceProtocol: APIService())
+        
+        callAPI()
         setupTable()
+        setupNavigationBar()
+        
     }
 
     func setupNavigationBar() {
@@ -79,6 +90,8 @@ class HomeViewController: UIViewController {
         
         homeTable.backgroundColor = .systemBackground
         homeTable.separatorStyle = .none
+        homeTable.tableFooterView = UIView(frame: CGRect.zero)
+        homeTable.sectionFooterHeight = 0.0
         
         NSLayoutConstraint.activate([
             homeTable.topAnchor.constraint(equalTo: view.topAnchor),
@@ -87,8 +100,20 @@ class HomeViewController: UIViewController {
             homeTable.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
+        
         homeTable.delegate = self
         homeTable.dataSource = self
+    }
+    
+    func callAPI() {
+        
+        homeVM?.bookDataBinding = { books in
+            self.bookData = books
+            print("This is books: \(self.bookData)")
+        }
+        DispatchQueue.main.async { [weak self] in
+            self?.homeTable.reloadData()
+        }
     }
 
 }
@@ -107,7 +132,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if section > 0 {
             let header = homeTable.dequeueReusableHeaderFooterView(withIdentifier: HeaderTableCell.identifier) as? HeaderTableCell
             header?.addSubviews()
-            header?.configure(title: sectionTitles[section-1])
+            header?.configure(title: bookData?.data.items[section-1].cover ?? "")
             return header
 
         } else {
@@ -119,7 +144,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 1 {
             return 80
         } else {
-            return 340
+            return 325
         }
     }
     
@@ -130,29 +155,28 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         switch sections {
         case .top:
             guard let topCell = homeTable.dequeueReusableCell(withIdentifier: BookTableCell.identifier, for: indexPath) as? BookTableCell else { return UITableViewCell() }
-//            topCell.textLabel?.text = "test"
-            topCell.setupBookCollectionView()
+            topCell.setupBookCollectionView(bookItems: self.bookData?.data.items[1].data)
             return topCell
             
         case .genres:
             guard let genreCell = homeTable.dequeueReusableCell(withIdentifier: GenreTableCell.identifier, for: indexPath) as? GenreTableCell else { return UITableViewCell() }
-            genreCell.setupGenreCollectionView()
+            genreCell.setupGenreCollectionView(genres: self.bookData?.data.items[0].data)
             return genreCell
             
         case .recommended:
             guard let recdCell = homeTable.dequeueReusableCell(withIdentifier: BookTableCell.identifier, for: indexPath) as? BookTableCell else { return UITableViewCell() }
-            recdCell.setupBookCollectionView()
+            recdCell.setupBookCollectionView(bookItems: self.bookData?.data.items[1].data)
             return recdCell
 
-        case .purchased:
+        case .new:
             guard let purchasedCell = homeTable.dequeueReusableCell(withIdentifier: BookTableCell.identifier, for: indexPath) as? BookTableCell else { return UITableViewCell() }
-            purchasedCell.setupBookCollectionView()
+            purchasedCell.setupBookCollectionView(bookItems: self.bookData?.data.items[2].data)
             return purchasedCell
 
             
         case .wishlist:
             guard let wishlistCell = homeTable.dequeueReusableCell(withIdentifier: BookTableCell.identifier, for: indexPath) as? BookTableCell else { return UITableViewCell() }
-            wishlistCell.setupBookCollectionView()
+            wishlistCell.setupBookCollectionView(bookItems: self.bookData?.data.items[3].data)
             return wishlistCell
 
 

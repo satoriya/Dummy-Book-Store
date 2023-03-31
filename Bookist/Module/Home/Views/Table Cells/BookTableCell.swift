@@ -10,6 +10,7 @@ import UIKit
 class BookTableCell: UITableViewCell {
 
     static let identifier = "BookTableCell"
+    var books: [BookData]?
     
     private lazy var bookCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -25,7 +26,13 @@ class BookTableCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    func setupBookCollectionView() {
+    func setupBookCollectionView(bookItems: [BookData]?) {
+        self.books = bookItems
+        print("BookTableCell Data: \(self.books)")
+
+        DispatchQueue.main.async { [weak self] in
+            self?.bookCollectionView.reloadData()
+        }
         bookCollectionView.delegate = self
         bookCollectionView.dataSource = self
         
@@ -40,6 +47,7 @@ class BookTableCell: UITableViewCell {
 
         ])
     }
+    
 }
 
 extension BookTableCell: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -49,7 +57,7 @@ extension BookTableCell: UICollectionViewDelegateFlowLayout, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.frame.width / 2.3, height: 340)
+        return CGSize(width: self.frame.width / 2.3, height: 325)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -61,12 +69,15 @@ extension BookTableCell: UICollectionViewDelegateFlowLayout, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        4
+        print("Books count: \(books?.count ?? 0)")
+        return books?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = bookCollectionView.dequeueReusableCell(withReuseIdentifier: BookCollectionViewCell.identifier, for: indexPath) as? BookCollectionViewCell else { return UICollectionViewCell() }
+        guard let books = books else { return cell }
         
+        cell.configureData(bookModel: books[indexPath.row])
         return cell
     }
     

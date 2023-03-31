@@ -37,19 +37,17 @@ class HeaderTableCell: UITableViewHeaderFooterView {
     
     func setupHeaderTitle() {
         NSLayoutConstraint.activate([
-            headerTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
+            headerTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             headerTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            headerTitle.trailingAnchor.constraint(equalTo: viewAllButton.leadingAnchor, constant: 10),
+            headerTitle.trailingAnchor.constraint(equalTo: viewAllButton.leadingAnchor, constant: -10),
             headerTitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
     }
     
     func setupViewAllButton() {
         NSLayoutConstraint.activate([
-            viewAllButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
             viewAllButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             viewAllButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            viewAllButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
     }
     

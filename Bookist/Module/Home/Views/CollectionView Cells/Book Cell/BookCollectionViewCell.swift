@@ -14,6 +14,7 @@ class BookCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bookImage: UIImageView! {
         didSet {
             bookImage.layer.cornerRadius = 10
+            bookImage.backgroundColor = .gray
         }
     }
     @IBOutlet weak var bookTitle: UILabel! {
@@ -40,6 +41,26 @@ class BookCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func configureData(bookModel: BookData?) {
+        let targetImageSize = CGSize(width: self.frame.width, height: bookImage.frame.height)
+        
+        
+        bookTitle.text = bookModel?.title
+        guard let url = bookModel?.image else {
+            return
+        }
+        bookImage.downloaded(from: url, targetSize: targetImageSize)
+        guard let price = bookModel?.price else { return }
+        
+        if price is String {
+            
+        }
+        
+        self.price.text = "\(price)"
+        
+        rating.text = "\(bookModel?.rating ?? 0.0)"
     }
 
 }

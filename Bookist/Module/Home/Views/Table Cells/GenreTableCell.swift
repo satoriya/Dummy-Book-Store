@@ -10,6 +10,7 @@ import UIKit
 class GenreTableCell: UITableViewCell {
 
     static let identifier = "GenreTableCell"
+    var genres: [BookData]?
     
     private lazy var genreCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -26,7 +27,13 @@ class GenreTableCell: UITableViewCell {
         // Initialization code
     }
     
-    func setupGenreCollectionView() {
+    func setupGenreCollectionView(genres: [BookData]?) {
+        self.genres = genres
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.genreCollectionView.reloadData()
+        }
+        
         genreCollectionView.delegate = self
         genreCollectionView.dataSource = self
         
@@ -63,12 +70,14 @@ extension GenreTableCell: UICollectionViewDelegateFlowLayout, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        4
+        return genres?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = genreCollectionView.dequeueReusableCell(withReuseIdentifier: GenreCollectionViewCell.identifier, for: indexPath) as? GenreCollectionViewCell else { return UICollectionViewCell() }
+        guard let genres = self.genres else { return cell }
         
+        cell.configureData(modelData: genres[indexPath.row])
         return cell
     }
     
