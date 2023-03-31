@@ -8,7 +8,11 @@
 import UIKit
 
 extension UIImageView {
-    func loadImageFromUrl(_ urlString: String, withDefault defaultImage: UIImage?) {
+    func loadImageFromUrl(
+        _ urlString: String,
+        withDefault defaultImage: UIImage?,
+        targetSize: CGSize? = nil
+    ) {
         let getImageNetworkService = GetNetworkImageService()
         
         getImageNetworkService.get(from: urlString) { imageData, errorMessage in
@@ -16,6 +20,9 @@ extension UIImageView {
             
             if let imageData = imageData {
                 image = UIImage(data: imageData)
+                if let targetSize = targetSize {
+                    image = image?.scaleImagePreservingRatio(with: targetSize)
+                }
             } else if let errorMessage = errorMessage {
                 print(errorMessage)
                 image = defaultImage
@@ -23,6 +30,7 @@ extension UIImageView {
             
             DispatchQueue.main.async {
                 self.image = image
+                self.contentMode = .center
             }
         }
     }

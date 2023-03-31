@@ -56,7 +56,8 @@ class DiscoverViewController: UIViewController {
     
     private func setupNavBar() {
         navigationController?.navigationBar.prefersLargeTitles = false
-        title = ""
+        title = "Discover"
+        self.navigationItem.titleView = UIView(frame: .zero)
         
         let leftBarItem = DiscoverLeftBarItem()
         leftBarItem.setupBarItem()
@@ -104,7 +105,7 @@ class DiscoverViewController: UIViewController {
 
 extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return discoverViewModel?.discoverData?.data.items.count ?? 0
+        return discoverViewModel?.discoverData?.data.items.count ?? 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -118,8 +119,7 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let discoverSection = discoverViewModel?.discoverData
-        else { return UITableViewCell() }
+        let discoverSection = discoverViewModel?.discoverData
         
         switch DiscoverSectionCell(rawValue: indexPath.row) {
         case .header:
@@ -127,7 +127,13 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
             else { return UITableViewCell() }
             
             headerCell.delegate = self
-            headerCell.setupCell(title: discoverSection.pageTitle, cellIndex: indexPath.section)
+            
+            let headerTitle = discoverSection?.data.items[indexPath.section].category
+            headerCell.setupCell(
+                title: headerTitle,
+                cellIndex: indexPath.section,
+                isLoading: discoverViewModel?.isLoading ?? true
+            )
             
             return headerCell
             
@@ -136,8 +142,13 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
             guard let discoverBookListCell = tableView.dequeueReusableCell(withIdentifier: DiscoverBookListTableViewCell.identifier, for: indexPath) as? DiscoverBookListTableViewCell
             else { return UITableViewCell() }
             
-            let discoverSectionData = discoverSection.data.items[indexPath.section].data
-            discoverBookListCell.setupCell(discoverBooks: discoverSectionData, showLimit: discoverSection.showingCount)
+            let discoverSectionData = discoverSection?.data.items[indexPath.section].data
+            
+            discoverBookListCell.setupCell(
+                discoverBooks: discoverSectionData,
+                showLimit: discoverSection?.showingCount,
+                isLoading: discoverViewModel?.isLoading ?? true
+            )
             
             return discoverBookListCell
             

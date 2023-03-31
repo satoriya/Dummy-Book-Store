@@ -30,9 +30,12 @@ struct DiscoverBookModel: Decodable {
     var priceString: String {
         guard let price = price, let priceFirstChar = price.first
         else { return "$0.0" }
-        
-        if priceFirstChar.isNumber {
-            return String(format: "$%.2f", locale: .current, price)
+
+        if priceFirstChar.isNumber,
+            let priceDouble = Double(price) {
+            let priceString = String(format: "$%.2f", locale: .current, priceDouble)
+
+            return priceString
         }
         
         return price

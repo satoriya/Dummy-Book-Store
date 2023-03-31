@@ -21,26 +21,20 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JDT-HG-afB">
                         <rect key="frame" x="0.0" y="0.0" width="220" height="320"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text.book.closed.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7BL-kh-7Iq">
-                                <rect key="frame" x="0.0" y="0.3333333333333286" width="220" height="219.66666666666666"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7BL-kh-7Iq">
+                                <rect key="frame" x="0.0" y="0.0" width="220" height="220"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="JdE-gK-PMQ"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCw-ge-gW0">
-                                <rect key="frame" x="0.0" y="228" width="220" height="45.666666666666686"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Label Label Label Label Label Label Label Label Label">
-                                        <attributes>
-                                            <font key="NSFont" metaFont="system" size="17"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Label Label Label Label Label Label Label Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCw-ge-gW0">
+                                <rect key="frame" x="0.0" y="228" width="220" height="40.666666666666686"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hWN-JQ-ndi">
-                                <rect key="frame" x="0.0" y="281.66666666666669" width="220" height="20.333333333333314"/>
+                                <rect key="frame" x="0.0" y="276.66666666666669" width="220" height="20.333333333333314"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.leadinghalf.filled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KxD-Wb-jil">
                                         <rect key="frame" x="0.0" y="-0.33333333333333215" width="20" height="19.999999999999996"/>
@@ -100,7 +94,6 @@
     </objects>
     <resources>
         <image name="star.leadinghalf.filled" catalog="system" width="128" height="116"/>
-        <image name="text.book.closed.fill" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

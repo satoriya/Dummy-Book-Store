@@ -20,6 +20,8 @@ class DiscoverHeaderTableViewCell: UITableViewCell {
     private let horizontalSpacing: CGFloat = 18
     private let verticalSpacing: CGFloat = 10
     
+    private let headerIconImage = UIImage(systemName: "arrow.right")
+    
     private lazy var headerTitleLabel: UILabel = {
        let headerTitleLabel = UILabel()
         headerTitleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -31,7 +33,6 @@ class DiscoverHeaderTableViewCell: UITableViewCell {
         let headerIconButton = UIButton(type: .system)
         headerIconButton.translatesAutoresizingMaskIntoConstraints = false
         
-        let headerIconImage = UIImage(systemName: "arrow.right")
         headerIconButton.setImage(headerIconImage, for: .normal)
         headerIconButton.tintColor = .orange
         
@@ -54,12 +55,39 @@ class DiscoverHeaderTableViewCell: UITableViewCell {
         return headerStackView
     }()
     
-    func setupCell(title: String, cellIndex: Int) {
-        headerTitleLabel.text = title
-        headerIconButton.tag = cellIndex
+    func setupCell(
+        title: String?,
+        cellIndex: Int,
+        isLoading: Bool = true
+    ) {
+        if isLoading { showOnLoadingView() }
+        else {
+            cleanView()
+            
+            headerTitleLabel.text = title
+            headerIconButton.tag = cellIndex
+        }
         
         addSubviews()
         setComponentConstraints()
+    }
+    
+    private func showOnLoadingView() {
+        headerTitleLabel.backgroundColor = .black.withAlphaComponent(0.2)
+        headerTitleLabel.text = "Title"
+        headerTitleLabel.textColor = .clear
+        
+        headerIconButton.backgroundColor = .black.withAlphaComponent(0.2)
+        headerIconButton.setTitle("", for: .normal)
+        headerIconButton.tintColor = .clear
+    }
+    
+    private func cleanView() {
+        headerTitleLabel.backgroundColor = .clear
+        headerTitleLabel.textColor = .black
+        
+        headerIconButton.backgroundColor = .clear
+        headerIconButton.tintColor = .orange
     }
     
     private func addSubviews() {

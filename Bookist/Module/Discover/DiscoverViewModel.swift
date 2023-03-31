@@ -18,14 +18,22 @@ class DiscoverViewModel {
     var discoverData: DiscoverModel?
     var errorMessage: String?
     var delegate: DiscoverViewModelDelegate?
+    var isLoading = false
     
     init(getAPIService: GetAPIProtocol = GetAPIService()) {
         self.getAPIService = getAPIService
     }
     
+    
     func getDiscoverData() {
+        if isLoading { return }
+        
+        isLoading = true
         errorMessage = nil
+        
         getAPIService.get(from: baseUrlString, with: DiscoverModel.self) { resultData, errorMessage in
+            self.isLoading = false
+            
             if let resultData = resultData {
                 self.discoverData = resultData
                 self.delegate?.handleGetDiscoverDataCompleted()
