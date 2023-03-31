@@ -46,6 +46,7 @@ class HomeViewController: UIViewController {
 
     func setupNavigationBar() {
         navigationItem.largeTitleDisplayMode = .never
+        title = ""
         
         let appIcon = UIImage(systemName: "text.book.closed")
         appIcon?.withTintColor(UIColor(named: "styleColor") ?? UIColor.orange, renderingMode: .alwaysOriginal)
@@ -89,7 +90,7 @@ class HomeViewController: UIViewController {
         view.addSubview(homeTable)
         
         homeTable.backgroundColor = .systemBackground
-        homeTable.separatorStyle = .none
+        homeTable.separatorStyle = .singleLine
         homeTable.tableFooterView = UIView(frame: CGRect.zero)
         homeTable.sectionFooterHeight = 0.0
         
@@ -144,7 +145,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 1 {
             return 80
         } else {
-            return 325
+            return 310
         }
     }
     

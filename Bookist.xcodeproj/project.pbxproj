@@ -38,6 +38,7 @@
 		C6D318B529D5673000A5522D /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D318B429D5673000A5522D /* Book.swift */; };
 		C6D318B829D679BD00A5522D /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D318B729D679BD00A5522D /* UIImageView.swift */; };
 		C6D318BA29D690C100A5522D /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D318B929D690C100A5522D /* UIImage.swift */; };
+		C6D318BC29D6ABDE00A5522D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D318BB29D6ABDE00A5522D /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		C6D318B429D5673000A5522D /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		C6D318B729D679BD00A5522D /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		C6D318B929D690C100A5522D /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		C6D318BB29D6ABDE00A5522D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,6 +367,7 @@
 			children = (
 				C6D318B729D679BD00A5522D /* UIImageView.swift */,
 				C6D318B929D690C100A5522D /* UIImage.swift */,
+				C6D318BB29D6ABDE00A5522D /* String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 			files = (
 				C6D318B129D5633700A5522D /* APIService.swift in Sources */,
 				C6D318BA29D690C100A5522D /* UIImage.swift in Sources */,
+				C6D318BC29D6ABDE00A5522D /* String.swift in Sources */,
 				36B4292229D17B7A004ECC0A /* ViewController.swift in Sources */,
 				C68C2C6B29D41E3A00218FA2 /* HeaderTableCell.swift in Sources */,
 				C68C2C5929D41C1000218FA2 /* GenreTableCell.swift in Sources */,

@@ -15,6 +15,8 @@ class BookCollectionViewCell: UICollectionViewCell {
         didSet {
             bookImage.layer.cornerRadius = 10
             bookImage.backgroundColor = .gray
+            bookImage.translatesAutoresizingMaskIntoConstraints = false
+            bookImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
         }
     }
     @IBOutlet weak var bookTitle: UILabel! {
@@ -54,11 +56,14 @@ class BookCollectionViewCell: UICollectionViewCell {
         bookImage.downloaded(from: url, targetSize: targetImageSize)
         guard let price = bookModel?.price else { return }
         
-        if price is String {
-            
+        if price.first == "$" {
+            self.price.text = price
+        } else {
+            let intPrice = Double(price)
+            self.price.text = "Rp.\(String().df2so(intPrice ?? 0))"
         }
         
-        self.price.text = "\(price)"
+       
         
         rating.text = "\(bookModel?.rating ?? 0.0)"
     }
