@@ -11,11 +11,6 @@ enum Sections: Int {
     case top = 0, genres, recommended, new, wishlist
 }
 
-enum CellSize: CGFloat {
-    case bookCellHeight = 310
-    case genreCellHeight = 80
-}
-
 class HomeViewController: UIViewController {
 
     let sectionTitles = ["Explore By Genre", "Recommended For You", "On Your Purchased", "On Your Wishlist"]

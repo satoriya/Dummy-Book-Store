@@ -31,13 +31,13 @@ class BookCollectionViewCell: UICollectionViewCell {
     }
     @IBOutlet weak var rating: UILabel! {
         didSet {
-            rating.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+            rating.font = UIFont.systemFont(ofSize: 12, weight: .medium)
             rating.textColor = .secondaryLabel
         }
     }
     @IBOutlet weak var price: UILabel! {
         didSet {
-            price.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+            price.font = UIFont.systemFont(ofSize: 12, weight: .medium)
             price.textColor = .secondaryLabel
         }
     }

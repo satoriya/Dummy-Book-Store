@@ -40,6 +40,7 @@
 		C6D318BC29D6ABDE00A5522D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D318BB29D6ABDE00A5522D /* String.swift */; };
 		C6D318BF29D6B38400A5522D /* LeftNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D318BE29D6B38400A5522D /* LeftNavigationBar.swift */; };
 		C6D318C129D6B39A00A5522D /* RightNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D318C029D6B39A00A5522D /* RightNavigationBar.swift */; };
+		C6D318C429D6C37300A5522D /* CellSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D318C329D6C37300A5522D /* CellSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		C6D318BB29D6ABDE00A5522D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		C6D318BE29D6B38400A5522D /* LeftNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftNavigationBar.swift; sourceTree = "<group>"; };
 		C6D318C029D6B39A00A5522D /* RightNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightNavigationBar.swift; sourceTree = "<group>"; };
+		C6D318C329D6C37300A5522D /* CellSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellSize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 		36B4295029D40362004ECC0A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C6D318C229D6C36100A5522D /* Enum */,
 				C6D318B629D6797C00A5522D /* Extension */,
 				C68C2C6829D41D8F00218FA2 /* ViewModels */,
 				C6D318B229D5671400A5522D /* Models */,
@@ -383,6 +386,14 @@
 			path = "Navigation Bar";
 			sourceTree = "<group>";
 		};
+		C6D318C229D6C36100A5522D /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				C6D318C329D6C37300A5522D /* CellSize.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -524,6 +535,7 @@
 				C68C2C5929D41C1000218FA2 /* GenreTableCell.swift in Sources */,
 				36B4291E29D17B7A004ECC0A /* AppDelegate.swift in Sources */,
 				36B4296629D406E9004ECC0A /* AccountViewModel.swift in Sources */,
+				C6D318C429D6C37300A5522D /* CellSize.swift in Sources */,
 				C68C2C5729D416D900218FA2 /* BookTableCell.swift in Sources */,
 				C68C2C5F29D41D1600218FA2 /* BookCollectionViewCell.swift in Sources */,
 				C6D318BF29D6B38400A5522D /* LeftNavigationBar.swift in Sources */,
