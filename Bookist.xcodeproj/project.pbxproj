@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		367069DB29D684E600AD80B7 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 367069DA29D684E600AD80B7 /* SDWebImage */; };
 		36883E6429D4602A00691679 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36883E6329D4602A00691679 /* WishlistViewController.swift */; };
 		36883E6E29D4707F00691679 /* WishlistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36883E6D29D4707F00691679 /* WishlistModel.swift */; };
 		36883E7129D4E62300691679 /* WishlistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36883E6F29D4E62300691679 /* WishlistCollectionViewCell.swift */; };
 		36883E7229D4E62300691679 /* WishlistCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36883E7029D4E62300691679 /* WishlistCollectionViewCell.xib */; };
+		36B0040529D5542800F7C5B6 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B0040429D5542800F7C5B6 /* ApiService.swift */; };
 		36B4291E29D17B7A004ECC0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4291D29D17B7A004ECC0A /* AppDelegate.swift */; };
 		36B4292029D17B7A004ECC0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4291F29D17B7A004ECC0A /* SceneDelegate.swift */; };
 		36B4292229D17B7A004ECC0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4292129D17B7A004ECC0A /* ViewController.swift */; };
@@ -53,6 +55,7 @@
 		36883E6D29D4707F00691679 /* WishlistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistModel.swift; sourceTree = "<group>"; };
 		36883E6F29D4E62300691679 /* WishlistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistCollectionViewCell.swift; sourceTree = "<group>"; };
 		36883E7029D4E62300691679 /* WishlistCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishlistCollectionViewCell.xib; sourceTree = "<group>"; };
+		36B0040429D5542800F7C5B6 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		36B4291A29D17B7A004ECC0A /* Bookist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B4291D29D17B7A004ECC0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36B4291F29D17B7A004ECC0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				367069DB29D684E600AD80B7 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +146,14 @@
 				36883E6529D4631100691679 /* Cell */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		36B0040329D553AF00F7C5B6 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				36B0040429D5542800F7C5B6 /* ApiService.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		36B4291129D17B7A004ECC0A = {
@@ -235,6 +247,7 @@
 		36B4295329D40388004ECC0A /* Wishlist */ = {
 			isa = PBXGroup;
 			children = (
+				36B0040329D553AF00F7C5B6 /* Networking */,
 				36883E6A29D46FDD00691679 /* Model */,
 				36883E6C29D4702E00691679 /* View */,
 				36883E5629D4150D00691679 /* ViewModel */,
@@ -326,6 +339,9 @@
 			dependencies = (
 			);
 			name = Bookist;
+			packageProductDependencies = (
+				367069DA29D684E600AD80B7 /* SDWebImage */,
+			);
 			productName = Bookist;
 			productReference = 36B4291A29D17B7A004ECC0A /* Bookist.app */;
 			productType = "com.apple.product-type.application";
@@ -398,6 +414,10 @@
 				Base,
 			);
 			mainGroup = 36B4291129D17B7A004ECC0A;
+			packageReferences = (
+				367069D829D6806B00AD80B7 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				367069D929D684E600AD80B7 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 36B4291B29D17B7A004ECC0A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -448,6 +468,7 @@
 				36883E6429D4602A00691679 /* WishlistViewController.swift in Sources */,
 				36B4296029D40686004ECC0A /* NetworkHelper.swift in Sources */,
 				36B4292029D17B7A004ECC0A /* SceneDelegate.swift in Sources */,
+				36B0040529D5542800F7C5B6 /* ApiService.swift in Sources */,
 				36B4296829D406F3004ECC0A /* WishlistViewModel.swift in Sources */,
 				36B4296229D406CF004ECC0A /* RomanceViewModel.swift in Sources */,
 				36B4296E29D4070D004ECC0A /* HomeViewModel.swift in Sources */,
@@ -792,6 +813,33 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		367069D829D6806B00AD80B7 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		367069D929D684E600AD80B7 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		367069DA29D684E600AD80B7 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 367069D829D6806B00AD80B7 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 36B4291229D17B7A004ECC0A /* Project object */;
 }

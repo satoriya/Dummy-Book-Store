@@ -12,7 +12,7 @@ class WishlistCollectionViewCell: UICollectionViewCell {
     static let identifier = "WishlistCollectionViewCell"
 
     @IBOutlet weak var cellView: UIView!
-    @IBOutlet weak var bookImageView: UIImageView!
+    @IBOutlet weak var bookImageView: UIImageView! 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var priceBookLabel: UILabel!
@@ -21,9 +21,7 @@ class WishlistCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        cellView.backgroundColor = .orange
-        
+        cellView.backgroundColor = .white
         bookImageView.contentMode = .scaleAspectFill
     }
-
 }
