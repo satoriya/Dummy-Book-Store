@@ -11,6 +11,11 @@ enum Sections: Int {
     case top = 0, genres, recommended, new, wishlist
 }
 
+enum CellSize: CGFloat {
+    case bookCellHeight = 310
+    case genreCellHeight = 80
+}
+
 class HomeViewController: UIViewController {
 
     let sectionTitles = ["Explore By Genre", "Recommended For You", "On Your Purchased", "On Your Wishlist"]
@@ -46,38 +51,17 @@ class HomeViewController: UIViewController {
 
     func setupNavigationBar() {
         navigationItem.largeTitleDisplayMode = .never
-        title = ""
-        
-        let appIcon = UIImage(systemName: "text.book.closed")
-        appIcon?.withTintColor(UIColor(named: "styleColor") ?? UIColor.orange, renderingMode: .alwaysOriginal)
+        self.navigationItem.titleView = UIView(frame: .zero)
         
         
+        let leftBarItem = LeftNavigationBar()
+        leftBarItem.setupBarItem()
         
-        navigationItem.leftBarButtonItems = [
-            UIBarButtonItem(image: appIcon, style: .done, target: self, action: nil),
-            UIBarButtonItem(title: "Erabook", style: .done, target: self, action: nil)
-        ]
-            
-        let searchImage = UIImage(systemName: "magnifyingglass")!
-        let pencilImage = UIImage(systemName: "bell")!
-
-        let searchBtn: UIButton = UIButton(type: UIButton.ButtonType.custom)
-        searchBtn.setImage(searchImage, for: .normal)
-
-        searchBtn.tintColor = .label
-        searchBtn.addTarget(self, action: #selector(didClickButton), for: .touchUpInside)
-        searchBtn.frame = CGRectMake(0, 0, 30, 30)
-        let searchBarBtn = UIBarButtonItem(customView: searchBtn)
-
-
-        let pencilBtn: UIButton = UIButton(type: UIButton.ButtonType.custom)
-        pencilBtn.setImage(pencilImage, for: .normal)
-        pencilBtn.tintColor = .label
-        pencilBtn.addTarget(self, action: #selector(didClickButton), for: .touchUpInside)
-        pencilBtn.frame = CGRectMake(0, 0, 30, 30)
-        let pencilBarBtn = UIBarButtonItem(customView: pencilBtn)
-
-        self.navigationItem.rightBarButtonItems = [searchBarBtn, pencilBarBtn]
+        let rightBarItem = RightNavigationBar()
+        rightBarItem.setupBarItem()
+        
+        navigationItem.setLeftBarButton(leftBarItem, animated: true)
+        navigationItem.setRightBarButton(rightBarItem, animated: true)
 
     }
     
@@ -90,7 +74,7 @@ class HomeViewController: UIViewController {
         view.addSubview(homeTable)
         
         homeTable.backgroundColor = .systemBackground
-        homeTable.separatorStyle = .singleLine
+        homeTable.separatorStyle = .none
         homeTable.tableFooterView = UIView(frame: CGRect.zero)
         homeTable.sectionFooterHeight = 0.0
         
@@ -110,7 +94,6 @@ class HomeViewController: UIViewController {
         
         homeVM?.bookDataBinding = { books in
             self.bookData = books
-            print("This is books: \(self.bookData)")
         }
         DispatchQueue.main.async { [weak self] in
             self?.homeTable.reloadData()
@@ -143,9 +126,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 1 {
-            return 80
+            return CellSize.genreCellHeight.rawValue
         } else {
-            return 310
+            return CellSize.bookCellHeight.rawValue
         }
     }
     
@@ -156,7 +139,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         switch sections {
         case .top:
             guard let topCell = homeTable.dequeueReusableCell(withIdentifier: BookTableCell.identifier, for: indexPath) as? BookTableCell else { return UITableViewCell() }
-            topCell.setupBookCollectionView(bookItems: self.bookData?.data.items[1].data)
+            topCell.setupBookCollectionView(bookItems: self.bookData?.data.items[2].data)
             return topCell
             
         case .genres:

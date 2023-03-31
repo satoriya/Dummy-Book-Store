@@ -24,18 +24,21 @@ class BookCollectionViewCell: UICollectionViewCell {
             bookTitle.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         }
     }
-    
-    @IBOutlet weak var starImage: UIImageView!
+    @IBOutlet weak var starImage: UIImageView! {
+        didSet {
+            starImage.tintColor = .systemYellow
+        }
+    }
     @IBOutlet weak var rating: UILabel! {
         didSet {
             rating.font = UIFont.systemFont(ofSize: 12, weight: .regular)
-            rating.textColor = .darkGray
+            rating.textColor = .secondaryLabel
         }
     }
     @IBOutlet weak var price: UILabel! {
         didSet {
             price.font = UIFont.systemFont(ofSize: 12, weight: .regular)
-            price.textColor = .darkGray
+            price.textColor = .secondaryLabel
         }
     }
     
