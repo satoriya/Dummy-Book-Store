@@ -27,11 +27,10 @@ class DiscoverBookCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var bookImageView: UIImageView! {
         didSet {
-            bookImageView.backgroundColor = loadingColor
             bookImageView.image = nil
             bookImageView.contentMode = .scaleAspectFit
             bookImageView.layer.cornerRadius = 10
-            bookImageView.backgroundColor = .black.withAlphaComponent(0.1)
+            bookImageView.backgroundColor = loadingColor
         }
     }
     

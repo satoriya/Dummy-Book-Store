@@ -101,6 +101,12 @@ class DiscoverViewController: UIViewController {
             discoverTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
         ])
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        discoverTableView.reloadData()
+    }
 }
 
 extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {

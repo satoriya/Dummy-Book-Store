@@ -14,6 +14,8 @@ class DiscoverBookListTableViewCell: UITableViewCell {
     private let verticalSpacing: CGFloat = 10
     private let horizontalSpacing: CGFloat = 18
     private let collectionHeight: CGFloat = 340
+    private let minimumCellPerRow: CGFloat = 2
+    private let estimatedMinimumWidth: CGFloat = 150
     
     private var showLimit: Int?
     private var discoverBooks: [DiscoverBookModel]?
@@ -79,10 +81,22 @@ class DiscoverBookListTableViewCell: UITableViewCell {
     }
     
     private func cellItemSize() -> CGSize {
-        let itemWidth = (availableScreenWidth - horizontalSpacing) / 2
+        let cellPerRow = cellPerRow()
+        let totalWidthBetweenCell = horizontalSpacing * (cellPerRow - 1)
+        let itemWidth = (availableScreenWidth - totalWidthBetweenCell) / cellPerRow
         let itemHeight = collectionHeight - verticalSpacing * 2
         
         return CGSize(width: itemWidth, height: itemHeight)
+    }
+    
+    func cellPerRow() -> CGFloat {
+        let cellPerRow = availableScreenWidth / estimatedMinimumWidth
+        
+        if cellPerRow > minimumCellPerRow {
+            return round(cellPerRow)
+        }
+        
+        return minimumCellPerRow
     }
 }
 

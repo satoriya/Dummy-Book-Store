@@ -19,7 +19,7 @@ class DiscoverHeaderTableViewCell: UITableViewCell {
     
     private let horizontalSpacing: CGFloat = 18
     private let verticalSpacing: CGFloat = 10
-    
+    private let loadingColor = UIColor.black.withAlphaComponent(0.2)
     private let headerIconImage = UIImage(systemName: "arrow.right")
     
     private lazy var headerTitleLabel: UILabel = {
@@ -60,7 +60,7 @@ class DiscoverHeaderTableViewCell: UITableViewCell {
         cellIndex: Int,
         isLoading: Bool = true
     ) {
-        if isLoading { showOnLoadingView() }
+        if isLoading, title == nil { showOnLoadingView() }
         else {
             cleanView()
             
@@ -73,18 +73,18 @@ class DiscoverHeaderTableViewCell: UITableViewCell {
     }
     
     private func showOnLoadingView() {
-        headerTitleLabel.backgroundColor = .black.withAlphaComponent(0.2)
+        headerTitleLabel.backgroundColor = loadingColor
         headerTitleLabel.text = "Title"
         headerTitleLabel.textColor = .clear
         
-        headerIconButton.backgroundColor = .black.withAlphaComponent(0.2)
+        headerIconButton.backgroundColor = loadingColor
         headerIconButton.setTitle("", for: .normal)
         headerIconButton.tintColor = .clear
     }
     
     private func cleanView() {
         headerTitleLabel.backgroundColor = .clear
-        headerTitleLabel.textColor = .black
+        headerTitleLabel.textColor = .label
         
         headerIconButton.backgroundColor = .clear
         headerIconButton.tintColor = .orange
