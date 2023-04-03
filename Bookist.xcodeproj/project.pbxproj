@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36883E6429D4602A00691679 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36883E6329D4602A00691679 /* WishlistViewController.swift */; };
+		36883E6E29D4707F00691679 /* WishlistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36883E6D29D4707F00691679 /* WishlistModel.swift */; };
+		36883E7129D4E62300691679 /* WishlistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36883E6F29D4E62300691679 /* WishlistCollectionViewCell.swift */; };
+		36883E7229D4E62300691679 /* WishlistCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36883E7029D4E62300691679 /* WishlistCollectionViewCell.xib */; };
 		36B4291E29D17B7A004ECC0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4291D29D17B7A004ECC0A /* AppDelegate.swift */; };
 		36B4292029D17B7A004ECC0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4291F29D17B7A004ECC0A /* SceneDelegate.swift */; };
 		36B4292229D17B7A004ECC0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4292129D17B7A004ECC0A /* ViewController.swift */; };
@@ -62,6 +66,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36883E6329D4602A00691679 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
+		36883E6D29D4707F00691679 /* WishlistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistModel.swift; sourceTree = "<group>"; };
+		36883E6F29D4E62300691679 /* WishlistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistCollectionViewCell.swift; sourceTree = "<group>"; };
+		36883E7029D4E62300691679 /* WishlistCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishlistCollectionViewCell.xib; sourceTree = "<group>"; };
 		36B4291A29D17B7A004ECC0A /* Bookist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B4291D29D17B7A004ECC0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36B4291F29D17B7A004ECC0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +136,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36883E5629D4150D00691679 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				36B4296729D406F3004ECC0A /* WishlistViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		36883E6229D45F8700691679 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				36883E6329D4602A00691679 /* WishlistViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		36883E6529D4631100691679 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				36883E6F29D4E62300691679 /* WishlistCollectionViewCell.swift */,
+				36883E7029D4E62300691679 /* WishlistCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		36883E6A29D46FDD00691679 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				36883E6D29D4707F00691679 /* WishlistModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		36883E6C29D4702E00691679 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36883E6229D45F8700691679 /* Controller */,
+				36883E6529D4631100691679 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		36B4291129D17B7A004ECC0A = {
 			isa = PBXGroup;
 			children = (
@@ -224,7 +274,9 @@
 		36B4295329D40388004ECC0A /* Wishlist */ = {
 			isa = PBXGroup;
 			children = (
-				36B4296729D406F3004ECC0A /* WishlistViewModel.swift */,
+				36883E6A29D46FDD00691679 /* Model */,
+				36883E6C29D4702E00691679 /* View */,
+				36883E5629D4150D00691679 /* ViewModel */,
 			);
 			path = Wishlist;
 			sourceTree = "<group>";
@@ -463,6 +515,7 @@
 			files = (
 				7AF21B4B29D420C5001D6EDB /* DiscoverBookCollectionViewCell.xib in Resources */,
 				36B4292A29D17B7C004ECC0A /* LaunchScreen.storyboard in Resources */,
+				36883E7229D4E62300691679 /* WishlistCollectionViewCell.xib in Resources */,
 				36B4292729D17B7C004ECC0A /* Assets.xcassets in Resources */,
 				36B4292529D17B7A004ECC0A /* Main.storyboard in Resources */,
 			);
@@ -498,6 +551,7 @@
 				7ABFBE9E29D52A3300E2B6D6 /* DiscoverRightBarButtonItem.swift in Sources */,
 				36B4296629D406E9004ECC0A /* AccountViewModel.swift in Sources */,
 				7AF21B4429D41774001D6EDB /* DiscoverHeaderTableViewCell.swift in Sources */,
+				36883E6429D4602A00691679 /* WishlistViewController.swift in Sources */,
 				36B4296029D40686004ECC0A /* NetworkHelper.swift in Sources */,
 				7ABFBEA229D560EB00E2B6D6 /* DiscoverModel.swift in Sources */,
 				36B4292029D17B7A004ECC0A /* SceneDelegate.swift in Sources */,
@@ -516,7 +570,9 @@
 				7ABEE39329D672ED0067EB17 /* UIImage+scaleImagePreservingRatio.swift in Sources */,
 				7AF21B4629D41C5D001D6EDB /* DiscoverBookListTableViewCell.swift in Sources */,
 				7ABFBEA029D55FCA00E2B6D6 /* FetchDataService.swift in Sources */,
+				36883E6E29D4707F00691679 /* WishlistModel.swift in Sources */,
 				36B4294E29D17BED004ECC0A /* TabBar.swift in Sources */,
+				36883E7129D4E62300691679 /* WishlistCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
