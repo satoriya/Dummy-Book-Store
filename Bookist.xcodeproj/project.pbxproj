@@ -14,7 +14,7 @@
 		01F06FF029DABB8600922FD5 /* BookListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F06FE929DABB8600922FD5 /* BookListCell.swift */; };
 		01F06FF129DABB8600922FD5 /* BookGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F06FEA29DABB8600922FD5 /* BookGridCell.swift */; };
 		01F06FF229DABB8600922FD5 /* BookGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01F06FEB29DABB8600922FD5 /* BookGridCell.xib */; };
-		01F06FF529DABBBC00922FD5 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 01F06FF429DABBBC00922FD5 /* SDWebImage */; };
+		367069DB29D684E600AD80B7 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 367069DA29D684E600AD80B7 /* SDWebImage */; };
 		36883E6429D4602A00691679 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36883E6329D4602A00691679 /* WishlistViewController.swift */; };
 		36883E6E29D4707F00691679 /* WishlistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36883E6D29D4707F00691679 /* WishlistModel.swift */; };
 		36883E7129D4E62300691679 /* WishlistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36883E6F29D4E62300691679 /* WishlistCollectionViewCell.swift */; };
@@ -29,6 +29,7 @@
 		36A91BF429DA7211009D169A /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36A91BF229DA7211009D169A /* UserTableViewCell.xib */; };
 		36A91BFA29DAA7D8009D169A /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A91BF929DAA7D8009D169A /* MenuTableViewCell.swift */; };
 		36A91BFC29DAA7EA009D169A /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36A91BFB29DAA7EA009D169A /* MenuTableViewCell.xib */; };
+		36B0040529D5542800F7C5B6 /* GetWishList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B0040429D5542800F7C5B6 /* GetWishList.swift */; };
 		36B4291E29D17B7A004ECC0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4291D29D17B7A004ECC0A /* AppDelegate.swift */; };
 		36B4292029D17B7A004ECC0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4291F29D17B7A004ECC0A /* SceneDelegate.swift */; };
 		36B4292229D17B7A004ECC0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4292129D17B7A004ECC0A /* ViewController.swift */; };
@@ -103,6 +104,7 @@
 		36A91BF229DA7211009D169A /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		36A91BF929DAA7D8009D169A /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuTableViewCell.swift; path = Bookist/Module/Account/View/Cell/Reusable/MenuTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		36A91BFB29DAA7EA009D169A /* MenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuTableViewCell.xib; path = Bookist/Module/Account/View/Cell/Reusable/MenuTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		36B0040429D5542800F7C5B6 /* GetWishList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWishList.swift; sourceTree = "<group>"; };
 		36B4291A29D17B7A004ECC0A /* Bookist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B4291D29D17B7A004ECC0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36B4291F29D17B7A004ECC0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,7 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01F06FF529DABBBC00922FD5 /* SDWebImage in Frameworks */,
+				367069DB29D684E600AD80B7 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +327,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		36B0040329D553AF00F7C5B6 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				36B0040429D5542800F7C5B6 /* GetWishList.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		36B4291129D17B7A004ECC0A = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +431,7 @@
 		36B4295329D40388004ECC0A /* Wishlist */ = {
 			isa = PBXGroup;
 			children = (
+				36B0040329D553AF00F7C5B6 /* Networking */,
 				36883E6A29D46FDD00691679 /* Model */,
 				36883E6C29D4702E00691679 /* View */,
 				36883E5629D4150D00691679 /* ViewModel */,
@@ -569,7 +580,7 @@
 			);
 			name = Bookist;
 			packageProductDependencies = (
-				01F06FF429DABBBC00922FD5 /* SDWebImage */,
+				367069DA29D684E600AD80B7 /* SDWebImage */,
 			);
 			productName = Bookist;
 			productReference = 36B4291A29D17B7A004ECC0A /* Bookist.app */;
@@ -644,7 +655,8 @@
 			);
 			mainGroup = 36B4291129D17B7A004ECC0A;
 			packageReferences = (
-				01F06FF329DABBBC00922FD5 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				367069D829D6806B00AD80B7 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				367069D929D684E600AD80B7 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 36B4291B29D17B7A004ECC0A /* Products */;
 			projectDirPath = "";
@@ -707,6 +719,9 @@
 				7ABFBEA229D560EB00E2B6D6 /* DiscoverModel.swift in Sources */,
 				36B4292029D17B7A004ECC0A /* SceneDelegate.swift in Sources */,
 				01F06FF029DABB8600922FD5 /* BookListCell.swift in Sources */,
+				36B0040529D5542800F7C5B6 /* GetWishList.swift in Sources */,
+				7AF21B4129D414C5001D6EDB /* DiscoverViewController.swift in Sources */,
+				36B4296829D406F3004ECC0A /* WishlistViewModel.swift in Sources */,
 				36A91BE929DA6EF5009D169A /* ApiService.swift in Sources */,
 				01F06FF129DABB8600922FD5 /* BookGridCell.swift in Sources */,
 				36A91BEB29DA70CA009D169A /* AccountViewController.swift in Sources */,
@@ -1074,20 +1089,28 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		01F06FF329DABBBC00922FD5 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+		367069D829D6806B00AD80B7 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				branch = master;
+				kind = branch;
+			};
+		};
+		367069D929D684E600AD80B7 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		01F06FF429DABBBC00922FD5 /* SDWebImage */ = {
+		367069DA29D684E600AD80B7 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 01F06FF329DABBBC00922FD5 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			package = 367069D829D6806B00AD80B7 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
