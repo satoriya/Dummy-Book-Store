@@ -22,6 +22,17 @@ class RateThisBookTableViewCell: UITableViewCell {
         return stackVw
     }()
     
+    private lazy var stackViewForGiveRating : UIStackView = {
+        let stackVw = UIStackView()
+        stackVw.translatesAutoresizingMaskIntoConstraints = false
+        stackVw.axis = .horizontal
+        stackVw.alignment = .center
+        stackVw.spacing = 20
+        stackVw.distribution = .fill
+        
+        return stackVw
+    }()
+    
     private lazy var rateLabel : UILabel = {
         let ratelb = UILabel()
         ratelb.translatesAutoresizingMaskIntoConstraints = false
@@ -36,6 +47,40 @@ class RateThisBookTableViewCell: UITableViewCell {
         let rating = UIButton()
         rating.translatesAutoresizingMaskIntoConstraints = false
         rating.setImage(UIImage(systemName: "star",withConfiguration:UIImage.SymbolConfiguration(pointSize: 18)), for: .normal)
+        rating.tintColor = .black
+        return rating
+    }()
+    
+    private lazy var ratings2 : UIButton = {
+        let rating = UIButton()
+        rating.translatesAutoresizingMaskIntoConstraints = false
+        rating.setImage(UIImage(systemName: "star",withConfiguration:UIImage.SymbolConfiguration(pointSize: 18)), for: .normal)
+        rating.tintColor = .black
+        return rating
+    }()
+    
+    private lazy var ratings3 : UIButton = {
+        let rating = UIButton()
+        rating.translatesAutoresizingMaskIntoConstraints = false
+        rating.setImage(UIImage(systemName: "star",withConfiguration:UIImage.SymbolConfiguration(pointSize: 18)), for: .normal)
+        rating.tintColor = .black
+        return rating
+    }()
+    
+    private lazy var ratings4 : UIButton = {
+        let rating = UIButton()
+        rating.translatesAutoresizingMaskIntoConstraints = false
+        rating.setImage(UIImage(systemName: "star",withConfiguration:UIImage.SymbolConfiguration(pointSize: 18)), for: .normal)
+        rating.tintColor = .black
+        return rating
+    }()
+    
+    
+    private lazy var ratings5: UIButton = {
+        let rating = UIButton()
+        rating.translatesAutoresizingMaskIntoConstraints = false
+        rating.setImage(UIImage(systemName: "star",withConfiguration:UIImage.SymbolConfiguration(pointSize: 18)), for: .normal)
+        rating.tintColor = .black
         return rating
     }()
     
@@ -58,8 +103,14 @@ class RateThisBookTableViewCell: UITableViewCell {
     func setUpTable(){
         self.contentView.addSubview(stackView)
         stackView.addArrangedSubview(rateLabel)
-        stackView.addArrangedSubview(ratings)
+        stackView.addArrangedSubview(stackViewForGiveRating)
         stackView.addArrangedSubview(writeReview)
+        stackViewForGiveRating.addArrangedSubview(ratings)
+        stackViewForGiveRating.addArrangedSubview(ratings2)
+        stackViewForGiveRating.addArrangedSubview(ratings3)
+        stackViewForGiveRating.addArrangedSubview(ratings4)
+        stackViewForGiveRating.addArrangedSubview(ratings5)
+        
         
         NSLayoutConstraint.activate([stackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 50),
                                      stackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 50),

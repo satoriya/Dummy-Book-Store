@@ -190,7 +190,7 @@ class RatingsTableViewCell: UITableViewCell {
 //        stackViewForprogressBar.addArrangedSubview(progressbarfor5rating)
         
         
-   
+
         leftStackView.addArrangedSubview(reviewsLabel)
         arrowImg.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
