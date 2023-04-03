@@ -114,7 +114,6 @@ extension WishlistViewController: UICollectionViewDataSource, UICollectionViewDe
         //  cell.ratingLabel.text = "\(wishlistData[indexPath.row].ratingBook ?? 0)"
         //  cell.priceBookLabel.text = "$\(wishlistData[indexPath.row].priceBook ?? 0)"
         //   cell.bookImageView.layer.cornerRadius = 8
-        
         return cell
     }
 }
