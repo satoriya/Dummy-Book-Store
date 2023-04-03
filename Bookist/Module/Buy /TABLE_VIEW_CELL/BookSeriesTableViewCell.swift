@@ -9,7 +9,7 @@ import UIKit
 
 class BookSeriesTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
  
-    
+    var passingData: BuyPageModel?
     
     static let identifier = "BookSeriesTableViewCell"
     
@@ -26,11 +26,15 @@ class BookSeriesTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
         }
     }
     
-    func setUpTableCell(){
+    func setUpTableCell(bookSeries : BuyPageModel){
+        
+        
         let flowlayout = UICollectionViewFlowLayout()
         flowlayout.scrollDirection = .horizontal
         flowlayout.itemSize = CGSize(width: 200, height: 300)
         flowlayout.sectionInset = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
+        
+        
         
         bookSeriesCollectionViewInsideTableCell?.collectionViewLayout = flowlayout
         bookSeriesCollectionViewInsideTableCell?.dataSource = self

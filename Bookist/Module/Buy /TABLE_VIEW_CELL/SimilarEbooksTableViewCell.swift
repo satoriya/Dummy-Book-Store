@@ -25,7 +25,8 @@ class SimilarEbooksTableViewCell: UITableViewCell, UICollectionViewDataSource, U
     @IBOutlet weak var collectionViewInsideTableCell: UICollectionView!
     
     
-    func setUpTableCell(){
+    func setUpTableCell(similarBooks : SimilarBook){
+    
         let flowlayout = UICollectionViewFlowLayout()
         flowlayout.scrollDirection = .horizontal
         flowlayout.itemSize = CGSize(width: 200, height: 300)

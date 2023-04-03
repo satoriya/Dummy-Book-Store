@@ -9,7 +9,7 @@ import UIKit
 
 class BookRatingTableViewCell: UITableViewCell {
     static let identifier = "BookRatingTableViewCell"
-        
+    
     private lazy var stackView : UIStackView = {
         let stackVw = UIStackView()
         stackVw.translatesAutoresizingMaskIntoConstraints = false
@@ -116,9 +116,12 @@ class BookRatingTableViewCell: UITableViewCell {
     }()
     
     
-    func setUpBookingTableCell(){
-//        self.addSubview(container)
-//        container.addSubview(stackView)
+    func setUpBookingTableCell(bookData : BookDescription){
+        
+        ratingScore.text = "\(bookData.rating)"
+        sizeofMemory.text = "\(bookData.size)"
+        purchasesBook.text = "\(bookData.purchase)"
+        
         self.contentView.addSubview(stackView)
         self.contentView.addSubview(stackView2)
         self.contentView.addSubview(buyBookBotton)
@@ -126,8 +129,7 @@ class BookRatingTableViewCell: UITableViewCell {
         stackView.addArrangedSubview(sizeofMemory)
         stackView.addArrangedSubview(bookPages)
         stackView.addArrangedSubview(purchasesBook)
-//        stackView.layer.borderColor = UIColor.red.cgColor
-//        stackView.layer.borderWidth = 1
+        
         
         
         stackView2.addArrangedSubview(reviewBook)
@@ -141,7 +143,7 @@ class BookRatingTableViewCell: UITableViewCell {
             stackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 2),
             stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -2),
             stackView.heightAnchor.constraint(equalToConstant: 50),
-                                   
+            
             stackView2.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 50),
             stackView2.bottomAnchor.constraint(lessThanOrEqualTo: buyBookBotton.bottomAnchor, constant: -2),
             stackView2.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 2),
@@ -154,40 +156,30 @@ class BookRatingTableViewCell: UITableViewCell {
             buyBookBotton.bottomAnchor.constraint(lessThanOrEqualTo: self.contentView.bottomAnchor, constant: -2),
             buyBookBotton.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 2),
             buyBookBotton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -2)
-                                    ])
+        ])
         
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
-}
-
-class BookRatingView : UIView{
-    private lazy var stackVw : UIStackView =  {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
+ 
     
-    private lazy var bookRating : UILabel =  {
-        let ratings = UILabel()
-        ratings.translatesAutoresizingMaskIntoConstraints = false
-        return ratings
-    }()
-    
-    private lazy var size : UILabel =  {
-        let sz = UILabel()
-        sz.translatesAutoresizingMaskIntoConstraints = false
-        return sz
-    }()
+    class BookRatingView : UIView{
+        private lazy var stackVw : UIStackView =  {
+            let stackView = UIStackView()
+            stackView.axis = .vertical
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            return stackView
+        }()
+        
+        private lazy var bookRating : UILabel =  {
+            let ratings = UILabel()
+            ratings.translatesAutoresizingMaskIntoConstraints = false
+            return ratings
+        }()
+        
+        private lazy var size : UILabel =  {
+            let sz = UILabel()
+            sz.translatesAutoresizingMaskIntoConstraints = false
+            return sz
+        }()
+    }
 }

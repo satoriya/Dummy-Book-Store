@@ -108,7 +108,7 @@ static let identifier = "AboutBookTableViewCell"
     }()
     
     
-    func setUpTableCell(){
+    func setUpTableCell(bookData : BuyPageModel){
         self.contentView.addSubview(container)
         container.addSubview(stackView)
         container.addSubview(bookImage)
@@ -118,13 +118,14 @@ static let identifier = "AboutBookTableViewCell"
         stackView.addArrangedSubview(stackViewForWrapGenres)
         stackViewForWrapGenres.addArrangedSubview(fantasyGenre)
         stackViewForWrapGenres.addArrangedSubview(fictionGenre)
-//        stackViewForWrapGenres.addArrangedSubview(mysteryGenre)
-//        stackViewForWrapGenres.addArrangedSubview(magicGenre)
-        
-        
  
         bookTitle.setContentHuggingPriority(.defaultLow, for: .vertical)
         
+        
+        bookTitle.text = bookData.title
+        bookAuthor.text = bookData.author
+        datePublished.text = "\(bookData.releaseDate)"
+        bookImage.sd_setImage(with: URL(string: bookData.image))
         
         NSLayoutConstraint.activate([
             container.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 2),
@@ -148,19 +149,6 @@ static let identifier = "AboutBookTableViewCell"
     }
     
     
-    
-    
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
 }

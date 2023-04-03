@@ -187,7 +187,7 @@ class RatingsTableViewCell: UITableViewCell {
         stackViewForRatingsnumber.addArrangedSubview(rating3)
         stackViewForRatingsnumber.addArrangedSubview(rating4)
         stackViewForRatingsnumber.addArrangedSubview(rating5)
-//        stackViewForprogressBar.addArrangedSubview(progressbarfor5rating)
+
         
         
 

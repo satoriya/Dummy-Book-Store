@@ -27,7 +27,6 @@ class DescriptionTableViewCell: UITableViewCell {
         description.numberOfLines = 0
         description.font = .systemFont(ofSize: 14, weight: .light)
         description.textColor = .black
-        description.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
         return description
     }()
     
@@ -40,10 +39,14 @@ class DescriptionTableViewCell: UITableViewCell {
     }()
     
     
-    func setUpTableCell(){
+    func setUpTableCell(bookData: BuyPageModel){
+        bookDesc.text = bookData.about
+        
         self.contentView.addSubview(descLabel)
         self.contentView.addSubview(bookDesc)
         self.contentView.addSubview(arrowImg)
+        
+        
         
         NSLayoutConstraint.activate([
             descLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 15),
@@ -60,15 +63,6 @@ class DescriptionTableViewCell: UITableViewCell {
             bookDesc.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -3)
         ])
     }
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+  
 
 }

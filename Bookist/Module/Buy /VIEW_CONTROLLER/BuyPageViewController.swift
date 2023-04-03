@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class BuyPageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -47,42 +48,22 @@ class BuyPageViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
         
+        viewModel?.fetchBuyPage()
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section{
-        case 0:
-            return 1
-        case 1:
-            return 1
-        case 2:
-            return 1
-        case 3:
-            return 1
-        case 4:
-            return 1
-        case 5:
-            return 1
-        case 6:
+        case 0, 1, 2, 3, 4, 5, 6:
             return 1
         default:
-            break
+            return 3
         }
-        return 3
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section{
-        case 0:
-            return UITableView.automaticDimension
-            
-        case 1:
-            return UITableView.automaticDimension
-        case 2:
-            return UITableView.automaticDimension
-        case 3:
-            return UITableView.automaticDimension
-        case 4:
+        case 0, 1, 2, 3, 4:
             return UITableView.automaticDimension
         case 5:
             return 290
@@ -95,16 +76,7 @@ class BuyPageViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section{
-        case 0:
-            return UITableView.automaticDimension
-            
-        case 1:
-            return UITableView.automaticDimension
-        case 2:
-            return UITableView.automaticDimension
-        case 3:
-            return UITableView.automaticDimension
-        case 4:
+        case 0, 1, 2, 3, 4:
             return UITableView.automaticDimension
         case 5:
             return 290
@@ -125,23 +97,31 @@ class BuyPageViewController: UIViewController, UITableViewDataSource, UITableVie
         switch indexPath.section{
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AboutBookTableViewCell.identifier, for: indexPath) as? AboutBookTableViewCell else{ return UITableViewCell()}
-            cell.setUpTableCell()
-        
+//            cell.setUpTableCell(bookData: model)
+            print("dataa: ", model)
+
+            guard let data = model else { return UITableViewCell() }
+                cell.setUpTableCell(bookData: data)
+             
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: BookRatingTableViewCell.identifier, for: indexPath) as? BookRatingTableViewCell else {return UITableViewCell()}
-            cell.setUpBookingTableCell()
+            
+            guard let data = model?.bookDescription else {return UITableViewCell()}
+            cell.setUpBookingTableCell(bookData: data)
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionTableViewCell.identifier, for: indexPath) as? DescriptionTableViewCell else {
-                return UITableViewCell()
-            }
-            cell.setUpTableCell()
+                return UITableViewCell()}
+            
+            guard let data = model else {return UITableViewCell()}
+            cell.setUpTableCell(bookData: data)
             return cell
         case 3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: RatingsTableViewCell.identifier, for: indexPath) as? RatingsTableViewCell else {
                 return UITableViewCell()
             }
+          
             cell.setUpTableCell()
             return cell
         case 4:
@@ -152,11 +132,13 @@ class BuyPageViewController: UIViewController, UITableViewDataSource, UITableVie
             guard let cell = tableView.dequeueReusableCell(withIdentifier: BookSeriesTableViewCell.identifier, for: indexPath) as? BookSeriesTableViewCell else{
                 return UITableViewCell()
             }
-            cell.setUpTableCell()
+            guard let data = model else {return UITableViewCell()}
+            cell.setUpTableCell(bookSeries: data)
+//            cell.setUpTableCell()
          return cell
         case 6:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SimilarEbooksTableViewCell.identifier, for: indexPath) as? SimilarEbooksTableViewCell else {return UITableViewCell()}
-            cell.setUpTableCell()
+//            cell.setUpTableCell()
             return cell
         default:
             break

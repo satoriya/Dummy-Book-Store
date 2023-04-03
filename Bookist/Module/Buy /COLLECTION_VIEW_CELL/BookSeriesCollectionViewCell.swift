@@ -24,4 +24,14 @@ static let identifier = "BookSeriesCollectionViewCell"
     
     @IBOutlet weak var bookSeriesPrice: UILabel!
     
+    
+    func setUpCollectionCell(bookSeries : BuyPageModel)
+    {
+        bookSeriesIMG.sd_setImage(with: URL(string: bookSeries.image))
+        bookSeriesTitle.text = bookSeries.title
+        bookSeriesPrice.text = "\(bookSeries.price)"
+      
+    }
+    
+    
 }

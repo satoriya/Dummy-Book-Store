@@ -35,7 +35,8 @@ class BuyPageViewModel: BuyPageProtocol{
             switch response{
             case .success(let success):
                 self.bindBuyPage?(success)
-            case .failure(_):
+            case .failure(let error):
+                print(error.localizedDescription)
                 self.bindBuyPage?(nil)
             }
         })
