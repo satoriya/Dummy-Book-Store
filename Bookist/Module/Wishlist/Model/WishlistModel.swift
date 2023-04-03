@@ -3,13 +3,22 @@
 //  Bookist
 //
 //  Created by Phincon on 29/03/23.
-//
 
 import Foundation
 
-struct WishlistModel {
-    var imageBook: String?
-    var titleBook: String?
-    var ratingBook: Double?
-    var priceBook: Int?
+struct WishlistModel : Codable {
+    let pageTitle : String
+    let showingCount: Int
+    let data: DataClass
+}
+struct DataClass: Codable {
+    let items: [ItemModel]
+}
+struct ItemModel: Codable {
+    let title: String
+    let image: String
+    let url: String
+    let rating: Double?
+    let price: Double
+    let subtitle, isbn13: String?
 }
