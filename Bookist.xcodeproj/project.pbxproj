@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01F06FEC29DABB8600922FD5 /* GenreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F06FE229DABB8600922FD5 /* GenreViewModel.swift */; };
+		01F06FED29DABB8600922FD5 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F06FE429DABB8600922FD5 /* APIService.swift */; };
+		01F06FEE29DABB8600922FD5 /* GenreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F06FE629DABB8600922FD5 /* GenreResponse.swift */; };
+		01F06FEF29DABB8600922FD5 /* GenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F06FE829DABB8600922FD5 /* GenreViewController.swift */; };
+		01F06FF029DABB8600922FD5 /* BookListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F06FE929DABB8600922FD5 /* BookListCell.swift */; };
+		01F06FF129DABB8600922FD5 /* BookGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F06FEA29DABB8600922FD5 /* BookGridCell.swift */; };
+		01F06FF229DABB8600922FD5 /* BookGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01F06FEB29DABB8600922FD5 /* BookGridCell.xib */; };
+		01F06FF529DABBBC00922FD5 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 01F06FF429DABBBC00922FD5 /* SDWebImage */; };
 		36883E6429D4602A00691679 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36883E6329D4602A00691679 /* WishlistViewController.swift */; };
 		36883E6E29D4707F00691679 /* WishlistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36883E6D29D4707F00691679 /* WishlistModel.swift */; };
 		36883E7129D4E62300691679 /* WishlistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36883E6F29D4E62300691679 /* WishlistCollectionViewCell.swift */; };
@@ -74,6 +82,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01F06FE229DABB8600922FD5 /* GenreViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreViewModel.swift; sourceTree = "<group>"; };
+		01F06FE429DABB8600922FD5 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		01F06FE629DABB8600922FD5 /* GenreResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreResponse.swift; sourceTree = "<group>"; };
+		01F06FE829DABB8600922FD5 /* GenreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreViewController.swift; sourceTree = "<group>"; };
+		01F06FE929DABB8600922FD5 /* BookListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookListCell.swift; sourceTree = "<group>"; };
+		01F06FEA29DABB8600922FD5 /* BookGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookGridCell.swift; sourceTree = "<group>"; };
+		01F06FEB29DABB8600922FD5 /* BookGridCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookGridCell.xib; sourceTree = "<group>"; };
 		36883E6329D4602A00691679 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
 		36883E6D29D4707F00691679 /* WishlistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistModel.swift; sourceTree = "<group>"; };
 		36883E6F29D4E62300691679 /* WishlistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -132,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01F06FF529DABBBC00922FD5 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +168,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01F06FE029DABB8600922FD5 /* Genre */ = {
+			isa = PBXGroup;
+			children = (
+				01F06FE129DABB8600922FD5 /* ViewModel */,
+				01F06FE329DABB8600922FD5 /* Networking */,
+				01F06FE529DABB8600922FD5 /* Model */,
+				01F06FE729DABB8600922FD5 /* View */,
+			);
+			path = Genre;
+			sourceTree = "<group>";
+		};
+		01F06FE129DABB8600922FD5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				01F06FE229DABB8600922FD5 /* GenreViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		01F06FE329DABB8600922FD5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				01F06FE429DABB8600922FD5 /* APIService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		01F06FE529DABB8600922FD5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				01F06FE629DABB8600922FD5 /* GenreResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		01F06FE729DABB8600922FD5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				01F06FE829DABB8600922FD5 /* GenreViewController.swift */,
+				01F06FE929DABB8600922FD5 /* BookListCell.swift */,
+				01F06FEA29DABB8600922FD5 /* BookGridCell.swift */,
+				01F06FEB29DABB8600922FD5 /* BookGridCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		36142FB029DAAA780025E111 /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +378,7 @@
 		36B4294F29D3FACA004ECC0A /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				01F06FE029DABB8600922FD5 /* Genre */,
 				36B4295529D40426004ECC0A /* Purchased */,
 				36B4295429D403F7004ECC0A /* Account */,
 				36B4295329D40388004ECC0A /* Wishlist */,
@@ -505,6 +568,9 @@
 			dependencies = (
 			);
 			name = Bookist;
+			packageProductDependencies = (
+				01F06FF429DABBBC00922FD5 /* SDWebImage */,
+			);
 			productName = Bookist;
 			productReference = 36B4291A29D17B7A004ECC0A /* Bookist.app */;
 			productType = "com.apple.product-type.application";
@@ -577,6 +643,9 @@
 				Base,
 			);
 			mainGroup = 36B4291129D17B7A004ECC0A;
+			packageReferences = (
+				01F06FF329DABBBC00922FD5 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 36B4291B29D17B7A004ECC0A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -599,6 +668,7 @@
 				36B4292A29D17B7C004ECC0A /* LaunchScreen.storyboard in Resources */,
 				36883E7229D4E62300691679 /* WishlistCollectionViewCell.xib in Resources */,
 				36B4292729D17B7C004ECC0A /* Assets.xcassets in Resources */,
+				01F06FF229DABB8600922FD5 /* BookGridCell.xib in Resources */,
 				36B4292529D17B7A004ECC0A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -636,7 +706,9 @@
 				36B4296029D40686004ECC0A /* NetworkHelper.swift in Sources */,
 				7ABFBEA229D560EB00E2B6D6 /* DiscoverModel.swift in Sources */,
 				36B4292029D17B7A004ECC0A /* SceneDelegate.swift in Sources */,
+				01F06FF029DABB8600922FD5 /* BookListCell.swift in Sources */,
 				36A91BE929DA6EF5009D169A /* ApiService.swift in Sources */,
+				01F06FF129DABB8600922FD5 /* BookGridCell.swift in Sources */,
 				36A91BEB29DA70CA009D169A /* AccountViewController.swift in Sources */,
 				7AF21B4129D414C5001D6EDB /* DiscoverViewController.swift in Sources */,
 				36B4296829D406F3004ECC0A /* WishlistViewModel.swift in Sources */,
@@ -646,15 +718,19 @@
 				36B4296A29D406FB004ECC0A /* DiscoverViewModel.swift in Sources */,
 				36A91BE729DA6E8B009D169A /* AccountViewModel.swift in Sources */,
 				7ABFBEAB29D56E8300E2B6D6 /* UIImageView+loadImageFromUrl.swift in Sources */,
+				01F06FEE29DABB8600922FD5 /* GenreResponse.swift in Sources */,
+				01F06FED29DABB8600922FD5 /* APIService.swift in Sources */,
 				7ABFBE9C29D5242500E2B6D6 /* DiscoverLeftBarItem.swift in Sources */,
 				7ABFBEAD29D56ED100E2B6D6 /* GetNetworkImageService.swift in Sources */,
 				7ABFBEB029D5747700E2B6D6 /* GetAPIService.swift in Sources */,
 				7ABFBE9829D51CE700E2B6D6 /* DiscoverBookModel.swift in Sources */,
+				01F06FEC29DABB8600922FD5 /* GenreViewModel.swift in Sources */,
 				36B4296429D406DF004ECC0A /* PurchasedViewModel.swift in Sources */,
 				36A91BE129DA6D58009D169A /* ColorExtension.swift in Sources */,
 				36B4296C29D40702004ECC0A /* BuyViewModel.swift in Sources */,
 				36A91BE329DA6D86009D169A /* ImageViewExtension.swift in Sources */,
 				36A91BE529DA6E14009D169A /* AccountModel.swift in Sources */,
+				01F06FEF29DABB8600922FD5 /* GenreViewController.swift in Sources */,
 				7ABEE39329D672ED0067EB17 /* UIImage+scaleImagePreservingRatio.swift in Sources */,
 				7AF21B4629D41C5D001D6EDB /* DiscoverBookListTableViewCell.swift in Sources */,
 				7ABFBEA029D55FCA00E2B6D6 /* FetchDataService.swift in Sources */,
@@ -996,6 +1072,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		01F06FF329DABBBC00922FD5 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		01F06FF429DABBBC00922FD5 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 01F06FF329DABBBC00922FD5 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 36B4291229D17B7A004ECC0A /* Project object */;
 }
