@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		360A6B3D29D414DF00B12285 /* AboutBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360A6B3C29D414DF00B12285 /* AboutBookTableViewCell.swift */; };
 		360A6B4029D4220600B12285 /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 360A6B3F29D4220600B12285 /* assets.xcassets */; };
+		368A696B29DA831A00B94ACD /* BuyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A696A29DA831A00B94ACD /* BuyPageViewModel.swift */; };
+		368A696D29DA839D00B94ACD /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368A696C29DA839D00B94ACD /* ApiService.swift */; };
 		368FAEE729D58054002E7956 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368FAEE629D58054002E7956 /* DescriptionTableViewCell.swift */; };
 		369ACB2E29D51A210060B93E /* BuyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369ACB2D29D51A210060B93E /* BuyPageViewController.swift */; };
 		369ACB3029D5430A0060B93E /* BookRatingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369ACB2F29D5430A0060B93E /* BookRatingTableViewCell.swift */; };
@@ -36,7 +38,7 @@
 		36B4296629D406E9004ECC0A /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4296529D406E9004ECC0A /* AccountViewModel.swift */; };
 		36B4296829D406F3004ECC0A /* WishlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4296729D406F3004ECC0A /* WishlistViewModel.swift */; };
 		36B4296A29D406FB004ECC0A /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4296929D406FB004ECC0A /* DiscoverViewModel.swift */; };
-		36B4296C29D40702004ECC0A /* BuyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4296B29D40702004ECC0A /* BuyViewModel.swift */; };
+		36B4296C29D40702004ECC0A /*   BuyPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4296B29D40702004ECC0A /*   BuyPageModel.swift */; };
 		36B4296E29D4070D004ECC0A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4296D29D4070D004ECC0A /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +62,8 @@
 /* Begin PBXFileReference section */
 		360A6B3C29D414DF00B12285 /* AboutBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutBookTableViewCell.swift; sourceTree = "<group>"; };
 		360A6B3F29D4220600B12285 /* assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = assets.xcassets; sourceTree = "<group>"; };
+		368A696A29DA831A00B94ACD /* BuyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyPageViewModel.swift; sourceTree = "<group>"; };
+		368A696C29DA839D00B94ACD /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		368FAEE629D58054002E7956 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		369ACB2D29D51A210060B93E /* BuyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyPageViewController.swift; sourceTree = "<group>"; };
 		369ACB2F29D5430A0060B93E /* BookRatingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRatingTableViewCell.swift; sourceTree = "<group>"; };
@@ -91,7 +95,7 @@
 		36B4296529D406E9004ECC0A /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		36B4296729D406F3004ECC0A /* WishlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewModel.swift; sourceTree = "<group>"; };
 		36B4296929D406FB004ECC0A /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
-		36B4296B29D40702004ECC0A /* BuyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewModel.swift; sourceTree = "<group>"; };
+		36B4296B29D40702004ECC0A /*   BuyPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "  BuyPageModel.swift"; sourceTree = "<group>"; };
 		36B4296D29D4070D004ECC0A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,9 +143,25 @@
 		368A696729DA753C00B94ACD /* MODEL */ = {
 			isa = PBXGroup;
 			children = (
-				36B4296B29D40702004ECC0A /* BuyViewModel.swift */,
+				36B4296B29D40702004ECC0A /*   BuyPageModel.swift */,
 			);
 			path = MODEL;
+			sourceTree = "<group>";
+		};
+		368A696829DA82D300B94ACD /* VIEW_MODEL */ = {
+			isa = PBXGroup;
+			children = (
+				368A696A29DA831A00B94ACD /* BuyPageViewModel.swift */,
+			);
+			path = VIEW_MODEL;
+			sourceTree = "<group>";
+		};
+		368A696929DA82E200B94ACD /* NETWORKING */ = {
+			isa = PBXGroup;
+			children = (
+				368A696C29DA839D00B94ACD /* ApiService.swift */,
+			);
+			path = NETWORKING;
 			sourceTree = "<group>";
 		};
 		369ACB2C29D518A80060B93E /* VIEW_CONTROLLER */ = {
@@ -238,6 +258,8 @@
 		36B4295129D4036D004ECC0A /* Buy  */ = {
 			isa = PBXGroup;
 			children = (
+				368A696929DA82E200B94ACD /* NETWORKING */,
+				368A696829DA82D300B94ACD /* VIEW_MODEL */,
 				368A696729DA753C00B94ACD /* MODEL */,
 				369E6A1629D6B9C20082E82D /* COLLECTION_VIEW_CELL */,
 				360A6B3E29D414E700B12285 /* TABLE_VIEW_CELL */,
@@ -480,8 +502,10 @@
 				369E6A1129D6A6720082E82D /* RateThisBookTableViewCell.swift in Sources */,
 				36B4296E29D4070D004ECC0A /* HomeViewModel.swift in Sources */,
 				36B4296A29D406FB004ECC0A /* DiscoverViewModel.swift in Sources */,
+				368A696B29DA831A00B94ACD /* BuyPageViewModel.swift in Sources */,
 				36B4296429D406DF004ECC0A /* PurchasedViewModel.swift in Sources */,
-				36B4296C29D40702004ECC0A /* BuyViewModel.swift in Sources */,
+				368A696D29DA839D00B94ACD /* ApiService.swift in Sources */,
+				36B4296C29D40702004ECC0A /*   BuyPageModel.swift in Sources */,
 				369ACB3029D5430A0060B93E /* BookRatingTableViewCell.swift in Sources */,
 				369E3E5629DA5ABC00B20ED2 /* SimilarEbooksTableViewCell.swift in Sources */,
 				36B4294E29D17BED004ECC0A /* TabBar.swift in Sources */,

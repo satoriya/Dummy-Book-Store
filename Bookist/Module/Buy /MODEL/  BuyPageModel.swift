@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BuyViewModel: Codable {
+struct BuyPageModel: Codable {
     let pageTitle, title, subtitle, about: String
     let author: String
     let price: Double

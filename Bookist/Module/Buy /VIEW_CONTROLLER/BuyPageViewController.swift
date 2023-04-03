@@ -9,6 +9,9 @@ import UIKit
 
 class BuyPageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var model : BuyPageModel?
+    var viewModel : BuyPageViewModel?
+    
     private lazy var tableview : UITableView = {
             let table = UITableView()
             table.translatesAutoresizingMaskIntoConstraints = false
@@ -28,11 +31,23 @@ class BuyPageViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setUpTable()
+        bindApiData()
         tableview.register(UINib(nibName: "BookSeriesTableViewCell", bundle: nil), forCellReuseIdentifier: BookSeriesTableViewCell.identifier)
         tableview.register(UINib(nibName: SimilarEbooksTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: SimilarEbooksTableViewCell.identifier)
     }
     
-      
+    func bindApiData(){
+        self.viewModel = BuyPageViewModel(urlSting: "http://localhost:3002/AboutThisBook", apiService: ApiService())
+        self.viewModel?.bindBuyPage = {buypageListModel in
+            if let data = buypageListModel{
+                self.model = data
+            }
+            DispatchQueue.main.async {
+                self.tableview.reloadData()
+            }
+        }
+        
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section{
