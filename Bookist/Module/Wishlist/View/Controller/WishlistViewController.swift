@@ -13,8 +13,8 @@ class WishlistViewController: UIViewController {
     var wishlistCollectionView: UICollectionView = {
         let flowlayout = UICollectionViewFlowLayout()
         flowlayout.scrollDirection = .vertical
-        flowlayout.sectionInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
-        flowlayout.itemSize = CGSize(width: 380, height: 180)
+        flowlayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        flowlayout.itemSize = CGSize(width: 360, height: 180)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowlayout)
         return collectionView
     }()
@@ -35,26 +35,22 @@ class WishlistViewController: UIViewController {
         
         self.viewModel = WishlistViewModel(urlString : "http://localhost:3003", apiService: GetWishlistApi())
 
-        self.viewModel?.bindWishlistData = {wishlistDataModel in
-            print("this is the data: \(wishlistDataModel)")
-            if let wishlistDataModel = wishlistDataModel{
+        self.viewModel?.bindWishlistData = { wishlistDataModel in
+            if let wishlistDataModel = wishlistDataModel {
                 self.wishlist = wishlistDataModel
-                self.wishlistCollectionView.backgroundColor = .white
-            } else {
-                self.wishlistCollectionView.backgroundColor = .white
             }
             DispatchQueue.main.async {
                 self.wishlistCollectionView.reloadData()
             }
         }
         setupLayout()
-        setupCollectionView()
-    }
+        setupCollectionView()}
+    
     //NavBar
     private func configureNavBar(){
         navigationController?.navigationBar.tintColor = .label
         navigationController?.navigationBar.prefersLargeTitles = false
-       
+        
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(
                 image: UIImage(systemName: "line.horizontal.3"),
@@ -108,17 +104,17 @@ extension WishlistViewController: UICollectionViewDataSource, UICollectionViewDe
             return UICollectionViewCell()
         }
         guard let items = wishlist?.data.items else { return UICollectionViewCell()}
-        
         cell.bookImageView.sd_setImage(with: URL(string: items[indexPath.row].image))
         cell.titleLabel.text = items[indexPath.row].title
         cell.ratingLabel.text = "\(wishlist?.data.items[indexPath.row].rating ?? 0)"
         cell.priceBookLabel.text = "$\(wishlist?.data.items[indexPath.row].price ?? 0)"
-        cell.bookImageView.layer.cornerRadius = 8
+        
         //  cell.bookImageView.image = UIImage(named: wishlistData[indexPath.row].imageBook ?? "")
         //  cell.titleLabel.text = wishlistData[indexPath.row].titleBook ?? ""
         //  cell.ratingLabel.text = "\(wishlistData[indexPath.row].ratingBook ?? 0)"
         //  cell.priceBookLabel.text = "$\(wishlistData[indexPath.row].priceBook ?? 0)"
         //   cell.bookImageView.layer.cornerRadius = 8
+        
         return cell
     }
 }
