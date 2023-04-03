@@ -1,5 +1,5 @@
 //
-//  UserTableViewCell.swift
+//  MenuTableViewCell.swift
 //  Bookist
 //
 //  Created by Phincon on 03/04/23.

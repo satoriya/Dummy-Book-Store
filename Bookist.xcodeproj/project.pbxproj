@@ -17,10 +17,10 @@
 		36A91BE729DA6E8B009D169A /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A91BE629DA6E8B009D169A /* AccountViewModel.swift */; };
 		36A91BE929DA6EF5009D169A /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A91BE829DA6EF5009D169A /* ApiService.swift */; };
 		36A91BEB29DA70CA009D169A /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A91BEA29DA70CA009D169A /* AccountViewController.swift */; };
-		36A91BEE29DA71A9009D169A /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A91BEC29DA71A9009D169A /* MenuTableViewCell.swift */; };
-		36A91BEF29DA71A9009D169A /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36A91BED29DA71A9009D169A /* MenuTableViewCell.xib */; };
 		36A91BF329DA7211009D169A /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A91BF129DA7211009D169A /* UserTableViewCell.swift */; };
 		36A91BF429DA7211009D169A /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36A91BF229DA7211009D169A /* UserTableViewCell.xib */; };
+		36A91BFA29DAA7D8009D169A /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A91BF929DAA7D8009D169A /* MenuTableViewCell.swift */; };
+		36A91BFC29DAA7EA009D169A /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36A91BFB29DAA7EA009D169A /* MenuTableViewCell.xib */; };
 		36B4291E29D17B7A004ECC0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4291D29D17B7A004ECC0A /* AppDelegate.swift */; };
 		36B4292029D17B7A004ECC0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4291F29D17B7A004ECC0A /* SceneDelegate.swift */; };
 		36B4292229D17B7A004ECC0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4292129D17B7A004ECC0A /* ViewController.swift */; };
@@ -68,10 +68,10 @@
 		36A91BE629DA6E8B009D169A /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		36A91BE829DA6EF5009D169A /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		36A91BEA29DA70CA009D169A /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
-		36A91BEC29DA71A9009D169A /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
-		36A91BED29DA71A9009D169A /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MenuTableViewCell.xib; path = ../MenuTableViewCell.xib; sourceTree = "<group>"; };
 		36A91BF129DA7211009D169A /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
-		36A91BF229DA7211009D169A /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = UserTableViewCell.xib; path = Reusable/UserTableViewCell.xib; sourceTree = "<group>"; };
+		36A91BF229DA7211009D169A /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		36A91BF929DAA7D8009D169A /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuTableViewCell.swift; path = Bookist/Module/Account/View/Cell/Reusable/MenuTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		36A91BFB29DAA7EA009D169A /* MenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuTableViewCell.xib; path = Bookist/Module/Account/View/Cell/Reusable/MenuTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		36B4291A29D17B7A004ECC0A /* Bookist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B4291D29D17B7A004ECC0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36B4291F29D17B7A004ECC0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +120,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36142FB029DAAA780025E111 /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				36A91BFB29DAA7EA009D169A /* MenuTableViewCell.xib */,
+				36A91BF929DAA7D8009D169A /* MenuTableViewCell.swift */,
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
 		36883E5629D4150D00691679 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,10 +174,8 @@
 		36A91BDB29DA6C59009D169A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				36A91BF029DA71F6009D169A /* Reusable */,
-				36A91BEA29DA70CA009D169A /* AccountViewController.swift */,
-				36A91BF129DA7211009D169A /* UserTableViewCell.swift */,
-				36A91BF229DA7211009D169A /* UserTableViewCell.xib */,
+				36A91BF629DAA60C009D169A /* Cell */,
+				36A91BF529DAA605009D169A /* Controller */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,13 +213,22 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		36A91BF029DA71F6009D169A /* Reusable */ = {
+		36A91BF529DAA605009D169A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				36A91BEC29DA71A9009D169A /* MenuTableViewCell.swift */,
-				36A91BED29DA71A9009D169A /* MenuTableViewCell.xib */,
+				36A91BEA29DA70CA009D169A /* AccountViewController.swift */,
 			);
-			path = Reusable;
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		36A91BF629DAA60C009D169A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				36142FB029DAAA780025E111 /* Reusable */,
+				36A91BF129DA7211009D169A /* UserTableViewCell.swift */,
+				36A91BF229DA7211009D169A /* UserTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		36B4291129D17B7A004ECC0A = {
@@ -490,11 +506,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				36A91BF429DA7211009D169A /* UserTableViewCell.xib in Resources */,
+				36A91BFC29DAA7EA009D169A /* MenuTableViewCell.xib in Resources */,
 				36B4292A29D17B7C004ECC0A /* LaunchScreen.storyboard in Resources */,
 				36883E7229D4E62300691679 /* WishlistCollectionViewCell.xib in Resources */,
 				36B4292729D17B7C004ECC0A /* Assets.xcassets in Resources */,
 				36B4292529D17B7A004ECC0A /* Main.storyboard in Resources */,
-				36A91BEF29DA71A9009D169A /* MenuTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +544,7 @@
 				36A91BEB29DA70CA009D169A /* AccountViewController.swift in Sources */,
 				36B4296829D406F3004ECC0A /* WishlistViewModel.swift in Sources */,
 				36B4296229D406CF004ECC0A /* RomanceViewModel.swift in Sources */,
+				36A91BFA29DAA7D8009D169A /* MenuTableViewCell.swift in Sources */,
 				36B4296E29D4070D004ECC0A /* HomeViewModel.swift in Sources */,
 				36A91BF329DA7211009D169A /* UserTableViewCell.swift in Sources */,
 				36B4296A29D406FB004ECC0A /* DiscoverViewModel.swift in Sources */,
@@ -536,7 +553,6 @@
 				36A91BE129DA6D58009D169A /* ColorExtension.swift in Sources */,
 				36B4296C29D40702004ECC0A /* BuyViewModel.swift in Sources */,
 				36A91BE329DA6D86009D169A /* ImageViewExtension.swift in Sources */,
-				36A91BEE29DA71A9009D169A /* MenuTableViewCell.swift in Sources */,
 				36A91BE529DA6E14009D169A /* AccountModel.swift in Sources */,
 				36883E6E29D4707F00691679 /* WishlistModel.swift in Sources */,
 				36B4294E29D17BED004ECC0A /* TabBar.swift in Sources */,
