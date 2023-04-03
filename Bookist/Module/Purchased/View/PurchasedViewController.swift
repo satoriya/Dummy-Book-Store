@@ -52,15 +52,13 @@ class PurchasedViewController: UIViewController {
             )
         ]
         
-        // leftbarbutton
-        addLeftBarButtonItem(withImageNamed: "book.fill", size: CGSize(width: 40, height: 35))
-    }
-    
-    // navbar title
-    private func addNavBarTitle(withName name: String) {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "book"), style: .plain, target: self, action: nil
+        )
+        
         let label = UILabel()
         label.textColor = label.tintColor
-        label.text = name
+        label.text = listItem?.pageTitle ?? "Purchased List"
         label.textColor = .label
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.textAlignment = .left
@@ -73,21 +71,13 @@ class PurchasedViewController: UIViewController {
         navigationController?.navigationBar.compactAppearance?.titlePositionAdjustment = offset
     }
     
-    private func addLeftBarButtonItem(withImageNamed imageName: String, size: CGSize) {
-        let image = UIImage(systemName: imageName)
-        let resizedImage = image?.resized(to: size)
-        let logo = UIBarButtonItem(image: resizedImage, style: .plain, target: self, action: nil)
-        navigationItem.leftBarButtonItem = logo
-        
-    }
-    
-    private func setupApi(apiUrl: String = "http://localhost:3002/purchased") {
+    func setupApi(apiUrl: String = "http://localhost:3002/purchased") {
         self.purchasedViewModel = PurchasedViewModel(urlString: apiUrl, apiService: PurchasedApiService())
         self.purchasedViewModel?.bindListData = {
             listModel in
             if let listData = listModel {
                 self.listItem = listData
-                print("bound")
+                print("bind")
             }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -105,9 +95,7 @@ extension PurchasedViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableCell.identifier, for: indexPath) as? ItemTableCell else {
             return UITableViewCell()
         }
-        
-        addNavBarTitle(withName: listItem?.pageTitle ?? "null")
-        cell.titleLabel.text = listItem?.data.items[indexPath.row].title ?? "null"
+        cell.titleLabel.text = listItem?.data.items[indexPath.row].title
         cell.ratingLabel.text = "\(listItem?.data.items[indexPath.row].rating ?? 0)"
         cell.statusLabel.text = listItem?.data.items[indexPath.row].subtitle ?? "Subtitle not found"
         cell.imgLabel.imageFromURL(urlString: listItem?.data.items[indexPath.row].image ?? "harrypotter", size: CGSize(width: 180, height: 200))
