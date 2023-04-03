@@ -12,9 +12,9 @@ struct WishlistModel : Codable {
     let data: DataClass
 }
 struct DataClass: Codable {
-    let items: [Item]
+    let items: [ItemModel]
 }
-struct Item: Codable {
+struct ItemModel: Codable {
     let title: String
     let image: String
     let url: String
