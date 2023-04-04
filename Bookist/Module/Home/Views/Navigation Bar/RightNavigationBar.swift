@@ -7,13 +7,22 @@
 
 import UIKit
 
+protocol RightNavigationBarDelegate {
+    func searchButtonHandler()
+}
+
 class RightNavigationBar: UIBarButtonItem {
+    
+    var rightNavigationBarDelegate: RightNavigationBarDelegate?
+    
     private lazy var searchButton: UIButton = {
         let image = UIImage(systemName: "magnifyingglass")
         
         let button = UIButton(type: .system)
         button.setImage(image, for: .normal)
         button.tintColor = .label
+        
+        button.addTarget(self, action: #selector(didSeachButtonClicked), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
             button.widthAnchor.constraint(equalToConstant: 30),
@@ -46,6 +55,12 @@ class RightNavigationBar: UIBarButtonItem {
         stackView.spacing = 16
         return stackView
     }()
+    
+    @objc
+    func didSeachButtonClicked(_ sender: UIButton) {
+        self.rightNavigationBarDelegate?.searchButtonHandler()
+    }
+    
     
     func setupBarItem() {
         barStackView.addArrangedSubview(searchButton)

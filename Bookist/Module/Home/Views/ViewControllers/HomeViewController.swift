@@ -16,7 +16,8 @@ class HomeViewController: UIViewController {
     let sectionTitles = ["Explore By Genre", "Recommended For You", "On Your Purchased", "On Your Wishlist"]
     var bookData: Book?
     var homeVM: HomeProtocol?
-    
+
+    private var searchBar = UISearchBar()
     
     private lazy var homeTable: UITableView = {
         let tb = UITableView(frame: .zero, style: .grouped)
@@ -47,17 +48,28 @@ class HomeViewController: UIViewController {
     func setupNavigationBar() {
         navigationItem.largeTitleDisplayMode = .never
         self.navigationItem.titleView = UIView(frame: .zero)
+
+        searchBar.delegate = self
         
+        barItemsSetup()
+
+    }
+    
+    func barItemsSetup() {
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.clear]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
+        self.navigationItem.titleView = UIView(frame: .zero)
         
         let leftBarItem = LeftNavigationBar()
         leftBarItem.setupBarItem()
         
         let rightBarItem = RightNavigationBar()
+        rightBarItem.rightNavigationBarDelegate = self
         rightBarItem.setupBarItem()
         
         navigationItem.setLeftBarButton(leftBarItem, animated: true)
         navigationItem.setRightBarButton(rightBarItem, animated: true)
-
     }
     
     @objc
@@ -162,9 +174,42 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             return UITableViewCell()
         }
+    }
+}
+
+extension HomeViewController: RightNavigationBarDelegate, UISearchBarDelegate, UISearchControllerDelegate {
+    func searchButtonHandler() {
+        navigationItem.titleView = searchBar
+        searchBar.showsCancelButton = true
+        searchBar.becomeFirstResponder()
+        navigationItem.leftBarButtonItems = nil
+        navigationItem.rightBarButtonItems = nil
         
-                
+        print("button clicked")
+
+    }
+    
+    func showSearchBarButton(shouldShow: Bool) {
+        if shouldShow {
+            barItemsSetup()
+        } else {
+            navigationItem.rightBarButtonItems = nil
+            navigationItem.leftBarButtonItems = nil
+        }
+    }
+    
+    func searchBarActionSetup(shouldShow: Bool) {
         
+        showSearchBarButton(shouldShow: !shouldShow)
+        searchBar.showsCancelButton = shouldShow
+        
+        navigationItem.titleView = shouldShow ? searchBar : nil
+
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("delegate called")
+       searchBarActionSetup(shouldShow: false)
     }
     
     
