@@ -132,13 +132,14 @@ class BuyPageViewController: UIViewController, UITableViewDataSource, UITableVie
             guard let cell = tableView.dequeueReusableCell(withIdentifier: BookSeriesTableViewCell.identifier, for: indexPath) as? BookSeriesTableViewCell else{
                 return UITableViewCell()
             }
-            guard let data = model else {return UITableViewCell()}
-            cell.setUpTableCell(bookSeries: data)
-//            cell.setUpTableCell()
+           
+            cell.setUpTableCell()
+            cell.passingData = model
          return cell
         case 6:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SimilarEbooksTableViewCell.identifier, for: indexPath) as? SimilarEbooksTableViewCell else {return UITableViewCell()}
-//            cell.setUpTableCell()
+            cell.setUpTableCell()
+            cell.passingData = model
             return cell
         default:
             break

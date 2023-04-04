@@ -13,7 +13,6 @@ class BookSeriesTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
     
     static let identifier = "BookSeriesTableViewCell"
     
-    
     @IBOutlet weak var bookSeriesCollectionViewInsideTableCell: UICollectionView!
     
     @IBOutlet weak var bookSeriesTitle: UILabel!
@@ -26,7 +25,7 @@ class BookSeriesTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
         }
     }
     
-    func setUpTableCell(bookSeries : BuyPageModel){
+    func setUpTableCell(){
         
         
         let flowlayout = UICollectionViewFlowLayout()
@@ -44,7 +43,7 @@ class BookSeriesTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return passingData?.similarBooks[0].data.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -54,12 +53,14 @@ class BookSeriesTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookSeriesCollectionViewCell.identifier, for: indexPath) as? BookSeriesCollectionViewCell else {
+        guard let similarBook = passingData?.similarBooks[0].data[indexPath.row],
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookSeriesCollectionViewCell.identifier, for: indexPath) as? BookSeriesCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.bookSeriesTitle.text = "Haryy potter and the half-blood prince"
-        cell.bookSeriesPrice.text = "$9.99"
-        cell.bookSeriesRating.text = "4.8"
+        cell.bookSeriesTitle.text = similarBook.title
+        cell.bookSeriesPrice.text = "\(similarBook.price ?? 0)"
+        cell.bookSeriesRating.text = "\(similarBook.rating ?? 0)"
+        cell.bookSeriesIMG.sd_setImage(with:URL(string: similarBook.image ?? ""))
         return cell
     }
 }

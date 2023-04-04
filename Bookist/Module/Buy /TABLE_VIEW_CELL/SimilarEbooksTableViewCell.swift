@@ -13,6 +13,8 @@ class SimilarEbooksTableViewCell: UITableViewCell, UICollectionViewDataSource, U
   
     @IBOutlet weak var similarEbooksTitle: UILabel!
     
+    var passingData: BuyPageModel?
+    
     @IBOutlet weak var arrowButton: UIButton!{
         didSet{
             arrowButton.tintColor = .orange
@@ -25,7 +27,7 @@ class SimilarEbooksTableViewCell: UITableViewCell, UICollectionViewDataSource, U
     @IBOutlet weak var collectionViewInsideTableCell: UICollectionView!
     
     
-    func setUpTableCell(similarBooks : SimilarBook){
+    func setUpTableCell(){
     
         let flowlayout = UICollectionViewFlowLayout()
         flowlayout.scrollDirection = .horizontal
@@ -40,13 +42,19 @@ class SimilarEbooksTableViewCell: UITableViewCell, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return passingData?.similarBooks[0].data.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookSeriesCollectionViewCell.identifier, for: indexPath) as? BookSeriesCollectionViewCell else {
+        guard let similarBook =
+                passingData?.similarBooks[0].data[indexPath.row],
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookSeriesCollectionViewCell.identifier, for: indexPath) as? BookSeriesCollectionViewCell else {
             return UICollectionViewCell()
         }
+        cell.bookSeriesTitle.text = similarBook.title
+        cell.bookSeriesPrice.text = "\(similarBook.price ?? 0)"
+        cell.bookSeriesRating.text = "\(similarBook.rating ?? 0)"
+        cell.bookSeriesIMG.sd_setImage(with: URL(string: similarBook.image ?? ""))
         return cell
     }
     

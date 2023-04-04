@@ -38,8 +38,19 @@ struct BookDescription: Codable {
 
 struct SimilarBook: Codable {
     let showCount: Int
+    let data: [Datum]
 
     enum CodingKeys: String, CodingKey {
         case showCount = "show_count"
+        case data
     }
+}
+
+struct Datum: Codable {
+    let title, subtitle: String
+    let image: String
+    let url: String
+    let rating: Double
+    let price: Int
+    let isbn13: String?
 }
