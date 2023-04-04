@@ -177,10 +177,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension HomeViewController: RightNavigationBarDelegate, UISearchBarDelegate, UISearchControllerDelegate {
+extension HomeViewController: RightNavigationBarDelegate, UISearchBarDelegate {
     func searchButtonHandler() {
         navigationItem.titleView = searchBar
         searchBar.showsCancelButton = true
+        searchBar.placeholder = "Search for a book"
+        searchBar.tintColor = .black
         searchBar.becomeFirstResponder()
         navigationItem.leftBarButtonItems = nil
         navigationItem.rightBarButtonItems = nil
@@ -203,8 +205,13 @@ extension HomeViewController: RightNavigationBarDelegate, UISearchBarDelegate, U
         showSearchBarButton(shouldShow: !shouldShow)
         searchBar.showsCancelButton = shouldShow
         
-        navigationItem.titleView = shouldShow ? searchBar : nil
 
+        if shouldShow {
+            navigationItem.titleView = searchBar
+        } else {
+            navigationItem.titleView = nil
+        }
+        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -212,5 +219,7 @@ extension HomeViewController: RightNavigationBarDelegate, UISearchBarDelegate, U
        searchBarActionSetup(shouldShow: false)
     }
     
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("searched item\(searchText)")
+    }
 }
