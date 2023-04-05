@@ -39,7 +39,7 @@ class BuyPageViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func bindApiData(){
-        self.viewModel = BuyPageViewModel(urlSting: "http://localhost:3002/AboutThisBook", apiService: ApiService())
+        self.viewModel = BuyPageViewModel(urlSting: "http://localhost:3002/AboutThisBook", apiService: ApiServiceBuyPage())
         self.viewModel?.bindBuyPage = {buypageListModel in
             if let data = buypageListModel{
                 self.model = data

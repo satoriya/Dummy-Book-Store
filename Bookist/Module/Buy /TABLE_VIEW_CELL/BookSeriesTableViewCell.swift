@@ -58,9 +58,9 @@ class BookSeriesTableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
             return UICollectionViewCell()
         }
         cell.bookSeriesTitle.text = similarBook.title
-        cell.bookSeriesPrice.text = "\(similarBook.price ?? 0)"
-        cell.bookSeriesRating.text = "\(similarBook.rating ?? 0)"
-        cell.bookSeriesIMG.sd_setImage(with:URL(string: similarBook.image ?? ""))
+        cell.bookSeriesPrice.text = "\(similarBook.price )"
+        cell.bookSeriesRating.text = "\(similarBook.rating )"
+        cell.bookSeriesIMG.sd_setImage(with:URL(string: similarBook.image ))
         return cell
     }
 }

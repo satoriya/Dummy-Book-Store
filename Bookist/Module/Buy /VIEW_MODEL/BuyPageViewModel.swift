@@ -16,14 +16,14 @@ protocol BuyPageProtocol{
 class BuyPageViewModel: BuyPageProtocol{
     var bindBuyPage: ((BuyPageModel?) -> ())?
     var url: String = ""
-    private var apiService : ApiServiceProtocol?
+    private var apiService : ApiServiceBuyPageProtocol?
     var delegate : BuyPageProtocol?
     var data : BuyPageModel?
     
     
-    init(urlSting : String, apiService: ApiServiceProtocol) {
+    init(urlSting : String, apiService: ApiServiceBuyPageProtocol) {
         self.url = urlSting
-        self.apiService = apiService as? ApiService
+        self.apiService = apiService as? ApiServiceBuyPage
         if let url = URL(string:  urlSting){
             self.apiService?.get(url: url )
         }

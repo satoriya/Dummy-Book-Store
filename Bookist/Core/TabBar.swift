@@ -18,11 +18,12 @@ class TabBar: UITabBarController {
     
     func setupVCs() {
            viewControllers = [
-               createNavController(for: BuyPageViewController(), title: NSLocalizedString("Home", comment: ""), image: UIImage(systemName: "magnifyingglass")!),
-               createNavController(for: ViewController(), title: NSLocalizedString("Discover", comment: ""), image: UIImage(systemName: "house")!),
-               createNavController(for: ViewController(), title: NSLocalizedString("Wishlist", comment: ""), image: UIImage(systemName: "person")!),
+               createNavController(for: HomeViewController(), title: NSLocalizedString("Home", comment: ""), image: UIImage(systemName: "magnifyingglass")!),
+               createNavController(for: DiscoverViewController(), title: NSLocalizedString("Discover", comment: ""), image: UIImage(systemName: "house")!),
+                createNavController(for: BuyPageViewController(), title: NSLocalizedString("Home", comment: ""), image: UIImage(systemName: "magnifyingglass")!),
+               createNavController(for: WishlistViewController(), title: NSLocalizedString("Wishlist", comment: ""), image: UIImage(systemName: "person")!),
                createNavController(for: ViewController(), title: NSLocalizedString("Purchased", comment: ""), image: UIImage(systemName: "person")!),
-               createNavController(for: ViewController(), title: NSLocalizedString("Account", comment: ""), image: UIImage(systemName: "person")!)
+               createNavController(for: AccountViewController(), title: NSLocalizedString("Account", comment: ""), image: UIImage(systemName: "person")!)
            ]
        }
     
@@ -32,9 +33,8 @@ class TabBar: UITabBarController {
            let navController = UINavigationController(rootViewController: rootViewController)
            navController.tabBarItem.title = title
            navController.tabBarItem.image = image
-           navController.navigationBar.prefersLargeTitles = true
+           navController.navigationBar.prefersLargeTitles = false
            rootViewController.navigationItem.title = title
            return navController
        }
-
 }
