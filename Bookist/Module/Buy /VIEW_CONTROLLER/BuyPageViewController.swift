@@ -23,7 +23,7 @@ class BuyPageViewController: UIViewController, UITableViewDataSource, UITableVie
         table.register(AboutBookTableViewCell.self, forCellReuseIdentifier: AboutBookTableViewCell.identifier)
             table.register(BookRatingTableViewCell.self, forCellReuseIdentifier: BookRatingTableViewCell.identifier)
             table.register(DescriptionTableViewCell.self, forCellReuseIdentifier: DescriptionTableViewCell.identifier)
-            table.register(RatingsTableViewCell.self, forCellReuseIdentifier: RatingsTableViewCell.identifier)
+//            table.register(RatingsTableViewCellTableViewCell.self, forCellReuseIdentifier: RatingsTableViewCellTableViewCell.identifier)
             table.register(RateThisBookTableViewCell.self, forCellReuseIdentifier: RateThisBookTableViewCell.identifier)
             return table
         }()
@@ -33,6 +33,7 @@ class BuyPageViewController: UIViewController, UITableViewDataSource, UITableVie
         // Do any additional setup after loading the view.
         setUpTable()
         bindApiData()
+        tableview.register(UINib(nibName: "RatingsTableViewCellTableViewCell", bundle: nil), forCellReuseIdentifier: RatingsTableViewCellTableViewCell.identifier)
         tableview.register(UINib(nibName: "BookSeriesTableViewCell", bundle: nil), forCellReuseIdentifier: BookSeriesTableViewCell.identifier)
         tableview.register(UINib(nibName: SimilarEbooksTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: SimilarEbooksTableViewCell.identifier)
     }
@@ -118,14 +119,15 @@ class BuyPageViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.setUpTableCell(bookData: data)
             return cell
         case 3:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: RatingsTableViewCell.identifier, for: indexPath) as? RatingsTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: RatingsTableViewCellTableViewCell.identifier, for: indexPath) as? RatingsTableViewCellTableViewCell else {
                 return UITableViewCell()
             }
-          
-            cell.setUpTableCell()
+            cell.ratingLabel.text =  "\(model?.bookDescription.rating ?? 0 )"
+            cell.reviewsLabel.text = "(\(model?.bookDescription.reviews ?? 0)Reviews)"
             return cell
         case 4:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: RateThisBookTableViewCell.identifier, for: indexPath) as? RateThisBookTableViewCell else{ return UITableViewCell()}
+            
             cell.setUpTable()
             return cell
         case 5:
