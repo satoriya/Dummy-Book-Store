@@ -8,22 +8,16 @@
 import UIKit
 
 enum DiscoverSection: Int {
-    case topCharts
-    case topSelling
-    case topFree
-    case topNewRelease
+    case discoverBooksTops
+    case error
     case none
     
     init(_ section: Int) {
         switch section {
         case 0:
-            self = .topCharts
+            self = .discoverBooksTops
         case 1:
-            self = .topSelling
-        case 2:
-            self = .topFree
-        case 3:
-            self = .topNewRelease
+            self = .error
         default:
             self = .none
         }
@@ -87,6 +81,8 @@ class DiscoverViewController: UIViewController {
         discoverTableView.register(DiscoverHeaderTableViewCell.self, forCellReuseIdentifier: DiscoverHeaderTableViewCell.identifier)
         
         discoverTableView.register(DiscoverBookListTableViewCell.self, forCellReuseIdentifier: DiscoverBookListTableViewCell.identifier)
+        
+        discoverTableView.register(DiscoverErrorTableViewCell.self, forCellReuseIdentifier: DiscoverErrorTableViewCell.identifier)
     }
     
     private func addSubviews() {
@@ -111,19 +107,30 @@ class DiscoverViewController: UIViewController {
 
 extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
+        if discoverViewModel?.errorMessage != nil {
+            return 1
+        }
+        
         return discoverViewModel?.discoverData?.data.items.count ?? 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch DiscoverSection(section) {
-        case .none:
-            return 0
-        default:
-            return 2
-        }
+        return discoverViewModel?.errorMessage == nil ? 2 : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let errorMessage = discoverViewModel?.errorMessage {
+            guard let discoverErrorCell = tableView.dequeueReusableCell(withIdentifier: DiscoverErrorTableViewCell.identifier) as? DiscoverErrorTableViewCell
+            else { return UITableViewCell() }
+            
+            discoverErrorCell.setErrorMessage(errorMessage)
+            discoverErrorCell.setupCell()
+            discoverErrorCell.delegate = self
+            
+            return discoverErrorCell
+        }
+        
         
         let discoverSection = discoverViewModel?.discoverData
         
@@ -170,14 +177,9 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension DiscoverViewController: DiscoverViewModelDelegate {
-    func handleGetDiscoverDataCompleted() {
-        if let errorMessage = discoverViewModel?.errorMessage {
-            print(errorMessage)
-            
-        } else {
-            DispatchQueue.main.async {
+    func refresh() {
+        DispatchQueue.main.async {
                 self.discoverTableView.reloadData()
-            }
         }
     }
 }
@@ -191,5 +193,11 @@ extension DiscoverViewController: DiscoverHeaderDelegate {
 extension DiscoverViewController: DiscoverRightBarButtonItemDelegate {
     func handleSearchButtonSelected() {
         print("Search Bar Button Selected")
+    }
+}
+
+extension DiscoverViewController: DiscoverErrorViewDelegate {
+    func handleOnReloadButtonSelected() {
+        discoverViewModel?.getDiscoverData()
     }
 }

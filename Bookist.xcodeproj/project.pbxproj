@@ -25,6 +25,8 @@
 		36B4296A29D406FB004ECC0A /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4296929D406FB004ECC0A /* DiscoverViewModel.swift */; };
 		36B4296C29D40702004ECC0A /* BuyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4296B29D40702004ECC0A /* BuyViewModel.swift */; };
 		36B4296E29D4070D004ECC0A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4296D29D4070D004ECC0A /* HomeViewModel.swift */; };
+		7ABA0F5E29DA941F00E58FBA /* DiscoverErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABA0F5D29DA941F00E58FBA /* DiscoverErrorView.swift */; };
+		7ABA0F6029DAACB400E58FBA /* DiscoverErrorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABA0F5F29DAACB400E58FBA /* DiscoverErrorTableViewCell.swift */; };
 		7ABEE39329D672ED0067EB17 /* UIImage+scaleImagePreservingRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABEE39229D672ED0067EB17 /* UIImage+scaleImagePreservingRatio.swift */; };
 		7ABFBE9829D51CE700E2B6D6 /* DiscoverBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABFBE9729D51CE700E2B6D6 /* DiscoverBookModel.swift */; };
 		7ABFBE9C29D5242500E2B6D6 /* DiscoverLeftBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABFBE9B29D5242500E2B6D6 /* DiscoverLeftBarItem.swift */; };
@@ -84,6 +86,8 @@
 		36B4296929D406FB004ECC0A /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
 		36B4296B29D40702004ECC0A /* BuyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewModel.swift; sourceTree = "<group>"; };
 		36B4296D29D4070D004ECC0A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		7ABA0F5D29DA941F00E58FBA /* DiscoverErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverErrorView.swift; sourceTree = "<group>"; };
+		7ABA0F5F29DAACB400E58FBA /* DiscoverErrorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverErrorTableViewCell.swift; sourceTree = "<group>"; };
 		7ABEE39229D672ED0067EB17 /* UIImage+scaleImagePreservingRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+scaleImagePreservingRatio.swift"; sourceTree = "<group>"; };
 		7ABFBE9729D51CE700E2B6D6 /* DiscoverBookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverBookModel.swift; sourceTree = "<group>"; };
 		7ABFBE9B29D5242500E2B6D6 /* DiscoverLeftBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverLeftBarItem.swift; sourceTree = "<group>"; };
@@ -333,6 +337,8 @@
 				7AF21B4529D41C5D001D6EDB /* DiscoverBookListTableViewCell.swift */,
 				7ABFBE9B29D5242500E2B6D6 /* DiscoverLeftBarItem.swift */,
 				7ABFBE9D29D52A3300E2B6D6 /* DiscoverRightBarButtonItem.swift */,
+				7ABA0F5D29DA941F00E58FBA /* DiscoverErrorView.swift */,
+				7ABA0F5F29DAACB400E58FBA /* DiscoverErrorTableViewCell.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -513,9 +519,11 @@
 				7ABFBE9829D51CE700E2B6D6 /* DiscoverBookModel.swift in Sources */,
 				36B4296429D406DF004ECC0A /* PurchasedViewModel.swift in Sources */,
 				36B4296C29D40702004ECC0A /* BuyViewModel.swift in Sources */,
+				7ABA0F5E29DA941F00E58FBA /* DiscoverErrorView.swift in Sources */,
 				7ABEE39329D672ED0067EB17 /* UIImage+scaleImagePreservingRatio.swift in Sources */,
 				7AF21B4629D41C5D001D6EDB /* DiscoverBookListTableViewCell.swift in Sources */,
 				7ABFBEA029D55FCA00E2B6D6 /* FetchDataService.swift in Sources */,
+				7ABA0F6029DAACB400E58FBA /* DiscoverErrorTableViewCell.swift in Sources */,
 				36B4294E29D17BED004ECC0A /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
