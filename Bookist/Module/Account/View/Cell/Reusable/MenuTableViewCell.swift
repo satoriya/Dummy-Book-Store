@@ -57,7 +57,7 @@ class MenuTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func setDataMenu(data: Item){
+    func setDataMenu(data: AccountItem){
         
         if data.itemName == "Logout" {
             chevronButton.tintColor = .clear

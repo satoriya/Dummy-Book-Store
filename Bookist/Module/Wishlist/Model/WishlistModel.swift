@@ -9,9 +9,9 @@ import Foundation
 struct WishlistModel : Codable {
     let pageTitle : String
     let showingCount: Int
-    let data: DataClass
+    let data: WishlistDataClass
 }
-struct DataClass: Codable {
+struct WishlistDataClass: Codable {
     let items: [ItemModel]
 }
 struct ItemModel: Codable {

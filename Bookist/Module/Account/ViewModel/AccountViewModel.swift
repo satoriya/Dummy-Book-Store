@@ -14,12 +14,12 @@ protocol AccountViewProtocol {
 }
 
 class AccountViewModel: AccountViewProtocol {
-    private var apiService: ApiServiceProtocol?
+    private var apiService: ApiServiceAccountProtocol?
     var urlString: String
     
     var bindAccountData: ((Account?) -> ())?
     
-    init(urlString: String, apiService: ApiServiceProtocol){
+    init(urlString: String, apiService: ApiServiceAccountProtocol){
         self.urlString = urlString
         self.apiService = apiService
         if let url = URL(string: urlString){

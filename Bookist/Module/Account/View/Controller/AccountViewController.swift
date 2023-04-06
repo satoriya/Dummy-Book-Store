@@ -91,7 +91,7 @@ class AccountViewController: UIViewController {
     }
     
     func bindAPIDatas(){
-        self.accountViewModel = AccountViewModel(urlString: "http://localhost:3002/account", apiService: ApiService())
+        self.accountViewModel = AccountViewModel(urlString: "http://localhost:3002/account", apiService: ApiServiceAccount())
         
         self.accountViewModel?.bindAccountData = { accountDatas in
             if let datas = accountDatas {

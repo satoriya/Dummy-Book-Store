@@ -27,10 +27,10 @@ struct Items: Decodable {
 }
 
 struct ItemSection: Decodable {
-    var item: [Item]
+    var item: [AccountItem]
 }
 
-struct Item: Decodable {
+struct AccountItem: Decodable {
     let itemName: String
     var iconName: String
     var iconTint: String

@@ -42,7 +42,7 @@ class BookListCell: UICollectionViewCell {
         return sv
     }()
     
-    func setupListCell(item: Item) {
+    func setupListCell(item: GenreItem) {
         setupUI()
         setupData(item: item)
     }
@@ -110,7 +110,7 @@ class BookListCell: UICollectionViewCell {
         constraint.isActive = true
     }
     
-    func setupData(item: Item) {
+    func setupData(item: GenreItem) {
         bookCoverImage.sd_setImage(with: URL(string: item.image))
         
         bookTitleLabel.text = item.title

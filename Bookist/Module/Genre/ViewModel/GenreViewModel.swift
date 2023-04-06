@@ -15,11 +15,11 @@ protocol GenreViewModelProtocol {
 
 class GenreViewModel: GenreViewModelProtocol {
     
-    private var apiService: ApiServiceProtocol?
+    private var apiService: ApiServiceGenreProtocol?
     var urlString: String
     var bindData: (((GenreResponse?)) -> ())?
     
-    init(urlString: String, apiService: ApiServiceProtocol) {
+    init(urlString: String, apiService: ApiServiceGenreProtocol) {
         self.urlString = urlString
         self.apiService = apiService
         

@@ -1,103 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "F62033CF-EA98-442D-BC09-8F7626CFFE45"
+   uuid = "6B9DC443-D72A-4B08-A77E-6B188481CC29"
    type = "1"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "14E6F92F-7F95-43A4-BE6F-4CF8A94D3DDF"
+            uuid = "598FE2FB-8B8B-44E5-BFF0-55981E783179"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Bookist/Module/Wishlist/View/Controller/WishlistViewController.swift"
+            filePath = "Bookist/Module/Buy /TABLE_VIEW_CELL/BookSeriesTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "collectionView(_:numberOfItemsInSection:)"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "598FE2FB-8B8B-44E5-BFF0-55981E783179 - 68c8a8300ad19238"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Bookist.BookSeriesTableViewCell.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
+                  moduleName = "Bookist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/phincon/Desktop/productsList/productsList/productsList/Dummy-Book-Store/Bookist/Module/Buy%20/TABLE_VIEW_CELL/BookSeriesTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "139">
+               </Location>
+               <Location
+                  uuid = "598FE2FB-8B8B-44E5-BFF0-55981E783179 - 68c8a8300ad193a4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Bookist.BookSeriesTableViewCell.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
+                  moduleName = "Bookist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/phincon/Desktop/productsList/productsList/productsList/Dummy-Book-Store/Bookist/Module/Buy%20/TABLE_VIEW_CELL/BookSeriesTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "139">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "319965E8-FB65-470B-8365-A35E50C54D00"
+            uuid = "C0637EF3-399D-443C-A852-A3CC943CB9AB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Bookist/Module/Wishlist/View/Controller/WishlistViewController.swift"
+            filePath = "Bookist/Module/Buy /TABLE_VIEW_CELL/BookSeriesTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "BookSeriesTableViewCell"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E83BCEF8-32B4-402E-A727-BD19B9E1AC4E"
-            shouldBeEnabled = "No"
+            uuid = "F0371810-2047-4319-9B82-E46100B11954"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Bookist/Module/Wishlist/View/Controller/WishlistViewController.swift"
+            filePath = "Bookist/Module/Buy /TABLE_VIEW_CELL/AboutBookTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
+            startingLineNumber = "6"
+            endingLineNumber = "6"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "17FC4588-ED93-4A1B-8568-01D4A6FE9039"
+            uuid = "9D9D2DF7-770C-4C95-8FA4-E4280EBE1642"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Bookist/Module/Wishlist/View/Controller/WishlistViewController.swift"
+            filePath = "Bookist/Module/Wishlist/ViewModel/WishlistViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1BDE985F-7FB6-4246-BB35-188D49AF98BE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Bookist/Module/Wishlist/View/Controller/WishlistViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "529326A8-1B01-4C4B-84AB-B60A320728F5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Bookist/Module/Wishlist/View/Controller/WishlistViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "WishlistViewModel"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

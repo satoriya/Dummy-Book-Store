@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        homeVM = HomeViewModel(apiServiceProtocol: APIService())
+        homeVM = HomeViewModel(apiServiceProtocol: APIServiceHome())
         
         callAPI()
         setupTable()
@@ -223,3 +223,6 @@ extension HomeViewController: RightNavigationBarDelegate, UISearchBarDelegate {
         print("searched item\(searchText)")
     }
 }
+
+
+

@@ -75,7 +75,7 @@ class GenreViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        self.viewModel = GenreViewModel(urlString: "http://localhost:3002/genre/programming", apiService: ApiService())
+        self.viewModel = GenreViewModel(urlString: "http://localhost:3002/genre/programming", apiService: ApiServiceGenre())
         
         self.viewModel?.bindData = { genreData in
             if let genreData = genreData {

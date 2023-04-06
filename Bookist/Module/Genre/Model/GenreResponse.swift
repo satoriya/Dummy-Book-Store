@@ -10,16 +10,16 @@ import Foundation
 struct GenreResponse: Codable {
     let pageTitle: String
     let showingCount: Int
-    let data: DataClass
+    let data: GenreData
 }
 
 // MARK: - Data
-struct DataClass: Codable {
-    let items: [Item]
+struct GenreData: Codable {
+    let items: [GenreItem]
 }
 
 // MARK: - Item
-struct Item: Codable {
+struct GenreItem: Codable {
     let title, subtitle: String
     let image: String
     let url: String

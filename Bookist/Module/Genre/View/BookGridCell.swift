@@ -20,7 +20,7 @@ class BookGridCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func setupGridCell(item: Item) {
+    func setupGridCell(item: GenreItem) {
         setupUI()
         setupData(item: item)
     }
@@ -36,7 +36,7 @@ class BookGridCell: UICollectionViewCell {
         bookPriceLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
     }
     
-    func setupData(item: Item) {
+    func setupData(item: GenreItem) {
         bookCoverImage.sd_setImage(with: URL(string: item.image))
         bookCoverImage.contentMode = .scaleToFill
         bookTitleLabel.text = item.title
