@@ -23,7 +23,7 @@ class LeftNavigationBar: UIBarButtonItem {
     
     private lazy var appName: UILabel = {
         let lbl = UILabel()
-        lbl.text = "Erabook"
+        lbl.text = "Book Store"
         lbl.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return lbl
     }()
