@@ -511,7 +511,6 @@
 			isa = PBXGroup;
 			children = (
 				01F06FE029DABB8600922FD5 /* Genre */,
-				36B4295529D40426004ECC0A /* Purchased */,
 				36B4295429D403F7004ECC0A /* Account */,
 				36B4295329D40388004ECC0A /* Wishlist */,
 				36B4295229D40381004ECC0A /* Discover */,
@@ -580,13 +579,6 @@
 				36A91BDB29DA6C59009D169A /* View */,
 			);
 			path = Account;
-			sourceTree = "<group>";
-		};
-		36B4295529D40426004ECC0A /* Purchased */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Purchased;
 			sourceTree = "<group>";
 		};
 		36B4295729D40439004ECC0A /* Networking */ = {
