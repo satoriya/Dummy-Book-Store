@@ -9,15 +9,15 @@ import Foundation
 
 struct PurchasedModel: Codable {
     let pageTitle: String
-    let data: DataClass
+    let data: DatasClass
     
 }
 
-struct DataClass: Codable {
-    let items: [Item]
+struct DatasClass: Codable {
+    let items: [PurchasedItem]
 }
 
-struct Item: Codable {
+struct PurchasedItem: Codable {
     let title: String
     let image: String
     let url: String
