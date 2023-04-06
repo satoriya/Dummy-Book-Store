@@ -61,6 +61,15 @@
 		36B4296A29D406FB004ECC0A /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4296929D406FB004ECC0A /* DiscoverViewModel.swift */; };
 		36B4296C29D40702004ECC0A /*   BuyPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4296B29D40702004ECC0A /*   BuyPageModel.swift */; };
 		36B4296E29D4070D004ECC0A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4296D29D4070D004ECC0A /* HomeViewModel.swift */; };
+		4516E88F29DEADEA0031FE52 /* PurchasedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4516E88129DEADE90031FE52 /* PurchasedViewModel.swift */; };
+		4516E89029DEADEA0031FE52 /* PurchasedApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4516E88329DEADE90031FE52 /* PurchasedApiService.swift */; };
+		4516E89129DEADEA0031FE52 /* PurchasedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4516E88529DEADE90031FE52 /* PurchasedModel.swift */; };
+		4516E89229DEADEA0031FE52 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4516E88729DEADE90031FE52 /* CustomColors.swift */; };
+		4516E89329DEADEA0031FE52 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4516E88829DEADE90031FE52 /* Images.swift */; };
+		4516E89429DEADEA0031FE52 /* PurchasedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4516E88A29DEADEA0031FE52 /* PurchasedViewController.xib */; };
+		4516E89529DEADEA0031FE52 /* ItemTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4516E88C29DEADEA0031FE52 /* ItemTableCell.xib */; };
+		4516E89629DEADEA0031FE52 /* ItemTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4516E88D29DEADEA0031FE52 /* ItemTableCell.swift */; };
+		4516E89729DEADEA0031FE52 /* PurchasedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4516E88E29DEADEA0031FE52 /* PurchasedViewController.swift */; };
 		7ABEE39329D672ED0067EB17 /* UIImage+scaleImagePreservingRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABEE39229D672ED0067EB17 /* UIImage+scaleImagePreservingRatio.swift */; };
 		7ABFBE9829D51CE700E2B6D6 /* DiscoverBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABFBE9729D51CE700E2B6D6 /* DiscoverBookModel.swift */; };
 		7ABFBE9C29D5242500E2B6D6 /* DiscoverLeftBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABFBE9B29D5242500E2B6D6 /* DiscoverLeftBarItem.swift */; };
@@ -171,6 +180,15 @@
 		36B4296929D406FB004ECC0A /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
 		36B4296B29D40702004ECC0A /*   BuyPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "  BuyPageModel.swift"; sourceTree = "<group>"; };
 		36B4296D29D4070D004ECC0A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		4516E88129DEADE90031FE52 /* PurchasedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchasedViewModel.swift; sourceTree = "<group>"; };
+		4516E88329DEADE90031FE52 /* PurchasedApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchasedApiService.swift; sourceTree = "<group>"; };
+		4516E88529DEADE90031FE52 /* PurchasedModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchasedModel.swift; sourceTree = "<group>"; };
+		4516E88729DEADE90031FE52 /* CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
+		4516E88829DEADE90031FE52 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		4516E88A29DEADEA0031FE52 /* PurchasedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchasedViewController.xib; sourceTree = "<group>"; };
+		4516E88C29DEADEA0031FE52 /* ItemTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemTableCell.xib; sourceTree = "<group>"; };
+		4516E88D29DEADEA0031FE52 /* ItemTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableCell.swift; sourceTree = "<group>"; };
+		4516E88E29DEADEA0031FE52 /* PurchasedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchasedViewController.swift; sourceTree = "<group>"; };
 		7ABEE39229D672ED0067EB17 /* UIImage+scaleImagePreservingRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+scaleImagePreservingRatio.swift"; sourceTree = "<group>"; };
 		7ABFBE9729D51CE700E2B6D6 /* DiscoverBookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverBookModel.swift; sourceTree = "<group>"; };
 		7ABFBE9B29D5242500E2B6D6 /* DiscoverLeftBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverLeftBarItem.swift; sourceTree = "<group>"; };
@@ -510,6 +528,7 @@
 		36B4294F29D3FACA004ECC0A /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				4516E87F29DEADBB0031FE52 /* Purchased */,
 				01F06FE029DABB8600922FD5 /* Genre */,
 				36B4295429D403F7004ECC0A /* Account */,
 				36B4295329D40388004ECC0A /* Wishlist */,
@@ -623,6 +642,70 @@
 				36B4292129D17B7A004ECC0A /* ViewController.swift */,
 			);
 			path = MainView;
+			sourceTree = "<group>";
+		};
+		4516E87F29DEADBB0031FE52 /* Purchased */ = {
+			isa = PBXGroup;
+			children = (
+				4516E88629DEADE90031FE52 /* Extensions */,
+				4516E88429DEADE90031FE52 /* Model */,
+				4516E88229DEADE90031FE52 /* Networking */,
+				4516E88929DEADEA0031FE52 /* View */,
+				4516E88029DEADE90031FE52 /* ViewModel */,
+			);
+			path = Purchased;
+			sourceTree = "<group>";
+		};
+		4516E88029DEADE90031FE52 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4516E88129DEADE90031FE52 /* PurchasedViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4516E88229DEADE90031FE52 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				4516E88329DEADE90031FE52 /* PurchasedApiService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		4516E88429DEADE90031FE52 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4516E88529DEADE90031FE52 /* PurchasedModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4516E88629DEADE90031FE52 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4516E88729DEADE90031FE52 /* CustomColors.swift */,
+				4516E88829DEADE90031FE52 /* Images.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4516E88929DEADEA0031FE52 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4516E88A29DEADEA0031FE52 /* PurchasedViewController.xib */,
+				4516E88B29DEADEA0031FE52 /* ItemTableCell */,
+				4516E88E29DEADEA0031FE52 /* PurchasedViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4516E88B29DEADEA0031FE52 /* ItemTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				4516E88C29DEADEA0031FE52 /* ItemTableCell.xib */,
+				4516E88D29DEADEA0031FE52 /* ItemTableCell.swift */,
+			);
+			path = ItemTableCell;
 			sourceTree = "<group>";
 		};
 		7ABFBEA929D56E6700E2B6D6 /* Extension */ = {
@@ -905,7 +988,9 @@
 				36B4292729D17B7C004ECC0A /* Assets.xcassets in Resources */,
 				36B215A929DCFFC4003EF860 /* RatingsTableViewCellTableViewCell.xib in Resources */,
 				36ACA6A229D9AFF600F8405B /* BookSeriesTableViewCell.xib in Resources */,
+				4516E89429DEADEA0031FE52 /* PurchasedViewController.xib in Resources */,
 				360A6B4029D4220600B12285 /* assets.xcassets in Resources */,
+				4516E89529DEADEA0031FE52 /* ItemTableCell.xib in Resources */,
 				01F06FF229DABB8600922FD5 /* BookGridCell.xib in Resources */,
 				36B4292529D17B7A004ECC0A /* Main.storyboard in Resources */,
 				C68C2C6629D41D5600218FA2 /* GenreCollectionViewCell.xib in Resources */,
@@ -942,6 +1027,7 @@
 				36B4292229D17B7A004ECC0A /* ViewController.swift in Sources */,
 				369ACB2E29D51A210060B93E /* BuyPageViewController.swift in Sources */,
 				C6D318B129D5633700A5522D /* APIServiceHome.swift in Sources */,
+				4516E89729DEADEA0031FE52 /* PurchasedViewController.swift in Sources */,
 				C6D318BA29D690C100A5522D /* UIImage.swift in Sources */,
 				C6D318BC29D6ABDE00A5522D /* String.swift in Sources */,
 				36B4292229D17B7A004ECC0A /* ViewController.swift in Sources */,
@@ -960,12 +1046,16 @@
 				7ABFBEA429D5615200E2B6D6 /* DiscoverItemsModel.swift in Sources */,
 				36B4291E29D17B7A004ECC0A /* AppDelegate.swift in Sources */,
 				7ABFBE9E29D52A3300E2B6D6 /* DiscoverRightBarButtonItem.swift in Sources */,
+				4516E89229DEADEA0031FE52 /* CustomColors.swift in Sources */,
+				4516E88F29DEADEA0031FE52 /* PurchasedViewModel.swift in Sources */,
 				7AF21B4429D41774001D6EDB /* DiscoverHeaderTableViewCell.swift in Sources */,
 				36883E6429D4602A00691679 /* WishlistViewController.swift in Sources */,
 				36B4296029D40686004ECC0A /* NetworkHelper.swift in Sources */,
+				4516E89329DEADEA0031FE52 /* Images.swift in Sources */,
 				7ABFBEA229D560EB00E2B6D6 /* DiscoverModel.swift in Sources */,
 				36B4292029D17B7A004ECC0A /* SceneDelegate.swift in Sources */,
 				01F06FF029DABB8600922FD5 /* BookListCell.swift in Sources */,
+				4516E89629DEADEA0031FE52 /* ItemTableCell.swift in Sources */,
 				36B0040529D5542800F7C5B6 /* GetWishList.swift in Sources */,
 				7AF21B4129D414C5001D6EDB /* DiscoverViewController.swift in Sources */,
 				36B4296829D406F3004ECC0A /* WishlistViewModel.swift in Sources */,
@@ -991,6 +1081,8 @@
 				7ABFBE9C29D5242500E2B6D6 /* DiscoverLeftBarItem.swift in Sources */,
 				7ABFBEAD29D56ED100E2B6D6 /* GetNetworkImageService.swift in Sources */,
 				7ABFBEB029D5747700E2B6D6 /* GetAPIService.swift in Sources */,
+				4516E89129DEADEA0031FE52 /* PurchasedModel.swift in Sources */,
+				4516E89029DEADEA0031FE52 /* PurchasedApiService.swift in Sources */,
 				7ABFBE9829D51CE700E2B6D6 /* DiscoverBookModel.swift in Sources */,
 				01F06FEC29DABB8600922FD5 /* GenreViewModel.swift in Sources */,
 				C6D318B829D679BD00A5522D /* UIImageView.swift in Sources */,
